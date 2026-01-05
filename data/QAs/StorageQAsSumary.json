@@ -1,0 +1,77 @@
+[
+  {
+    "category": "objective",
+    "question": "Tại sao tài liệu `example2` được tạo ra và mục đích chính của nó là gì?",
+    "answer": "Tài liệu `example2` được tạo ra để mô tả yêu cầu thu thập thông tin sinh trắc học (STH) của khách hàng phục vụ cho việc xác thực các giao dịch tài chính trên kênh online và một số nghiệp vụ khác của ngân hàng theo quy định của Ngân hàng Nhà nước (NHNN) hoặc Bộ Công an."
+  },
+  {
+    "category": "objective",
+    "question": "Mục tiêu cụ thể của tài liệu `example2` là gì?",
+    "answer": "Mục tiêu của tài liệu là định nghĩa quy trình thu thập, xác thực và quản lý thông tin sinh trắc học của khách hàng thông qua ứng dụng SeAMobile, bao gồm việc xác định các nhóm khách hàng hợp lệ, quy trình nghiệp vụ chi tiết, và cách thức tương tác giữa hệ thống và khách hàng."
+  },
+  {
+    "category": "audience",
+    "question": "Ai là đối tượng chính được hướng đến trong tài liệu `example2`?",
+    "answer": "Đối tượng chính của tài liệu là các thành viên dự án Chuyển đổi số tại SeABank, bao gồm các bộ phận như Phòng Phát triển Nền tảng (PTNV), bộ phận quản lý dịch vụ và các đơn vị liên quan đến việc triển khai chức năng thu thập sinh trắc học trên ứng dụng SeAMobile."
+  },
+  {
+    "category": "audience",
+    "question": "Các nhóm người nào sẽ được lợi từ việc triển khai nội dung trong tài liệu `example2`?",
+    "answer": "Các nhóm người được lợi bao gồm khách hàng của SeABank (đặc biệt là khách hàng sử dụng dịch vụ online), các nhân viên tại quầy giao dịch, và các bộ phận hậu kiểm để đảm bảo tính hợp lệ và an toàn của thông tin sinh trắc học."
+  },
+  {
+    "category": "keyTopics",
+    "question": "Tài liệu `example2` bao gồm những chủ đề chính nào?",
+    "answer": "Tài liệu bao gồm các chủ đề chính sau: giới thiệu về mục đích và phạm vi, định nghĩa thuật ngữ, quy trình nghiệp vụ chi tiết về thu thập sinh trắc học qua ứng dụng SeAMobile, yêu cầu báo cáo, yêu cầu khác đối với phần mềm, và các phụ lục liên quan đến mã lỗi và quy trình hậu kiểm."
+  },
+  {
+    "category": "keyTopics",
+    "question": "Cấu trúc của tài liệu `example2` được tổ chức như thế nào?",
+    "answer": "Tài liệu được tổ chức thành các phần chính: Giới thiệu (mục đích, phạm vi, thuật ngữ), Vị trí của hệ thống phần mềm (lợi ích, hệ thống liên quan), Quy trình nghiệp vụ (mô tả chi tiết quy trình thu thập STH qua ứng dụng), Yêu cầu báo cáo, Yêu cầu khác, và các phụ lục mô tả mã lỗi và quy trình hậu kiểm."
+  },
+  {
+    "category": "keyTopics",
+    "question": "Trong tài liệu `example2`, quy trình thu thập sinh trắc học được mô tả chi tiết như thế nào?",
+    "answer": "Quy trình thu thập sinh trắc học được mô tả qua nhiều bước cụ thể, bao gồm xác nhận thiết bị NFC, chụp ảnh giấy tờ tùy thân, xác thực thông tin trong chip CCCD, chụp ảnh chân dung, xác thực thông tin qua OTP, và gửi thông tin đến Bộ Công an để xác thực. Quy trình cũng bao gồm các trường hợp đặc biệt như khách hàng nước ngoài và khách hàng có thông tin sinh trắc học đã được đánh dấu TRUSTED."
+  },
+  {
+    "category": "takeaways",
+    "question": "Những điểm chính cần nhớ từ tài liệu `example2` là gì?",
+    "answer": "Các điểm chính bao gồm: thông tin sinh trắc học được thu thập để phục vụ xác thực giao dịch tài chính; quy trình thu thập và xác thực thông qua ứng dụng SeAMobile; khách hàng được chia thành 5 nhóm hợp lệ dựa trên loại giấy tờ tùy thân và điều kiện xác thực; và hệ thống giám sát hậu kiểm để đảm bảo tính hợp lệ của thông tin."
+  },
+  {
+    "category": "takeaways",
+    "question": "Tại sao việc thu thập thông tin sinh trắc học là quan trọng trong tài liệu `example2`?",
+    "answer": "Việc thu thập thông tin sinh trắc học là quan trọng vì nó giúp tăng cường bảo mật và xác thực khách hàng trong các giao dịch tài chính online, giảm thiểu rủi ro gian lận và đảm bảo tuân thủ quy định của pháp luật về an ninh thông tin và xác thực khách hàng."
+  },
+  {
+    "category": "takeaways",
+    "question": "Những nhóm khách hàng nào được coi là có thông tin sinh trắc học hợp lệ theo tài liệu `example2`?",
+    "answer": "Các nhóm khách hàng có thông tin sinh trắc học hợp lệ bao gồm: nhóm 1 (mở eKYC bằng CCCD chip xác thực với BCA), nhóm 2 (mở tại quầy hoặc qua đối tác với CCCD chip xác thực), nhóm 3 (cập nhật STH cho nhóm 1 và 2), nhóm 4 (người nước ngoài mở Customer ID bằng hộ chiếu và có ảnh chân dung), và nhóm 5 (khách hàng được đánh dấu TRUSTED)."
+  },
+  {
+    "category": "takeaways",
+    "question": "Quy trình hậu kiểm thông tin sinh trắc học trong tài liệu `example2` bao gồm những bước nào?",
+    "answer": "Quy trình hậu kiểm bao gồm việc giám sát thông tin sinh trắc học bởi bộ phận KSS, chuyển trạng thái bản ghi (đồng ý, từ chối, yêu cầu thu thập lại), và xử lý các trường hợp không hợp lệ bằng cách chặn dịch vụ và yêu cầu khách hàng đến quầy để xác minh lại thông tin."
+  },
+  {
+    "category": "scope",
+    "question": "Phạm vi thực hiện của yêu cầu trong tài liệu `example2` là gì?",
+    "answer": "Phạm vi thực hiện yêu cầu là ứng dụng SeAMobile, nhằm thu thập thông tin sinh trắc học của khách hàng thông qua các tính năng trên ứng dụng này."
+  },
+  {
+    "category": "scope",
+    "question": "Tài liệu `example2` có đề cập đến những giới hạn nào trong việc thu thập và sử dụng thông tin sinh trắc học?",
+    "answer": "Tài liệu đề cập đến việc thông tin sinh trắc học thu thập phải được gửi đến Bộ Công an để xác thực, và chỉ áp dụng cho các khách hàng sử dụng dịch vụ online của SeABank. Ngoài ra, các trường hợp không hợp lệ hoặc nghi ngờ gian lận sẽ được xử lý theo quy trình hậu kiểm và yêu cầu khách hàng đến quầy để xác minh."
+  },
+  {
+    "category": "scope",
+    "question": "Tài liệu `example2` có đề cập đến các hệ thống phần mềm liên quan nào?",
+    "answer": "Tài liệu đề cập đến hệ thống eKYC và hệ thống giám sát sinh trắc học để quản lý và xác thực thông tin thu thập được từ khách hàng."
+  },
+  {
+    "category": "scope",
+    "question": "Các yêu cầu khác đối với phần mềm trong tài liệu `example2` bao gồm những gì?",
+    "answer": "Các yêu cầu khác bao gồm việc quản trị nghiệp vụ và user trên hệ thống, đảm bảo tính bảo mật thông tin, và cập nhật liên kết Deeplink cho tính năng bổ sung sinh trắc học trên ứng dụng SeAMobile."
+  }
+]

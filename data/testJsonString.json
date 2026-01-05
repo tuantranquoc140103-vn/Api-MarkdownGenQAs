@@ -1,0 +1,47 @@
+[
+    {
+        "category": "process",
+        "question": "Quy trình giám sát dữ liệu sinh trắc học (STH) của khách hàng được thực hiện như thế nào?",      
+        "answer": "Quy trình giám sát bao gồm việc theo dõi thông tin STH theo các kênh thu thập (Tại Quầy/SeAmobile), ngày khách hàng thực hiện thu thập, trạng thái hậu kiểm (Đồng ý/Từ chối/Chờ Giám sát), và phân loại mã giám sát do các bộ phận giám sát nhập. Thông tin này được hiển thị và quản lý qua các màn hình giám sát riêng biệt cho từng bộ phận."
+    },
+    {
+        "category": "data",
+        "question": "Các thông tin giám sát STH bao gồm những trường nào?",
+        "answer": "Các trường thông tin giám sát STH bao gồm:\n        - Kênh thu thập STH (Tại Quầy/SeAmobile),\n        - Ngày khách hàng thực hiện thu thập STH (định dạng yy/mm/yyyy),\n        - Trạng thái hậu kiểm (Đồng ý/Từ chối/Chờ Giám sát),\n        - Phân loại mã giám sát STH (do bộ phận giám sát nhập),\n        - Ghi chú (do bộ phận giám sát nhập)."
+    },
+    {
+        "category": "stakeholder",
+        "question": "Các bộ phận nào tham gia vào quá trình giám sát STH và vai trò của họ là gì?",
+        "answer": "Các bộ phận tham gia giám sát STH bao gồm:\n        - **Đơn vị Kiểm Định (ĐVKD)**: Có quyền chuyển trạng thái bản ghi thành 'Mở chặn ghi nợ, có yêu cầu thu thập lại trên SeAMobile'. Không có quyền xem thông tin số điện thoại khách hàng và không được xử lý file Excel chứa số điện thoại.\n        - **Văn phòng Hỗ trợ Đơn vị Kiểm Định (VHDVĐK)**: Chỉ được phân quyền xem bản ghi giám sát, không được thực hiện xử lý."
+    },
+    {
+        "category": "process",
+        "question": "Màn hình giám sát của ĐVKD và VHDVĐK có gì khác biệt?",
+        "answer": "Màn hình giám sát của ĐVKD và VHDVĐK tương tự như màn hình của bộ phận hậu kiểm, nhưng có những khác biệt sau:\n        - **ĐVKD**: Không hiển thị trường thông tin số điện thoại khách hàng và không có số điện thoại trong file Excel. Chỉ có quyền chuyển trạng thái bản ghi thành 'Mở chặn ghi nợ, có yêu cầu thu thập lại trên SeAMobile'.\n        - **VHDVĐK**: Chỉ được phân quyền xem bản ghi giám sát, không được thực hiện xử lý."
+    },
+    {
+        "category": "change_history",
+        "question": "Tên chức năng 'Cài đặt Sinh Trắc Học' trên SeAMobile sẽ được thay đổi như thế nào?",
+        "answer": "Tên chức năng 'Cài đặt Sinh Trắc Học' sẽ được đổi thành 'Cài đặt Đăng nhập nhanh'. Tiêu đề của tính năng cũng được sửa thành 'Cài đặt Đăng nhập nhanh'."
+    },
+    {
+        "category": "process",
+        "question": "Sắp xếp lại các icon trên màn hình SeAMobile như thế nào?",
+        "answer": "Các thay đổi về sắp xếp icon trên SeAMobile bao gồm:\n        - **Màn hình Home**:\n            - Thêm icon 'Sinh Trắc Học' lên trên để trở thành tính năng mới.\n            - Chuyển tính năng 'Gọi hỗ trợ 247' thay vị trí của 'Giải trí'.\n            - Đưa tính năng 'Giải trí' vào mục 'Cài đặt'.\n        - **Màn hình trong mục Cài đặt**:\n            - Tính năng 'Giải trí' được đưa lên trước 'Đăng xuất'."
+    },
+    {
+        "category": "data",
+        "question": "Chức năng tìm kiếm trên SeAMobile sẽ được bổ sung như thế nào?",
+        "answer": "Chức năng tìm kiếm sẽ được cập nhật để hỗ trợ tìm kiếm các tính năng 'Đăng nhập nhanh' và 'Bổ sung sinh trắc học' theo danh sách từ tài liệu được liên kết tại đường dẫn: \dc2nasfile01\SBDATA\\Private\\HO\\Khoi CNTT\ITDocuments\\Projects\\12. Chuyển đổi số\\6. Document\\2. URD & SRS\\145. Tìm kiếm tính năng SM\\ List tính năng ebank update 15.08."
+    },
+    {
+        "category": "exception",
+        "question": "Trong quá trình giám sát STH, trường hợp nào sẽ được chuyển trạng thái thành 'Mở chặn ghi nợ, có yêu cầu thu thập lại trên SeAMobile'?",
+        "answer": "Trạng thái 'Mở chặn ghi nợ, có yêu cầu thu thập lại trên SeAMobile' chỉ được Đơn vị Kiểm Định (ĐVKD) thực hiện khi cần yêu cầu khách hàng thu thập lại thông tin sinh trắc học, thường liên quan đến trường hợp dữ liệu không hợp lệ hoặc có vấn đề trong quá trình hậu kiểm."
+    },
+    {
+        "category": "version",
+        "question": "Thay đổi về tên chức năng và sắp xếp icon trên SeAMobile có liên quan đến phiên bản nào của ứng dụng?",
+        "answer": "Thông tin này không được đề cập rõ trong chunk, nhưng thay đổi này liên quan đến việc cập nhật tính năng và giao diện của SeAMobile trong quá trình Chuyển đổi số, có thể liên quan đến phiên bản mới nhất của ứng dụng sau khi thực hiện các yêu cầu trong tài liệu."
+    }
+]

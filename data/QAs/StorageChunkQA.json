@@ -1,0 +1,1193 @@
+[
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 1646,
+      "title": "# BẢNG THEO DÕI HIỆU LỰC VÀ THAY ĐỔI",
+      "tittle_hirarchy": "# BẢNG THEO DÕI HIỆU LỰC VÀ THAY ĐỔI",
+      "content": "KHỐI CÔNG NGHỆ NGÂN HÀNG SỐ\r\n\r\n< Thu thập dữ liệu sinh trắc học>\r\n\r\nTài liệu Đặc tả yêu cầu nghiệp vụ (URD)\r\n\r\nPhiên bản 2.0\r\n\r\nBan hành: Tháng 03/2024\r\n\r\n---\r\n\r\n# BẢNG THEO DÕI HIỆU LỰC VÀ THAY ĐỔI\r\n\r\n## A – Hiệu lực của Tài liệu\r\n\r\n<table><thead><tr><td>Đóng dấu</td><td>Ngày đóng dấu</td><td>Người đóng dấu</td></tr></thead><tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table>\r\n\r\n## B – Theo dõi thay đổi của Tài liệu\r\n\r\n<table><thead><tr><td>STT</td><td>Ngày</td><td>Phiên bản</td><td>Hình thức *</td><td>Mô tả</td><td>Tác giả</td></tr></thead><tbody><tr><td>1</td><td>8/8/2024</td><td>2.0</td><td>A</td><td>Phase 2 Bổ sung các nội dung sau:<br>1. Bổ sung định nghĩa STH hợp lệ.<br>2. Sửa đổi luồng quy trình, hiện thị màn hình để KH xác nhận thông tin sau bước tab chip.<br>3. Bổ sung điều kiện check 2 Cust sau khi Tab chip<br>4. Bổ sung điều kiện check họ tên sau khi Tab chip<br>5. Điều chỉnh thông tin hiển thị về nơi cấp và cơ quan cấp.<br>6. Điều chỉnh truyền thông tin nơi cấp, cơ quan cấp.</td><td>Phuong.ht3</td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><tr><td></td><td></td><td></td><td></td><td>7. Bổ sung video hướng dẫn cách thu thập STH cho KH tại màn hình bổ sung STH.<br>8. Cho phép CC được thu thập.<br>9. Bổ sung mã trang thái giám sát STH</td><td></td></tr><tr><td>1</td><td>21/08/2024</td><td>M</td><td>V2.1</td><td>1. Quy trình 1.1 bước 35 Thêm nội dung thực hiện xóa thông tin TRUSTED trên bản ghi KH nếu có.<br>2. Bổ sung check điều kiện kiểm tra hiệu lực GTTT so với GTTT được lưu trong hệ thống CoreBanking.</td><td>Phuong.ht3</td></tr><tr><td>2</td><td>29/08/2024</td><td>M</td><td>V2.2</td><td>Ghi rõ nghĩa lại định nghĩa nhóm STH hợp lệ nhóm 4 để dev không hiểu nhầm ( chuyển cụm giá trị: KH có ảnh chân dung xuống bên dưới)</td><td>Phuong.ht3</td></tr><tr><td>3</td><td>6/11/2024</td><td>M</td><td>V2.3</td><td>Ghi rõ cách thức thu thập và hiển thị dữ liệu ngày cấp</td><td>Phuong.ht3</td></tr></table>\r\n\r\n(*) A (Add) – thêm mới, M (Modify) – sửa đổi, D (Delete) – xóa\r\n\r\n<table><thead><tr><td></td><td>Biên soạn</td><td>Người kiểm tra</td><td>Đầu mối nghiệp vụ/Chủ quản dịch vụ</td><td>Người phê duyệt</td></tr></thead><tbody><tr><td>Ngày</td><td></td><td></td><td></td><td></td></tr></tbody></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><tr><td>Chữ ký</td><td></td><td></td><td></td><td></td></tr><tr><td>Họ và tên</td><td>Hoàng Thị Phượng</td><td>Nguyễn Thị Thu Trang</td><td>Ngô Xuân Lộc</td><td>Nguyễn Thị Minh Thư</td></tr><tr><td>Chức vụ</td><td>CG PTNV</td><td>GĐ PTNV</td><td>CVCC PTSP DA NHS</td><td>PGĐ PTSP KHCN Khối KHCN</td></tr></table>\r\n\r\n## MỤC LỤC\r\n\r\n<table><tr><td>I.</td><td>Giới thiệu</td><td>5</td></tr><tr><td>1.</td><td>Mục đích</td><td>5</td></tr><tr><td>2.</td><td>Phạm vi</td><td>5</td></tr><tr><td>3.</td><td>Thuật ngữ viết tắt</td><td>5</td></tr><tr><td>4.</td><td>Tài liệu tham khảo</td><td>5</td></tr><tr><td>II.</td><td>Vị trí của hệ thống phần mềm</td><td>5</td></tr><tr><td>1.</td><td>Lợi ích</td><td>5</td></tr><tr><td>2.</td><td>Các hệ thống phần mềm có liên quan tới yêu cầu (*)</td><td>6</td></tr><tr><td>III.</td><td>Quy trình nghiệp vụ</td><td>6</td></tr><tr><td>1.</td><td>Mô tả chi tiết Quy trình nghiệp vụ</td><td>6</td></tr><tr><td>1.1</td><td>&lt;Quy trình mở TKTT bằng PTĐT qua CCCD gắn chíp&gt;</td><td>9</td></tr><tr><td>1.2</td><td>&lt; Mở TKTT bằng PTĐT qua GTTT khác &gt;</td><td>45</td></tr><tr><td>2.</td><td>Các giả thiết và ràng buộc (*)</td><td>45</td></tr><tr><td>IV.</td><td>Yêu cầu báo cáo</td><td>67</td></tr><tr><td>1.</td><td>Báo cáo 01: &lt;N/A&gt;</td><td>67</td></tr><tr><td>2.</td><td>Báo cáo 02: &lt;N/A&gt;</td><td>67</td></tr><tr><td>V.</td><td>Yêu cầu khác đối với phần mềm (*)</td><td>67</td></tr><tr><td>VI.</td><td>Yêu cầu tài liệu: &lt;N/A&gt;</td><td>67</td></tr><tr><td>VII.</td><td>Tiêu chuẩn nghiệp vụ và pháp lý: &lt;N/A&gt;</td><td>67</td></tr><tr><td>VIII.</td><td>Tổng hợp và mức độ ưu tiên của các yêu cầu</td><td>67</td></tr></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "version",
+        "question": "Phiên bản hiện tại của tài liệu đặc tả yêu cầu nghiệp vụ về thu thập dữ liệu sinh trắc học là gì?",
+        "answer": "Phiên bản hiện tại của tài liệu là **2.0**, ban hành vào tháng 03/2024."
+      },
+      {
+        "category": "change_History",
+        "question": "Các nội dung chính được bổ sung hoặc sửa đổi trong phiên bản 2.0 của tài liệu?",
+        "answer": "Phiên bản 2.0 bổ sung các nội dung sau:\n        1. Định nghĩa sinh trắc học (STH) hợp lệ.\n        2. Sửa đổi luồng quy trình và màn hình xác nhận thông tin khách hàng sau bước tab chip.\n        3. Bổ sung điều kiện kiểm tra 2 khách hàng sau khi tab chip.\n        4. Bổ sung điều kiện kiểm tra họ tên sau khi tab chip.\n        5. Điều chỉnh thông tin hiển thị về nơi cấp và cơ quan cấp.\n        6. Điều chỉnh truyền thông tin nơi cấp và cơ quan cấp.\n        7. Bổ sung video hướng dẫn cách thu thập STH cho khách hàng tại màn hình bổ sung STH.\n        8. Cho phép thu thập chứng minh nhân dân (CC) cùng với STH."
+      },
+      {
+        "category": "change_History",
+        "question": "Các thay đổi cụ thể trong phiên bản 2.1 của tài liệu?",
+        "answer": "Phiên bản 2.1 (ngày 21/08/2024) bao gồm:\n        1. Thêm nội dung thực hiện xóa thông tin **TRUSTED** trên bản ghi khách hàng nếu có trong bước 35 của quy trình 1.1.\n        2. Bổ sung kiểm tra điều kiện hiệu lực giấy tờ tùy thân (GTTT) so với GTTT được lưu trong hệ thống **CoreBanking**."
+      },
+      {
+        "category": "change_History",
+        "question": "Phiên bản 2.2 của tài liệu đã sửa đổi nội dung nào liên quan đến định nghĩa nhóm sinh trắc học hợp lệ?",
+        "answer": "Phiên bản 2.2 (ngày 29/08/2024) đã **ghi rõ lại định nghĩa nhóm STH hợp lệ nhóm 4** để tránh hiểu nhầm của đội phát triển (dev), cụ thể là **chuyển cụm giá trị 'KH có ảnh chân dung' xuống bên dưới** trong định nghĩa."
+      },
+      {
+        "category": "change_History",
+        "question": "Phiên bản 2.3 đã bổ sung thông tin gì về cách thu thập và hiển thị dữ liệu ngày cấp?",
+        "answer": "Phiên bản 2.3 (ngày 06/11/2024) đã **ghi rõ cách thức thu thập và hiển thị dữ liệu ngày cấp** trong quy trình thu thập sinh trắc học."
+      },
+      {
+        "category": "change_History",
+        "question": "Mã hiệu lực thay đổi (A, M, D) trong tài liệu có ý nghĩa gì?",
+        "answer": "Mã hiệu lực thay đổi được giải thích như sau:\n        - **A (Add)**: Thêm mới nội dung.\n        - **M (Modify)**: Sửa đổi nội dung.\n        - **D (Delete)**: Xóa nội dung."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Các bên liên quan (stakeholder) đã ký duyệt tài liệu bao gồm những ai?",
+        "answer": "Các bên liên quan đã ký duyệt tài liệu bao gồm:\n        1. **Hoàng Thị Phượng** (Chức vụ: CG PTNV – Chuyên gia Phát triển Nhân viên).\n        2. **Nguyễn Thị Thu Trang** (GĐ PTNV – Giám đốc Phát triển Nhân viên).\n        3. **Ngô Xuân Lộc** (CVCC PTSP DA NHS – Chuyên viên Chất lượng Công nghệ Thông tin Dịch vụ Ngân hàng Số).\n        4. **Nguyễn Thị Minh Thư** (PGĐ PTSP KHCN Khối KHCN – Phó Giám đốc Phát triển Công nghệ Thông tin Khối Khoa học Công nghệ)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình nghiệp vụ trong tài liệu bao gồm những nội dung chính?",
+        "answer": "Quy trình nghiệp vụ trong tài liệu được mô tả chi tiết trong phần **III. Quy trình nghiệp vụ**, bao gồm:\n        1. **Mô tả chi tiết quy trình nghiệp vụ** (trang 6).\n        2. **Quy trình mở tài khoản thanh toán (TKTT) bằng phương tiện điện tử (PTĐT) qua CCCD gắn chip** (trang 9).\n        3. **Quy trình mở TKTT bằng PTĐT qua giấy tờ tùy thân (GTTT) khác** (trang 45).\n        4. **Các giả thiết và ràng buộc** liên quan đến quy trình (trang 45)."
+      },
+      {
+        "category": "data",
+        "question": "Tài liệu có đề cập đến việc thu thập chứng minh nhân dân (CC) cùng với sinh trắc học không?",
+        "answer": "Có, từ phiên bản 2.0, tài liệu đã **cho phép thu thập chứng minh nhân dân (CC) cùng với dữ liệu sinh trắc học (STH)**."
+      },
+      {
+        "category": "data",
+        "question": "Mã trạng thái giám sát sinh trắc học được bổ sung trong phiên bản nào của tài liệu?",
+        "answer": "Mã trạng thái giám sát sinh trắc học được **bổ sung trong phiên bản 2.0** (ngày 8/8/2024)."
+      },
+      {
+        "category": "other",
+        "question": "Mục lục của tài liệu bao gồm những phần chính?",
+        "answer": "Mục lục của tài liệu bao gồm các phần sau:\n        - **I. Giới thiệu** (Mục đích, Phạm vi, Thuật ngữ viết tắt, Tài liệu tham khảo).\n        - **II. Vị trí của hệ thống phần mềm** (Lợi ích, Các hệ thống phần mềm liên quan).\n        - **III. Quy trình nghiệp vụ** (Mô tả chi tiết, Quy trình mở TKTT bằng PTĐT qua CCCD gắn chip và GTTT khác, Giả thiết và ràng buộc).\n        - **IV. Yêu cầu báo cáo** (Báo cáo 01 và 02 – hiện tại là N/A).\n        - **V. Yêu cầu khác đối với phần mềm**.\n        - **VI. Yêu cầu tài liệu** (N/A).\n        - **VII. Tiêu chuẩn nghiệp vụ và pháp lý** (N/A).\n        - **VIII. Tổng hợp và mức độ ưu tiên của các yêu cầu**."
+      },
+      {
+        "category": "other",
+        "question": "Bảng theo dõi hiệu lực và thay đổi của tài liệu có mục đích gì?",
+        "answer": "Bảng này được sử dụng để:\n        1. **Theo dõi hiệu lực** của tài liệu (ngày đóng dấu, người đóng dấu).\n        2. **Ghi lại lịch sử thay đổi** (ngày, phiên bản, hình thức thay đổi, mô tả, tác giả).\n        3. **Quản lý phiên bản** và các bản sửa đổi liên quan đến quy trình thu thập sinh trắc học."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 353,
+      "title": "## I. Giới thiệu",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## I. Giới thiệu",
+      "content": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ\r\n\r\n## I. Giới thiệu\r\n\r\n### 1. Mục đích\r\n\r\n- Tài liệu này mô tả yêu cầu thu thập thông tin sinh trắc học của Khách hàng để phục vụ cho việc xác thực các giao dịch tài chính trên kênh online và 1 số nghiệp vụ khác của ngân hàng theo quy định của NHNN hoặc Bộ công an.\r\n\r\n### 2. Phạm vi\r\n\r\n- Phạm vi thực hiện yêu cầu: App SeAMoblie\r\n\r\n- Đối tượng sử dụng tài liệu: Thành viên dự án Chuyển đổi số\r\n\r\n### 3. Thuật ngữ viết tắt\r\n\r\n<table><thead><tr><td>Thuật ngữ</td><td>Định nghĩa</td><td>Ghi chú</td></tr></thead><tbody><tr><td>TT STH</td><td>Thông tin sinh trắc học</td><td></td></tr><tr><td>KH</td><td>Khách hàng.</td><td></td></tr></tbody></table>\r\n\r\n### 4. Tài liệu tham khảo\r\n\r\n<table><thead><tr><td>Tên tài liệu</td><td>Ngày phát hành</td><td>NGuồn</td><td>Ghi chú</td></tr></thead><tbody><tr><td>IT_BA_ANA_55_01_05_3412_Thu STH_URD_v2.0</td><td>08/08/2024</td><td></td><td></td></tr></tbody></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "objective",
+        "question": "Mục đích chính của tài liệu đặc tả yêu cầu nghiệp vụ này là gì?",
+        "answer": "Mô tả yêu cầu thu thập thông tin sinh trắc học của khách hàng để phục vụ việc xác thực các giao dịch tài chính trên kênh online và một số nghiệp vụ khác của ngân hàng, theo quy định của Ngân hàng Nhà nước (NHNN) hoặc Bộ Công an."
+      },
+      {
+        "category": "scope",
+        "question": "Phạm vi thực hiện yêu cầu thu thập thông tin sinh trắc học được áp dụng cho ứng dụng nào?",
+        "answer": "Phạm vi thực hiện yêu cầu này được áp dụng cho ứng dụng **SeAMobile**."
+      },
+      {
+        "category": "scope",
+        "question": "Tài liệu này được biên soạn dành cho đối tượng nào?",
+        "answer": "Tài liệu này được biên soạn dành cho **thành viên dự án Chuyển đổi số** tại SeABank."
+      },
+      {
+        "category": "definition",
+        "question": "Thuật ngữ viết tắt 'TT STH' trong tài liệu này có nghĩa là gì?",
+        "answer": "'TT STH' là viết tắt của **Thông tin sinh trắc học**."
+      },
+      {
+        "category": "definition",
+        "question": "Thuật ngữ viết tắt 'KH' trong tài liệu này có nghĩa là gì?",
+        "answer": "'KH' là viết tắt của **Khách hàng**."
+      },
+      {
+        "category": "version",
+        "question": "Tài liệu tham khảo nào được sử dụng trong quá trình biên soạn yêu cầu này và ngày phát hành của nó là khi nào?",
+        "answer": "Tài liệu tham khảo được sử dụng là **IT_BA_ANA_55_01_05_3412_Thu STH_URD_v2.0**, với ngày phát hành là **08/08/2024**."
+      },
+      {
+        "category": "other",
+        "question": "Tại sao tài liệu này nhắc đến quy định của NHNN và Bộ Công an trong mục đích thu thập thông tin sinh trắc học?",
+        "answer": "Vì việc thu thập thông tin sinh trắc học của khách hàng phải tuân thủ các quy định pháp lý của **Ngân hàng Nhà nước (NHNN)** và **Bộ Công an**, đặc biệt trong việc xác thực giao dịch tài chính online và các nghiệp vụ liên quan."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 338,
+      "title": "## II. Vị trí của hệ thống phần mềm",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## II. Vị trí của hệ thống phần mềm",
+      "content": "## II. Vị trí của hệ thống phần mềm\r\n\r\n### 1. Lợi ích\r\n\r\n- Thu thập thông tin sinh trắc học và kiểm tra để ứng dụng vào việc xác thực khách hàng khi thực hiện giao dịch tài chính theo quy định của Pháp luật.\r\n\r\n<Liệt kê các vấn đề cần giải quyết của yêu cầu>\r\n\r\n<table><thead><tr><td>STT</td><td>Vấn đề</td><td>Mô tả vấn đề</td></tr></thead><tbody><tr><td>1</td><td>SeABank chưa có chức năng thu thập dữ liệu sinh trắc.</td><td>Còn nhiều KH tại SeABank chưa được thu thập dữ liệu sinh trắc học là khuôn mặt ( ảnh chân dung)<br>Cần thu thập thông tin sinh trắc học qua:<br>1. Ứng dụng SeAMobile<br>2. Tại quầy</td></tr><tr><td>2</td><td>Dữ liệu sinh trắc học thu thập hợp lệ cần gửi qua Bộ Công An để kiểm tra xác thực thông tin.</td><td>- Các dữ liệu sinh trắc học thu thập cần được gửi qua Bộ Công An để xác thực thông tin của</td></tr></tbody></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><tr><td></td><td>CCCD chip, Căn cước có phải Bộ Công An phát hành không<br/>- Các thông tin thu thập sinh trắc học của KH được lưu trên hệ thống giám sát để phục vụ cho việc hậu kiểm nội bộ tại SB.</td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "objective",
+        "question": "Mục tiêu chính của hệ thống phần mềm thu thập dữ liệu sinh trắc học là gì?",
+        "answer": "Hệ thống được thiết kế để thu thập thông tin sinh trắc học (chủ yếu là khuôn mặt qua ảnh chân dung) và kiểm tra để ứng dụng vào việc xác thực khách hàng khi thực hiện giao dịch tài chính, tuân thủ quy định của pháp luật."
+      },
+      {
+        "category": "scope",
+        "question": "Hệ thống thu thập dữ liệu sinh trắc học sẽ được triển khai ở đâu?",
+        "answer": "Hệ thống sẽ được triển khai qua hai kênh chính:\n        1. Ứng dụng SeAMobile (kênh di động)\n        2. Tại quầy giao dịch của ngân hàng."
+      },
+      {
+        "category": "data",
+        "question": "Dữ liệu sinh trắc học nào sẽ được thu thập từ khách hàng?",
+        "answer": "Dữ liệu sinh trắc học được thu thập chủ yếu là ảnh chân dung (khuôn mặt) của khách hàng."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xử lý dữ liệu sinh trắc học thu thập được bao gồm những bước nào?",
+        "answer": "Dữ liệu sinh trắc học thu thập được sẽ được gửi đến Bộ Công An để xác thực thông tin khách hàng (chủ yếu kiểm tra tính hợp lệ của CCCD chip hoặc căn cước công dân do Bộ Công An phát hành). Sau đó, thông tin thu thập được lưu trên hệ thống giám sát của SeABank để phục vụ cho việc hậu kiểm nội bộ."
+      },
+      {
+        "category": "constraint",
+        "question": "Có những hạn chế nào liên quan đến việc thu thập dữ liệu sinh trắc học hiện tại tại SeABank?",
+        "answer": "Hiện tại, SeABank chưa có chức năng thu thập dữ liệu sinh trắc học, dẫn đến nhiều khách hàng chưa được thu thập thông tin khuôn mặt. Điều này cần được khắc phục để đảm bảo tính toàn diện trong quá trình xác thực giao dịch."
+      },
+      {
+        "category": "rule",
+        "question": "Dữ liệu sinh trắc học thu thập được phải tuân thủ quy định nào?",
+        "answer": "Dữ liệu sinh trắc học thu thập phải được gửi đến Bộ Công An để xác thực thông tin khách hàng (đặc biệt là xác minh tính hợp lệ của CCCD chip hoặc căn cước công dân). Ngoài ra, dữ liệu này cũng phải được lưu trữ trên hệ thống giám sát nội bộ của SeABank để phục vụ hậu kiểm."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Các bên liên quan nào sẽ tham gia vào quy trình thu thập và xác thực dữ liệu sinh trắc học?",
+        "answer": "Các bên liên quan bao gồm:\n        - SeABank (trách nhiệm thu thập dữ liệu qua SeAMobile và quầy giao dịch)\n        - Bộ Công An (trách nhiệm xác thực thông tin CCCD chip/căn cước công dân)\n        - Hệ thống giám sát nội bộ của SeABank (trách nhiệm lưu trữ và hậu kiểm dữ liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu dữ liệu sinh trắc học thu thập không hợp lệ, sẽ xảy ra tình huống nào?",
+        "answer": "Dữ liệu sinh trắc học không hợp lệ sẽ không được gửi đến Bộ Công An để xác thực và sẽ không được lưu trữ trong hệ thống giám sát của SeABank. Tuy nhiên, tài liệu không nêu rõ quy trình xử lý cụ thể trong trường hợp này."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của việc lưu trữ dữ liệu sinh trắc học trên hệ thống giám sát nội bộ là gì?",
+        "answer": "Dữ liệu sinh trắc học được lưu trữ để phục vụ cho việc hậu kiểm nội bộ tại SeABank, nhằm đảm bảo tính chính xác và tuân thủ quy trình nghiệp vụ."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 39,
+      "title": "## 2. Các hệ thống phần mềm có liên quan tới yêu cầu (*)",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 2. Các hệ thống phần mềm có liên quan tới yêu cầu (*)",
+      "content": "## 2. Các hệ thống phần mềm có liên quan tới yêu cầu (*)\r\n\r\n< Hệ thống ekyc >\r\n\r\n(*)Nếu không có thông tin thì để [N/A]\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "stakeholder",
+        "question": "Các hệ thống phần mềm nào liên quan đến yêu cầu thu thập và xử lý dữ liệu sinh trắc học trong tài liệu này?",
+        "answer": "Tài liệu chỉ đề cập đến một hệ thống phần mềm liên quan là **Hệ thống eKYC** (Electronic Know Your Customer). Đây là hệ thống được sử dụng để hỗ trợ quá trình xác thực khách hàng thông qua dữ liệu sinh trắc học và các thông tin khác."
+      },
+      {
+        "category": "process",
+        "question": "Vai trò của Hệ thống eKYC trong quy trình thu thập và xử lý dữ liệu sinh trắc học là gì?",
+        "answer": "Hệ thống eKYC đóng vai trò là hệ thống phần mềm chính liên quan đến việc thu thập, xác thực và xử lý dữ liệu sinh trắc học của khách hàng. Tuy nhiên, tài liệu không cung cấp chi tiết cụ thể về các chức năng hoặc quy trình cụ thể của hệ thống này trong bối cảnh SeABank."
+      },
+      {
+        "category": "data",
+        "question": "Dữ liệu sinh trắc học thu thập được sẽ được xử lý như thế nào trong Hệ thống eKYC?",
+        "answer": "Tài liệu không mô tả chi tiết quy trình xử lý dữ liệu sinh trắc học trong Hệ thống eKYC, nhưng có thể suy đoán rằng hệ thống này sẽ hỗ trợ việc thu thập, gửi dữ liệu đến cơ quan có thẩm quyền (như Bộ Công An) để kiểm tra xác thực, và sau đó xử lý kết quả xác thực để phục vụ nghiệp vụ ngân hàng số."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu thông tin về hệ thống phần mềm liên quan không được cung cấp trong tài liệu, thì sẽ xử lý như thế nào?",
+        "answer": "Theo tài liệu, nếu không có thông tin về hệ thống phần mềm liên quan, thì sẽ để trống hoặc ghi chú là **[N/A]** (Not Applicable)."
+      },
+      {
+        "category": "version",
+        "question": "Tài liệu có đề cập đến phiên bản hoặc trạng thái hiện tại của Hệ thống eKYC không?",
+        "answer": "Không, tài liệu không cung cấp thông tin về phiên bản, trạng thái hiện tại hoặc các chi tiết kỹ thuật cụ thể của Hệ thống eKYC."
+      },
+      {
+        "category": "other",
+        "question": "Mục này có mục đích gì trong tài liệu?",
+        "answer": "Mục này nhằm liệt kê và mô tả các hệ thống phần mềm liên quan đến yêu cầu thu thập và xử lý dữ liệu sinh trắc học. Đây là một phần quan trọng để xác định phạm vi và các hệ thống hỗ trợ trong quá trình triển khai chức năng mới cho SeABank."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 10,
+      "title": "### 1. Mô tả chi tiết Quy trình nghiệp vụ thu thập dữ liệu sinh trắc học",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## III. Quy trình nghiệp vụ",
+      "content": "## III. Quy trình nghiệp vụ\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "process",
+        "question": "Quy trình nghiệp vụ thu thập dữ liệu sinh trắc học của SeABank bao gồm những bước chính nào?",
+        "answer": "Dựa trên mục tiêu của tài liệu, quy trình nghiệp vụ thu thập dữ liệu sinh trắc học của SeABank sẽ bao gồm các bước chính sau (cần xác thực từ nội dung cụ thể của phần này):\n1. **Khách hàng yêu cầu thu thập dữ liệu sinh trắc học** (ví dụ: qua ứng dụng SeAMobile).\n2. **Hệ thống hướng dẫn khách hàng thực hiện thu thập** (chụp ảnh mặt, quét vân tay, hoặc thu thập dữ liệu sinh trắc học khác).\n3. **Xử lý và xác thực dữ liệu** (kiểm tra chất lượng, độ phân giải, tính hợp lệ của dữ liệu).\n4. **Gửi dữ liệu đến Bộ Công An** để kiểm tra xác thực thông tin (nếu yêu cầu pháp lý).\n5. **Cập nhật kết quả vào hệ thống** và thông báo cho khách hàng.\n6. **Hậu kiểm và giám sát** để đảm bảo tính an toàn và tuân thủ quy định."
+      },
+      {
+        "category": "process",
+        "question": "Trong quy trình thu thập dữ liệu sinh trắc học, vai trò của khách hàng là gì?",
+        "answer": "Khách hàng có trách nhiệm:\n- Thực hiện các bước hướng dẫn để thu thập dữ liệu sinh trắc học (ví dụ: chụp ảnh mặt, quét vân tay) qua ứng dụng SeAMobile.\n- Đảm bảo dữ liệu thu thập được rõ ràng, không bị che khuất hoặc sai lệch (nếu có yêu cầu về chất lượng hình ảnh).\n- Xác nhận thông tin cá nhân liên quan đến dữ liệu sinh trắc học (nếu hệ thống yêu cầu)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình này có bao gồm bước xác thực dữ liệu sinh trắc học với Bộ Công An không?",
+        "answer": "Có, theo mục tiêu của tài liệu, quy trình sẽ bao gồm bước **gửi dữ liệu sinh trắc học hợp lệ đến Bộ Công An** để kiểm tra xác thực thông tin (nếu yêu cầu pháp lý). Đây là bước quan trọng để đảm bảo tính chính xác và tuân thủ quy định an ninh thông tin."
+      },
+      {
+        "category": "process",
+        "question": "Sau khi thu thập dữ liệu sinh trắc học, hệ thống SeABank sẽ thực hiện những công việc hậu kiểm nào?",
+        "answer": "Dựa trên chủ đề của tài liệu, hệ thống sẽ thực hiện các công việc hậu kiểm sau:\n1. **Kiểm tra tính hợp lệ của dữ liệu** (độ phân giải, chất lượng hình ảnh, tính toàn vẹn).\n2. **Giám sát lỗi** (nếu có) và thông báo cho khách hàng hoặc nhân viên ngân hàng để xử lý.\n3. **Cập nhật mã trạng thái giám sát** vào hệ thống để theo dõi tình trạng của dữ liệu (ví dụ: thành công, thất bại, cần xử lý lại).\n4. **Lưu trữ an toàn dữ liệu** theo quy định bảo mật của ngân hàng."
+      },
+      {
+        "category": "process",
+        "question": "Nếu trong quá trình thu thập dữ liệu sinh trắc học xảy ra lỗi, quy trình sẽ xử lý như thế nào?",
+        "answer": "Quy trình sẽ bao gồm bước **xử lý lỗi** như sau (cần chi tiết hóa từ nội dung cụ thể):\n- Hệ thống sẽ tự động phát hiện lỗi (ví dụ: hình ảnh mờ, không đủ độ phân giải, dữ liệu không hợp lệ).\n- Thông báo lỗi cho khách hàng qua ứng dụng SeAMobile, hướng dẫn khách hàng thực hiện lại.\n- Nếu lỗi nghiêm trọng (ví dụ: dữ liệu không thể xác thực), hệ thống sẽ yêu cầu khách hàng liên hệ với nhân viên ngân hàng để hỗ trợ.\n- Nhân viên ngân hàng sẽ kiểm tra và xác nhận lại dữ liệu trước khi gửi đến Bộ Công An (nếu cần)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình nghiệp vụ này có áp dụng cho tất cả các loại giao dịch tài chính online của SeABank không?",
+        "answer": "Không nhất thiết. Dựa trên mục tiêu của tài liệu, quy trình thu thập dữ liệu sinh trắc học chủ yếu phục vụ cho **xác thực giao dịch tài chính online** (ví dụ: giao dịch lớn, giao dịch quốc tế, hoặc các nghiệp vụ yêu cầu xác thực cao). Tuy nhiên, quy trình có thể được mở rộng cho các nghiệp vụ khác theo yêu cầu của ngân hàng (cần xác thực từ nội dung cụ thể)."
+      },
+      {
+        "category": "process",
+        "question": "Phần này có mô tả vai trò của nhân viên ngân hàng trong quy trình thu thập dữ liệu sinh trắc học không?",
+        "answer": "Dựa trên cấu trúc BRD, phần này có thể bao gồm vai trò của nhân viên ngân hàng như:\n- **Hỗ trợ khách hàng** trong trường hợp gặp lỗi hoặc cần hướng dẫn chi tiết.\n- **Xác nhận dữ liệu** trước khi gửi đến Bộ Công An (nếu yêu cầu).\n- **Giám sát hệ thống** để đảm bảo quy trình diễn ra suôn sẻ và tuân thủ quy định.\n- **Xử lý khiếu nại** từ khách hàng về dữ liệu sinh trắc học (nếu có).\n*(Cần kiểm tra nội dung cụ thể để trả lời chính xác.)"
+      },
+      {
+        "category": "process",
+        "question": "Quy trình này có liên quan đến hệ thống SeAMobile như thế nào?",
+        "answer": "Quy trình thu thập dữ liệu sinh trắc học được tích hợp hoàn toàn vào **ứng dụng SeAMobile**, với các chức năng:\n- **Hướng dẫn khách hàng** thực hiện thu thập dữ liệu (chụp ảnh, quét vân tay).\n- **Xử lý và kiểm tra dữ liệu** trước khi gửi đến hệ thống trung tâm.\n- **Thông báo kết quả** (thành công/thất bại) cho khách hàng.\n- **Lưu trữ dữ liệu** an toàn trong hệ thống của SeABank."
+      },
+      {
+        "category": "scope",
+        "question": "Quy trình nghiệp vụ này áp dụng cho đối tượng khách hàng nào?",
+        "answer": "Dựa trên mục tiêu của tài liệu, quy trình này áp dụng cho:\n- **Tất cả khách hàng cá nhân** của SeABank khi thực hiện giao dịch tài chính online yêu cầu xác thực sinh trắc học.\n- **Khách hàng doanh nghiệp** (nếu có yêu cầu riêng về xác thực).\n*(Cần xác thực từ nội dung cụ thể về đối tượng cụ thể.)"
+      },
+      {
+        "category": "constraint",
+        "question": "Quy trình thu thập dữ liệu sinh trắc học có phải tuân thủ các quy định pháp lý nào không?",
+        "answer": "Có, quy trình này phải tuân thủ:\n1. **Quy định của Bộ Công An** về xử lý và gửi dữ liệu sinh trắc học.\n2. **Luật Bảo mật thông tin** của ngân hàng và quy định an ninh mạng.\n3. **Quy định của Ngân hàng Nhà nước** về xác thực giao dịch tài chính.\n*(Cần chi tiết hóa từ nội dung cụ thể.)"
+      },
+      {
+        "category": "other",
+        "question": "Nếu phần này chưa có nội dung cụ thể, mục đích của phần 'Quy trình nghiệp vụ' trong BRD này là gì?",
+        "answer": "Mục đích của phần này là:\n1. **Mô tả chi tiết từng bước** trong quy trình thu thập, xử lý, và xác thực dữ liệu sinh trắc học.\n2. **Xác định vai trò và trách nhiệm** của các bên liên quan (khách hàng, nhân viên ngân hàng, hệ thống SeAMobile).\n3. **Đảm bảo tính logic và liên kết** giữa các bước trong quy trình để tránh lỗi và tối ưu hiệu suất.\n4. **Hướng dẫn triển khai** cho các thành viên dự án Chuyển đổi số trong việc phát triển và kiểm thử hệ thống."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 24,
+      "title": "#### 1.1 <Quy trình thu thập dữ liệu sinh trắc học qua App>",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## III. Quy trình nghiệp vụ --> ### 1. Mô tả chi tiết Quy trình nghiệp vụ thu thập dữ liệu sinh trắc học",
+      "content": "### 1. Mô tả chi tiết Quy trình nghiệp vụ thu thập dữ liệu sinh trắc học\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "process",
+        "question": "Quy trình thu thập dữ liệu sinh trắc học của SeABank bao gồm những bước chính nào?",
+        "answer": "Tài liệu chưa cung cấp chi tiết cụ thể về các bước trong quy trình, nhưng phần này được dành riêng để mô tả toàn bộ quy trình nghiệp vụ từ bắt đầu đến kết thúc việc thu thập dữ liệu sinh trắc học của khách hàng. Để biết thông tin cụ thể, cần tham khảo các phần tiếp theo hoặc bảng quy trình cụ thể (nếu có)."
+      },
+      {
+        "category": "scope",
+        "question": "Phần này mô tả quy trình thu thập dữ liệu sinh trắc học ở mức độ nào?",
+        "answer": "Phần này cung cấp **mô tả chi tiết** về quy trình nghiệp vụ thu thập dữ liệu sinh trắc học, bao gồm cả các bước, tương tác giữa các bên liên quan (khách hàng, hệ thống, nhân viên ngân hàng) và các yêu cầu kỹ thuật liên quan. Tuy nhiên, nội dung cụ thể về từng bước vẫn chưa được trình bày trong chunk này."
+      },
+      {
+        "category": "definition",
+        "question": "Dữ liệu sinh trắc học trong quy trình này được hiểu là gì?",
+        "answer": "Dữ liệu sinh trắc học đề cập đến các thông tin sinh học và đặc trưng vật lý của khách hàng (chẳng hạn như hình ảnh khuôn mặt, dấu vân tay, hoặc các thông tin sinh trắc học khác) được thu thập để phục vụ mục đích xác thực giao dịch tài chính online. Tuy nhiên, phần này chưa định nghĩa cụ thể về loại dữ liệu sinh trắc học nào sẽ được thu thập."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Các bên liên quan nào tham gia vào quy trình thu thập dữ liệu sinh trắc học được mô tả trong phần này?",
+        "answer": "Phần này đề cập đến việc mô tả quy trình nghiệp vụ, do đó các bên liên quan có thể bao gồm:\n    - **Khách hàng** (người cung cấp dữ liệu sinh trắc học),\n    - **Hệ thống SeAMobile** (ứng dụng thu thập và xử lý dữ liệu),\n    - **Nhân viên ngân hàng** (giám sát và hỗ trợ quá trình thu thập),\n    - **Bộ Công An** (đối tác xác thực dữ liệu theo quy định pháp luật).\n    Tuy nhiên, chi tiết về vai trò cụ thể của mỗi bên vẫn chưa được nêu rõ trong chunk này."
+      },
+      {
+        "category": "rule",
+        "question": "Quy trình thu thập dữ liệu sinh trắc học có phải tuân thủ các quy định pháp luật nào không?",
+        "answer": "Dựa trên mục tiêu của tài liệu, quy trình này **phải tuân thủ các quy định pháp luật về bảo mật thông tin và xác thực dữ liệu sinh trắc học**, đặc biệt là khi gửi dữ liệu đến Bộ Công An để kiểm tra xác thực. Tuy nhiên, phần này chưa nêu rõ các quy định cụ thể nào."
+      },
+      {
+        "category": "constraint",
+        "question": "Có những hạn chế hoặc ràng buộc nào trong quá trình thu thập dữ liệu sinh trắc học được đề cập trong phần này?",
+        "answer": "Phần này chưa đề cập đến các **hạn chế cụ thể** (ví dụ: thời gian thu thập, dung lượng dữ liệu, hoặc các ràng buộc kỹ thuật). Tuy nhiên, có thể suy đoán rằng quy trình phải đảm bảo:\n    - **An toàn thông tin** (không rò rỉ dữ liệu),\n    - **Tuân thủ pháp luật** (đặc biệt khi gửi dữ liệu đến Bộ Công An),\n    - **Tính hợp lệ của dữ liệu** (dữ liệu phải đủ chất lượng để xác thực).\n    Chi tiết cụ thể cần tham khảo các phần khác của tài liệu."
+      },
+      {
+        "category": "data",
+        "question": "Dữ liệu sinh trắc học thu thập được sẽ được xử lý như thế nào sau khi thu thập?",
+        "answer": "Phần này chưa mô tả cụ thể về **quá trình xử lý dữ liệu sinh trắc học** sau khi thu thập, nhưng có thể bao gồm:\n    - **Xác thực** (so sánh với dữ liệu đã có hoặc gửi đến Bộ Công An),\n    - **Lưu trữ an toàn** (tuân thủ chính sách bảo mật của ngân hàng),\n    - **Sử dụng trong xác thực giao dịch** (cho các nghiệp vụ tài chính online).\n    Chi tiết cụ thể cần được mô tả trong các phần sau của tài liệu."
+      },
+      {
+        "category": "exception",
+        "question": "Trong quy trình thu thập dữ liệu sinh trắc học, có những trường hợp ngoại lệ nào được dự kiến?",
+        "answer": "Phần này chưa đề cập đến **các trường hợp ngoại lệ cụ thể** (ví dụ: khách hàng từ chối cung cấp dữ liệu, dữ liệu thu thập không hợp lệ, hoặc lỗi kỹ thuật). Tuy nhiên, có thể dự kiến các trường hợp như:\n    - Dữ liệu sinh trắc học không đủ chất lượng,\n    - Khách hàng không đồng ý thu thập,\n    - Lỗi hệ thống trong quá trình thu thập.\n    Các quy định xử lý ngoại lệ sẽ được mô tả trong các phần tiếp theo."
+      },
+      {
+        "category": "version",
+        "question": "Phần mô tả quy trình này có phải là phiên bản cuối cùng hay đang trong quá trình phát triển?",
+        "answer": "Chunk này không cung cấp thông tin về **phiên bản** hoặc **lịch sử thay đổi** của quy trình. Nếu cần biết trạng thái hiện tại, cần tham khảo phần **Lịch sử thay đổi** (nếu có) hoặc các phiên bản tài liệu trước."
+      },
+      {
+        "category": "other",
+        "question": "Phần này có mục đích gì trong toàn bộ tài liệu?",
+        "answer": "Phần này đóng vai trò là **mô tả khung tổng quan** về quy trình nghiệp vụ thu thập dữ liệu sinh trắc học, phục vụ cho việc:\n    - Hiểu rõ **lогика** và **lưu trình** của quá trình,\n    - Làm cơ sở cho các phần chi tiết sau (ví dụ: quy trình cụ thể, các bước xác thực, hoặc xử lý lỗi),\n    - Đảm bảo sự đồng thuận giữa các bên liên quan về cách thức thu thập dữ liệu."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 1138,
+      "title": "",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## III. Quy trình nghiệp vụ --> ### 1. Mô tả chi tiết Quy trình nghiệp vụ thu thập dữ liệu sinh trắc học --> #### 1.1 <Quy trình thu thập dữ liệu sinh trắc học qua App>",
+      "content": "#### 1.1 <Quy trình thu thập dữ liệu sinh trắc học qua App>\n\n**Dữ liệu Sinh trắc học hợp lệ được quy định như sau:**\n\n* Dữ liệu STH là ảnh chân dung trong chip của CCCD chip/thẻ căn cước: các đối tượng KH thuộc nhóm 1, 2,3 được mô tả ở dưới\r\n\r\n* Dữ liệu STH là ảnh chân dung của KH: Áp dụng cho các đối tượng là người nước ngoài, mở Customer ID bằng hộ chiếu thuộc nhóm 4 được mô tả ở dưới.\r\n\r\n* Dữ liệu STH là ảnh chân dung của KH được đánh dấu xác thực theo quy định của SeABank trong từng thời kỳ: các đối tượng KH thuộc nhóm 5 được mô tả ở dưới\r\n\n\n- **Nhóm 1: Nhóm KH mở eKYC bằng CCCD chip, thẻ căn cước có xác thực với BCA (nhóm KH này chỉ có khi golive tính năng eKYC bằng CCCD chip, thẻ Căn cước có xác thực với BCA):**\r\n\n\nKH nhóm này thỏa mãn đồng thời các điều kiện sau thì KH đó đã có STH hợp lệ\n\n* Thông tin GTTT khi mở EKYC là CCCD chip/Thẻ căn cước được xác thực bởi BCA do BCA phát hành.\r\n\r\n* GTTT có ngày hết hạn > = ngày hiện tại, lưu ý trường hợp ngày hết hạn không có thông tin thì được hiểu là Không thời hạn\r\n\r\n* Thông tin bản ghi Ekyc của KH không bị các bộ phận GSS từ chối bao gồm các trường hợp bản ghi có mã trạng thái giám sát ekyc # 25 (Tương đương mã trạng thái giám sát STH 91,81).\r\n\n\n- **Nhóm 2: Nhóm KH mở tại quầy hoặc mở qua đối tác hoặc mở qua eKYC bằng các loại GTTT (CCCD, CMND, HC) chưa được xác thực với BCA**\r\n\n\nKH nhóm này thỏa mãn đồng thời các điều kiện sau thì KH đó đã có STH hợp lệ\n\n* Thông tin GTTT khi thu thập STH là CCCD chip/Thẻ căn cước được xác thực bởi BCA do BCA phát hành.\r\n\n\n---\n\n* GTTT có ngày hết hạn > = ngày hiện tại, lưu ý trường hợp ngày hết hạn không có thông tin thì được hiểu là Không thời hạn\r\n\r\n* Bản ghi thu thập STH gần nhất của KH có mã trạng thái 90,81 (như mô tả tại bảng mã trạng thái tại mục 1.2)\r\n\n\n- **Nhóm 3: Nhóm KH ở Nhóm 1, Nhóm 2 có STH hợp lệ thực hiện cập nhật STH.**\r\n\n\nKH thuộc nhóm này thỏa mãn đồng thời các điều kiện sau thì KH đó có STH hợp lệ\n\n* Thông tin GTTT khi cập nhật STH là CCCD chip/The căn cước được xác thực bởi BCA do BCA phát hành.\r\n\r\n* GTTT cập nhật STH có ngày hết hạn > = ngày hiện tại lưu ý trường hợp ngày hết hạn không có thông tin thì được hiểu là Không thời hạn\r\n\r\n* Bản ghi cập nhật STH gần nhất của KH có mã trạng thái 90,81 (như mô tả tại bảng mã trạng thái tại mục 1.2)\r\n\n\n- **Nhóm 4: Nhóm KH là người nước ngoài (Quốc tích # Việt Nam), mở Customer ID bằng hộ chiếu, đã có ảnh chụp chân dung.**\r\n\n\nKH thuộc nhóm này thỏa mãn các điều kiện sau thì là KH có STH hợp lệ\n\n* KH có Quốc tịch # Việt Nam.\r\n\r\n* KH mở Customer ID bằng hộ chiếu. GTTT có ngày hết hạn > = ngày hiện tại lưu ý trường hợp ngày hết hạn không có thông tin thì được hiểu là Không thời hạn\r\n\r\n* KH đã có ảnh chân dung được thu thập tại SB\r\n\n\n- **Nhóm 5: Nhóm KH được đánh dấu đã xác thực trên bản ghi KH (bản ghi KH được đánh dấu TRUSTED)**\r\n\n\nKH thuộc nhóm này thỏa mãn các điều kiện sau thì là KH có STH hợp lệ\n\n* KH được đánh dấu đã xác thực TRUSTED trên bản ghi KH.\r\n\r\n* GTTT có ngày hết hạn > = ngày hiện tại, lưu ý trường hợp ngày hết hạn không có thông tin thì được hiểu là Không thời hạn\r\n\n\n1.1.1 Lưu đồ:\n\n---\n\nMã hiệu: 55_01_05_3264\n\nNgày hiệu lực: 19/03/2024\n\nLần ban hành/sửa đổi: 1/0\n\nTài liệu Public\n\n---\n\n1.1.2 Mô tả các bước thực hiện:\n\n---\n\n---\n\n---\n\n---\n\n---\n\n---\n\nLưu ý: Trường không có thông tin được lưu trong Căn cước để giá trị N/A\n\n→ **Chuyển bước 29** – Thông báo cho Khách hàng màn hình yêu cầu đang được tiếp nhận và xử lí và chuyển kết thúc quy trình.\n\n- Đầu ra:\r\n\r\n\r\n\r\n\r\n\n\n---\n\n---\n\nTài liệu Public\n\nĐVST:Phòng PTNV\n\nIP Phone: 8136\n\nEmail:Phuong.ht3@seabank.com.vn\n\n---\n\n---"
+    },
+    "qas": [
+      {
+        "category": "definition",
+        "question": "Dữ liệu sinh trắc học (STH) hợp lệ được định nghĩa như thế nào trong quy trình thu thập qua ứng dụng SeAMobile?",
+        "answer": "Dữ liệu sinh trắc học hợp lệ bao gồm các trường hợp sau:\n        1. Ảnh chân dung trong chip của CCCD/thẻ căn cước (áp dụng cho nhóm khách hàng 1, 2, 3).\n        2. Ảnh chân dung của khách hàng (áp dụng cho nhóm khách hàng là người nước ngoài, mở Customer ID bằng hộ chiếu - nhóm 4).\n        3. Ảnh chân dung của khách hàng được đánh dấu xác thực theo quy định của SeABank trong từng thời kỳ (áp dụng cho nhóm khách hàng 5)."
+      },
+      {
+        "category": "rule",
+        "question": "Nhóm khách hàng nào được coi là có dữ liệu sinh trắc học hợp lệ khi mở eKYC bằng CCCD chip/thẻ căn cước đã được xác thực với BCA?",
+        "answer": "Nhóm khách hàng 1, bao gồm khách hàng mở eKYC bằng CCCD chip/thẻ căn cước đã được xác thực với BCA, thỏa mãn đồng thời các điều kiện:\n        - Thông tin giấy tờ tùy thân (GTTT) là CCCD chip/thẻ căn cước được xác thực bởi BCA.\n        - GTTT có ngày hết hạn >= ngày hiện tại (hoặc không có ngày hết hạn).\n        - Bản ghi eKYC của khách hàng không bị các bộ phận GSS từ chối (mã trạng thái giám sát eKYC không phải là #25, tương đương mã trạng thái giám sát STH 91, 81)."
+      },
+      {
+        "category": "rule",
+        "question": "Nhóm khách hàng nào được coi là có dữ liệu sinh trắc học hợp lệ khi mở tài khoản tại quầy hoặc qua đối tác/eKYC bằng CCCD/CMND/HC chưa được xác thực với BCA?",
+        "answer": "Nhóm khách hàng 2, bao gồm khách hàng mở tài khoản tại quầy hoặc qua đối tác/eKYC bằng CCCD/CMND/HC chưa được xác thực với BCA, thỏa mãn đồng thời các điều kiện:\n        - Thông tin GTTT khi thu thập STH là CCCD chip/thẻ căn cước được xác thực bởi BCA.\n        - GTTT có ngày hết hạn >= ngày hiện tại (hoặc không có ngày hết hạn).\n        - Bản ghi thu thập STH gần nhất của khách hàng có mã trạng thái 90, 81 (theo bảng mã trạng thái tại mục 1.2)."
+      },
+      {
+        "category": "rule",
+        "question": "Nhóm khách hàng nào thuộc trường hợp cập nhật dữ liệu sinh trắc học hợp lệ?",
+        "answer": "Nhóm khách hàng 3, bao gồm khách hàng thuộc nhóm 1 hoặc 2 đã có STH hợp lệ và thực hiện cập nhật STH, thỏa mãn đồng thời các điều kiện:\n        - Thông tin GTTT khi cập nhật STH là CCCD chip/thẻ căn cước được xác thực bởi BCA.\n        - GTTT cập nhật STH có ngày hết hạn >= ngày hiện tại (hoặc không có ngày hết hạn).\n        - Bản ghi cập nhật STH gần nhất của khách hàng có mã trạng thái 90, 81."
+      },
+      {
+        "category": "rule",
+        "question": "Nhóm khách hàng nào được coi là có dữ liệu sinh trắc học hợp lệ khi là người nước ngoài, mở Customer ID bằng hộ chiếu?",
+        "answer": "Nhóm khách hàng 4, bao gồm khách hàng có quốc tịch khác Việt Nam, mở Customer ID bằng hộ chiếu, thỏa mãn các điều kiện:\n        - Quốc tịch khác Việt Nam.\n        - Mở Customer ID bằng hộ chiếu, GTTT có ngày hết hạn >= ngày hiện tại (hoặc không có ngày hết hạn).\n        - Đã có ảnh chân dung được thu thập tại SeABank."
+      },
+      {
+        "category": "rule",
+        "question": "Nhóm khách hàng nào được coi là có dữ liệu sinh trắc học hợp lệ khi được đánh dấu TRUSTED trên bản ghi khách hàng?",
+        "answer": "Nhóm khách hàng 5, bao gồm khách hàng được đánh dấu đã xác thực (TRUSTED) trên bản ghi khách hàng, thỏa mãn các điều kiện:\n        - Được đánh dấu TRUSTED trên bản ghi khách hàng.\n        - GTTT có ngày hết hạn >= ngày hiện tại (hoặc không có ngày hết hạn)."
+      },
+      {
+        "category": "constraint",
+        "question": "Trong trường hợp nào ngày hết hạn của giấy tờ tùy thân được coi là không thời hạn?",
+        "answer": "Ngày hết hạn của giấy tờ tùy thân được coi là không thời hạn khi thông tin ngày hết hạn không có trong CCCD/thẻ căn cước (giá trị N/A)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình thu thập dữ liệu sinh trắc học qua ứng dụng SeAMobile bao gồm những bước nào (theo mô tả sơ bộ)?",
+        "answer": "Quy trình bao gồm các bước cụ thể (mô tả không đầy đủ trong chunk này), nhưng có thể bao gồm:\n        - Kiểm tra thông tin giấy tờ tùy thân (GTTT) của khách hàng (CCCD chip/thẻ căn cước hoặc hộ chiếu).\n        - Xác thực ngày hết hạn của GTTT.\n        - Kiểm tra mã trạng thái giám sát STH (90, 81 hoặc 25, 91, 81 tùy nhóm).\n        - Thu thập ảnh chân dung và đánh dấu xác thực (nếu thuộc nhóm 5).\n        - Thông báo kết quả cho khách hàng (bước 29: thông báo tiếp nhận và xử lý).\n        Lưu ý: Chi tiết các bước cụ thể chưa được mô tả đầy đủ trong chunk này."
+      },
+      {
+        "category": "data",
+        "question": "Mã trạng thái giám sát STH nào được coi là hợp lệ cho các nhóm khách hàng?",
+        "answer": "Mã trạng thái giám sát STH hợp lệ là:\n        - Nhóm 1: Không có mã trạng thái 25 (tương đương với 91, 81).\n        - Nhóm 2, 3: Mã trạng thái 90, 81.\n        Chi tiết mã trạng thái được mô tả tại mục 1.2 của tài liệu."
+      },
+      {
+        "category": "exception",
+        "question": "Trong trường hợp nào bản ghi eKYC của khách hàng bị từ chối và không được coi là STH hợp lệ?",
+        "answer": "Bản ghi eKYC của khách hàng bị từ chối khi có mã trạng thái giám sát eKYC #25 (tương đương với mã trạng thái giám sát STH 91, 81), khiến khách hàng thuộc nhóm 1 không được coi là có STH hợp lệ."
+      },
+      {
+        "category": "version",
+        "question": "Thông tin phiên bản và hiệu lực của quy trình thu thập dữ liệu sinh trắc học qua ứng dụng SeAMobile là gì?",
+        "answer": "Quy trình có mã hiệu **55_01_05_3264**, ngày hiệu lực **19/03/2024**, lần ban hành/sửa đổi **1/0**, và tài liệu được công khai (Public)."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Đơn vị nào chịu trách nhiệm về quy trình thu thập dữ liệu sinh trắc học qua ứng dụng SeAMobile?",
+        "answer": "Phòng Phát triển Nền tảng (PTNV) chịu trách nhiệm về quy trình này, với thông tin liên lạc:\n        - Điện thoại nội bộ: 8136\n        - Email: Phuong.ht3@seabank.com.vn"
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của lưu đồ quy trình thu thập dữ liệu sinh trắc học (mục 1.1.1) là gì?",
+        "answer": "Mục đích của lưu đồ là thể hiện các bước thực hiện cụ thể trong quy trình thu thập dữ liệu sinh trắc học qua ứng dụng SeAMobile, bao gồm kiểm tra GTTT, xác thực STH, và thông báo kết quả cho khách hàng. Tuy nhiên, chi tiết lưu đồ chưa được mô tả đầy đủ trong chunk này."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 2749,
+      "title": "## 1.2 < Quy trình Hậu kiểm thông tin sinh trắc học >",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 1.2 < Quy trình Hậu kiểm thông tin sinh trắc học >",
+      "content": "## 1.2 < Quy trình Hậu kiểm thông tin sinh trắc học >\r\n\r\n### 1.2.1 Lưu đồ\r\n\r\n### 1.2.2 Thực hiện\r\n\r\n➤ Bảng quy định mã trạng thái giám sát\r\n\r\n<table><thead><tr><td>Trạng thái bản ghi</td><td>Mã trạng thái bản ghi</td></tr></thead><tbody><tr><td>Bản ghi thông tin STH KH bổ sung</td><td>90</td></tr><tr><td>Bản ghi thông tin STH bị từ chối – Do GSS từ chối ekyc</td><td>79</td></tr><tr><td>Bản ghi thông tin STH bị GSS từ chối – Yêu cầu thu thập lại thông tin STH</td><td>80</td></tr><tr><td>Bản ghi thông tin STH được GSS chọn hợp lệ</td><td>81</td></tr><tr><td>Bản ghi thông tin STH ĐVKD chọn trạng thái “Thu thập lại trên app”</td><td>83</td></tr><tr><td>Bản ghi thông tin STH hợp lệ từ thu thập mở ekyc</td><td>91</td></tr></tbody></table>\r\n\r\n➤ Bảng chuyển mã trạng thái của bản ghi STH\r\n\r\n<table><thead><tr><td>Mã trạng thái trước</td><td>Mã trạng hiện tại</td><td>Action hệ thống LOS</td><td>Action hệ thống giám sát</td><td>Tên mã trạng thái hiện tại</td></tr></thead><tbody><tr><td rowspan=\"2\">90</td><td>90</td><td>Khởi tạo hồ sơ- Hồ sơ STH</td><td rowspan=\"2\">Đồng ý</td><td>STH chờ giám sát</td></tr><tr><td>81</td><td>Hoàn thành giám sát-GSS Đồng ý STH hợp lệ</td><td>STH hợp lệ được đồng ý</td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><tr><td>90</td><td>80</td><td>Giám sát-GSS<br/>Từ chối STH<br/>không hợp lệ</td><td>Từ chối</td><td>STH không hợp<br/>lệ bị từ chối</td></tr><tr><td>80</td><td>83</td><td>Hoàn thành<br/>giám sát –KH<br/>thu thập lại<br/>STH trên APP</td><td>Yêu cầu thu<br/>thập lại STH<br/>trên SM</td><td>STH không hợp<br/>lệ, được thu<br/>thập lại trên<br/>APP</td></tr></table>\r\n\r\n➤ Bảng ma trận phân quyền các trạng thái user được xem và giám sát\r\n\r\n<table><thead><tr><td>Nhóm quyền</td><td>Mã trạng thái được xử lý và được xem</td><td>Mã trạng thái chỉ được xem thông tin không xử lý</td></tr></thead><tbody><tr><td>Nhóm Hậu kiểm (GSS)</td><td>90</td><td>80,81,83, 91</td></tr><tr><td>Nhóm ĐVKD</td><td>80</td><td>90,81,83, 91</td></tr><tr><td>Nhóm VHDVĐK</td><td></td><td>90,80,81,83, 91</td></tr></tbody></table>\r\n\r\n<table><thead><tr><th>Bước</th><th>Bộ phận</th><th>Thực hiện</th><th>Ghi chú</th></tr></thead><tbody><tr><td>1, 2</td><td>BP KSS, Hệ thống</td><td>- Đầu vào: Bộ phận KSS login vào hệ thống giám sát ekyc<br/>- Thực hiện: Chọn chức năng giám sát thông tin sinh trắc học<br/>- Đầu ra:<br/>✓ Hệ thống hiển thị danh sách các bản ghi cần giám sát theo yêu cầu tìm kiếm.<br/>✓ Mô tả màn hình và các chức năng của màn hình theo mục 1.4</td><td></td></tr><tr><td>3-6</td><td>KSS</td><td>- Đầu vào:<br/>✓ Các bản ghi thu thập thông tin sinh trắc học của Khách hàng bộ phận KSS được quyền xem và xử lý.<br/>✓ Mô tả màn hình theo mục 1.4<br/>- Thực hiện:<br/>Bộ phận KSS kiểm tra đánh giá các bản ghi thu thập thông tin sinh trắc học và thực hiện chuyển trạng thái giám sát của các bản ghi:<table><thead><tr><th>Nếu</th><th>Thì</th></tr></thead><tbody><tr><td>Đồng ý do Thông tin thu thập trùng khớp với thông tin KH được lưu trên hệ thống</td><td><strong>Chuyển bước 4</strong><br/>- Hệ thống chuyển trạng thái giám sát từ mã 90 sang mã 81 Đồng ý do TT trùng khớp.<br/>Kết thúc quy trình.</td></tr></tbody></table></td><td></td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><thead><tr><th></th><th></th><th>Từ chối</th><th>Hệ thống chuyển trạng thái giám sát từ mã 90 sang mã 80-Từ chối xác nhận thông tin lại tại quầy</th></tr></thead><tbody><tr><td>7</td><td>Hệ thống</td><td>- Đầu vào: Bản ghi giám sát STH bị từ chối mã,80<br/>- Thực hiện:<br/>Hệ thống tự động chặn ghi nợ, ghi có của tất cả TKTT của KH. Trên bản ghi chặn ghi nợ TKTT ghi chú lý do chặn là: \"Chan ghi no co vi nghi ngo gian lan khi thu thap Ekyc sinh trac hoc can xac thuc thong tin tai quay\"<br/>Lưu ý:<br/>- Hệ thống chỉ thực hiện bước chặn tự động ghi nợ, ghi có của cả các bản ghi được chuyển trạng thái từ 90-80 được thực hiện ở chức năng quản lý STH.<br/>- Không thực hiện chặn ghi nợ, ghi có tự động khi hồ sơ STH được tự động chuyển mã 80 từ hồ sơ eKYC mã 25 (Từ chối do gian lận).<br/><strong>Chuyển bước 6</strong><br/><strong>Hệ thống tự động gửi email và Notify cho Khách hàng và ĐVKD quản lý TKTT</strong><br/>- Thông báo email cho Khách hàng:<br/><strong>Địa chỉ gửi mail:</strong> email KH đăng ký<br/><strong>Nội dung gửi mail:</strong><ol><li>Tiêu đề: Thông báo đăng ký bổ sung thông tin sinh trắc học không thành công.</li><li>Nội dung cụ thể như sau:<br/>Kính gửi Quý khách: &lt; Họ tên KH&gt; .<br/>Sau khi rà soát, hệ thống đánh giá thông tin quý khách cung cấp để bổ sung sinh trắc học là không hợp lệ. Hệ thống đã chặn ghi nợ, ghi có tất cả TKTT của Khách hàng. Quý Khách vui lòng ra Chi nhánh/phòng giao dịch SeABank gần nhất để xác minh lại thông tin và không bị gián đoạn các dịch vụ khác (bao gồm cả thanh toán khoản vay, phí dịch vụ khác nếu có).<br/>Cảm ơn Quý khách đã tin tưởng và sử dụng dịch vụ của SeABank!<br/>Trân trọng kýalm chào và cám Ơn!</li></ol><br/>- Thông báo Notify:<br/><strong>Địa chỉ gửi Notify:</strong> User KH<br/><strong>Nội dung gửi Notify:</strong><br/>Kính gửi Quý khách: &lt;Họ tên KH&gt;</td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><tr><td></td><td>Sau khi rà soát, hệ thống đánh giá thông tin quý khách cung cấp để bổ sung sinh trắc học là không hợp lệ. Hệ thống đã chặn ghi nợ, ghi có tất cả TKTT của Khách hàn. Quý Khách vui lòng ra ra Chi nhánh/phòng giao dịch SeABank gần nhất để xác minh lại thông tin và không bị gián đoạn các dịch vụ khác (bao gồm cả thanh toán khoản vay, phí dịch vụ khác nếu có).<br/>- Hệ thống tự động đánh dấu bản ghi sang trạng thái STH không hợp lệ (Bao gồm các trường hợp hợp lệ do xác thực qua BCA)<br/>- Thông báo email tới ĐVKD quản lý KH:<br/>Địa chỉ gửi mail: email ĐVKD<br/>Nội dung gửi mail:<ul><li>TSUPER: [STH] – Chặn ghi nợ, có tất cả TKTT của KH [Cust ID] [Họ tên KH] do nghi ngờ gian lận.</li><li>Nội dung: Kính gửi Quý đơn vị [Tên ĐVKD], Khách hàng [Cust ID] – [Họ tên KH] đã bị hệ thống chặn ghi nợ, có tự động tất cả TKTT của KH do nghi ngờ gian lận trong quá trình thu thập bổ sung thông tin STH.</li></ul>Yêu cầu: Đề nghị Quý đơn vị nắm thông tin để hỗ trợ/hướng dẫn Khách hàng ra quầy giao dịch để xác minh thông tin và mở chặn dịch vụ và bổ sung thông tin STH (nếu có).<br/>→ Chuyển bước 7</td><td></td></tr><tr><td>8</td><td>GDV</td><td>Xử lý theo quy trình thu thập STH tại quầy</td><td></td></tr></table>\r\n\r\n**1.3 Quy trình xử lý bản ghi STH tại quầy**\r\n\r\n1.3.1 Lưu đồ\r\n\r\n---\r\n\r\n1.3.2 Mô tả chi tiết\r\n\r\n<table><thead><tr><th>Bước</th><th>Bộ phận</th><th>Thực hiện</th><th>Ghi chú</th></tr></thead><tbody><tr><td>1, 2</td><td>GDV</td><td><p>- Đầu vào: Bộ phận GDV tiếp nhận đơn yêu cầu hỗ trợ của KH và kiểm tra định danh thông tin khách hàng tại quầy và login vào hệ thống giám sát STH</p><p>- Thực hiện: Chọn chức năng giám sát thông tin sinh trắc học</p><p>- Đầu ra:</p><ul><li>Hệ thống hiển thị danh sách các bản ghi cần giám sát theo yêu cầu tìm kiếm.</li><li>Mô tả màn hình và các chức năng của màn hình theo mục 1.4</li></ul></td><td></td></tr><tr><td>3-5</td><td>GDV</td><td><p>- Đầu vào:</p><ul><li>Các bản ghi thu thập thông tin sinh trắc học của Khách hàng bộ phận GDV được quyền xem và xử lý.</li><li>Mô tả màn hình theo mục 1.4</li></ul><p>- Thực hiện:</p></td><td></td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><tr><td></td><td>Bộ phận GDV kiểm tra và thực hiện chuyển trạng thái giám sát của các bản ghi:<table><thead><tr><td>Nếu</td><td>Thì</td></tr></thead><tbody><tr><td>Thông tin định danh khách hàng tại quầy không hợp lệ.</td><td>GDV停止 hỗ trợ. Kết thúc quy trình.</td></tr><tr><td>Thông tin định danh khách hàng hợp lệ</td><td>Chuyển bước 4 – GDV chọn trạng thái giám sát “Mở chặn ghi nợ, có yêu cầu thu thập STH trên SM”<br/>Chuyển bước 5 – Hệ thống chuyển trạng thái mã 83 “Yêu cầu thu thập lại STH trên SM”.<br/>→ Kết thúc quy trình.</td></tr></tbody></table></td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "definition",
+        "question": "Các mã trạng thái giám sát trong quy trình hậu kiểm thông tin sinh trắc học (STH) bao gồm những mã nào?",
+        "answer": "Các mã trạng thái giám sát bao gồm:\n        - **90**: Bản ghi thông tin STH bổ sung.\n        - **79**: STH bị từ chối do GSS từ chối eKYC.\n        - **80**: STH bị GSS từ chối và yêu cầu thu thập lại thông tin.\n        - **81**: STH được GSS chọn hợp lệ.\n        - **83**: STH được ĐVKD chọn trạng thái 'Thu thập lại trên app'.\n        - **91**: STH hợp lệ từ thu thập mở eKYC."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình hậu kiểm STH khi bản ghi có mã trạng thái **90** (STH bổ sung) sẽ chuyển sang trạng thái nào và theo quy trình nào?",
+        "answer": "Bản ghi có mã trạng thái **90** có thể chuyển sang:\n        - **81** (STH hợp lệ) nếu GSS đồng ý thông tin trùng khớp với hệ thống.\n        - **80** (STH không hợp lệ) nếu GSS từ chối và yêu cầu thu thập lại thông tin tại quầy.\n        Quy trình cụ thể:\n        - **Đồng ý (90 → 81)**: Hệ thống tự động chuyển trạng thái khi thông tin hợp lệ.\n        - **Từ chối (90 → 80)**: Hệ thống tự động chặn ghi nợ/có tất cả TKTT của khách hàng và thông báo cho khách hàng và ĐVKD."
+      },
+      {
+        "category": "rule",
+        "question": "Khi bản ghi STH bị từ chối (mã **80**), hệ thống sẽ thực hiện những hành động nào đối với tài khoản của khách hàng?",
+        "answer": "Hệ thống sẽ:\n        1. **Chặn ghi nợ, ghi có** tất cả TKTT của khách hàng.\n        2. **Ghi chú lý do chặn** trong hệ thống: *“Chan ghi no co vi nghi ngo gian lan khi thu thap Ekyc sinh trac hoc can xac thuc thong tin tai quay”*.\n        3. **Gửi email và notify** cho khách hàng và ĐVKD quản lý TKTT, yêu cầu khách hàng đến quầy xác minh lại thông tin.\n        **Lưu ý**: Hành động này **không áp dụng** cho trường hợp hồ sơ STH tự động chuyển sang mã **80** từ mã **25** (từ chối do gian lận trong eKYC)."
+      },
+      {
+        "category": "exception",
+        "question": "Trong trường hợp nào hệ thống **không** thực hiện chặn ghi nợ/có tự động cho khách hàng?",
+        "answer": "Hệ thống **không** thực hiện chặn ghi nợ/có tự động khi:\n        - Hồ sơ STH được **tự động chuyển trạng thái từ mã 25 (từ chối do gian lận trong eKYC) sang mã 80** (không hợp lệ).\n        Trường hợp này vẫn yêu cầu khách hàng đến quầy xác minh, nhưng hệ thống **không** tự động chặn giao dịch."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Các nhóm quyền trong quy trình hậu kiểm STH có thể xem và xử lý những mã trạng thái nào?",
+        "answer": "Phân quyền theo nhóm như sau:\n        - **Nhóm Hậu kiểm (GSS)**:\n          - **Xử lý và xem**: Mã **90** (STH bổ sung).\n          - **Chỉ xem (không xử lý)**: Mã **80, 81, 83, 91**.\n        - **Nhóm ĐVKD**:\n          - **Xử lý và xem**: Mã **80** (STH không hợp lệ).\n          - **Chỉ xem**: Mã **90, 81, 83, 91**.\n        - **Nhóm VHDVĐK**:\n          - **Chỉ xem** (không xử lý): Tất cả mã **90, 80, 81, 83, 91**."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xử lý khi khách hàng đến quầy (GDV) để xác minh lại thông tin STH bị từ chối (mã **80**) diễn ra như thế nào?",
+        "answer": "Quy trình tại quầy (GDV) bao gồm:\n        1. **Kiểm tra định danh khách hàng**:\n           - Nếu **không hợp lệ** → GDV **ngừng hỗ trợ**, kết thúc quy trình.\n           - Nếu **hợp lệ** → Tiếp tục bước 4.\n        2. **Mở chặn ghi nợ/có và yêu cầu thu thập lại STH trên SM**:\n           - GDV chọn trạng thái giám sát *“Mở chặn ghi nợ, có yêu cầu thu thập STH trên SM”*.\n           - Hệ thống tự động chuyển trạng thái sang **mã 83** (*‘Yêu cầu thu thập lại STH trên SM’*).\n        3. **Kết thúc quy trình** sau khi thực hiện xong."
+      },
+      {
+        "category": "data",
+        "question": "Nội dung thông báo email và notify gửi cho khách hàng khi STH bị từ chối (mã **80**) bao gồm những thông tin nào?",
+        "answer": "Nội dung thông báo bao gồm:\n        - **Email** (gửi đến email khách hàng đăng ký):\n          - **Tiêu đề**: *“Thông báo đăng ký bổ sung thông tin sinh trắc học không thành công.”*\n          - **Nội dung**:\n            - Thông tin STH không hợp lệ → hệ thống chặn ghi nợ/có tất cả TKTT.\n            - Yêu cầu khách hàng đến **Chi nhánh/Phòng giao dịch SeABank** gần nhất để xác minh lại thông tin.\n            - Tránh gián đoạn dịch vụ (bao gồm thanh toán khoản vay, phí dịch vụ khác).\n        - **Notify** (gửi đến User KH):\n          - Nội dung tương tự email, nhấn mạnh việc khách hàng cần đến quầy để xử lý."
+      },
+      {
+        "category": "approval",
+        "question": "Nhóm nào có quyền đồng ý hoặc từ chối bản ghi STH trong quy trình hậu kiểm?",
+        "answer": "Quyền đồng ý/từ chối thuộc về:\n        - **Nhóm Hậu kiểm (GSS)**: Có quyền xem và xử lý mã **90** (STH bổ sung), bao gồm:\n          - **Đồng ý** (chuyển **90 → 81**) khi thông tin hợp lệ.\n          - **Từ chối** (chuyển **90 → 80**) khi nghi ngờ gian lận hoặc thông tin không hợp lệ.\n        - **Khách hàng (KH)** và **ĐVKD** chỉ có quyền yêu cầu thu thập lại (**80 → 83**) nhưng không có quyền đồng ý/từ chối trực tiếp."
+      },
+      {
+        "category": "constraint",
+        "question": "Quy trình hậu kiểm STH có những hạn chế nào về quyền xử lý của các bộ phận?",
+        "answer": "Hạn chế quyền xử lý như sau:\n        - **Nhóm VHDVĐK** chỉ được **xem** thông tin (không xử lý) tất cả các mã trạng thái (**90, 80, 81, 83, 91**).\n        - **Nhóm ĐVKD** chỉ có quyền xử lý mã **80** (STH không hợp lệ) và yêu cầu thu thập lại (**80 → 83**), không được xử lý các mã khác như **90** (STH bổ sung).\n        - **Hệ thống tự động** thực hiện chuyển trạng thái cho một số trường hợp (ví dụ: **90 → 80** khi từ chối), không cho phép can thiệp thủ công."
+      },
+      {
+        "category": "exception",
+        "question": "Trong trường hợp nào khách hàng sẽ không được yêu cầu đến quầy để xác minh thông tin STH?",
+        "answer": "Khách hàng **không** được yêu cầu đến quầy trong trường hợp:\n        - STH được **GSS đồng ý hợp lệ** (chuyển từ **90 → 81**), quy trình kết thúc mà không cần xác minh lại.\n        - Trường hợp **tự động chuyển trạng thái từ mã 25 (từ chối do gian lận trong eKYC) sang mã 80**, nhưng hệ thống **không** chặn ghi nợ/có tự động (yêu cầu xác minh tại quầy vẫn áp dụng)."
+      },
+      {
+        "category": "process",
+        "question": "Sau khi GDV xử lý mở chặn ghi nợ/có tại quầy (mã **83**), quy trình tiếp theo của khách hàng là gì?",
+        "answer": "Sau khi GDV chuyển trạng thái sang **mã 83** (*‘Yêu cầu thu thập lại STH trên SM’*):\n        - Khách hàng sẽ được **hướng dẫn thu thập lại thông tin STH trên ứng dụng SeAMobile**.\n        - Hệ thống **không** tự động chuyển trạng thái tiếp theo; quy trình kết thúc tại bước này, yêu cầu khách hàng tự thực hiện thu thập lại trên app."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 4778,
+      "title": "## 1.4 Màn hình chức năng giám sát thông tin sinh trắc học",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 1.4 Màn hình chức năng giám sát thông tin sinh trắc học",
+      "content": "## 1.4 Màn hình chức năng giám sát thông tin sinh trắc học\r\n\r\n### 1.4.1 Màn hình giám sát của bộ phận hậu kiểm\r\n\r\n#### a. Màn hình giám sát thông tin sinh trắc học (STH):\r\n\r\n- Tổng quát: Tương tự như màn hình quản lý giám sát\r\n\r\n<table><tr><td>Thanh Menu</td><td>Hiển thị chức năng user được phân quyền xử lý:<br/>Quản lý giám sát/Quản lý lịch sử ekyc/Quản lý thông tín sinh trắc học/Quản lý Blacklist Ekyc (bao gồm Quản lý loại Blacklist/ Quản lý dữ liệu Blacklist).<br/>Có thể Hide/UnHide thanh Menu.</td></tr><tr><td>Phần Tìm kiếm<br/>(Thông tin nhập<br/>được mô tả ở bảng<br/>thông tin chi tiết)</td><td>Khi chọn chức năng Quản lý giám sát:<br/>1. Hệ thống sẽ tự động tìm kiếm mặc định và hiển thị danh sách các bản ghi đã được thực hiện và chưa được thực hiện giám sát thông tin sinh trắc học từ ngày 01 đầu tháng đến ngày hiện tại trong tháng. (loại ngày chọn hiển thị mặc định là ngày khách hàng thực hiện bổ sung sinh trắc học).<br/>- Sau khi tìm kiếm hệ thống tự thu gọn (Hide/Unhide) thanh menu chức năng.</td></tr></table>\r\n\r\n---\r\n\r\n- Trường hợp người dùng nhập tìm kiếm theo điều kiện Mã KH, Số GTTT, Số TKTT thì sẽ không bắt buộc phải nhập khoảng ngày.\r\n\r\n2. Hiển thị các thông tin người dùng có thể nhập để tìm kiếm (chi tiết như mô tả bảng dưới).\r\n\r\nPhần tìm kiếm mặc định được cuộn lại khi người dùng tìm kiếm thông tin Nút chức năng tìm kiếm có chức năng tìm kiếm bản ghi theo giá trị tìm kiếm mà người dùng nhập (bao gồm clear các điều kiện lọc filter).\r\n\r\n**Dữ liệu hiện thị**\r\n(Thông tin hiển thị\r\nđược mô tả ở bảng\r\nthông tin chi tiết)\r\n\r\n**Dữ liệu hiển thị:**\r\n\r\n1. Các bản ghi user được quyền xem.\r\n\r\n2. Các bản ghi user phải thực hiện xử lý.\r\n\r\n**Theo Hàng:**\r\n\r\n1. Có nút chức năng tích chọn 1 bản ghi/bỏ chọn 1 bản ghi (chỉ áp dụng đối với các bản ghi chưa được xử lý, các bản ghi đã xử lý/chỉ được xem ở tình trạng disable).\r\n\r\nNút check được ghim cố định trong trường hợp người dùng kéo màn hình sang ngang để đọc thông tin.\r\n\r\n2. Đối với các bản ghi chưa được xử lý, người dùng có thể xử lý nhanh 1 hoặc nhiều bản ghi bằng cách nhấp chuột phải để chọn chuyển trạng thái giám sát mà không cần tích vào nút Thực hiện xử lý bản ghi.\r\n\r\n3. Khi chọn các trạng thái chuyển tiếp sẽ có màn hình xác nhận lại trạng thái chuyển, nội dung người dùng muốn ghi chú, ô chọn phân loại mã lỗi, button đồng ý/Không.\r\n\r\nNguyên tắc chung của chức năng thực hiện xử lý bản ghi (cho GSS và toàn bộ các bộ phận Giám sát khác):\r\n\r\n4. Sau khi người dùng ấn “Xác nhận” sẽ hiển thị thông báo trạng thái chuyển thành công hay thất bại được hiển thị trong 1,5s hoặc do người dùng ấn tắt khi kích ra ngoài màn hình thông báo,\r\n\r\n5. Các bản ghi sau khi xử lý thành công các bản ghi ở trạng thái disable, còn xử lý thất bại thì vẫn ở trạng thái cho tích chọn.\r\n\r\n6. Không áp dụng tiện ích xử lý nhanh để chuyển tiếp trạng thái theo lô.\r\n\r\n7. Disable các trạng thái xử lý mà bản ghi không được phép thực hiện.\r\n\r\n---\r\n\r\n8. Có thể xem chi tiết (bằng nút view hoặc kích chuột hoặc phương pháp khác thuận tiện).\r\n\r\n**Trên Bảng:**\r\n\r\n1. Có chức năng Filter: Tìm kiếm 1 hoặc nhiều bản ghi, chọn được giá trị chính xác/gần đúng, lọc theo dữ liệu tìm kiếm và được đồng thời tại nhiều trường thông tin (tham khảo filter tại exel), màn hình sẽ hiển thị theo dữ liệuọc.\r\n\r\n- Chức năng Filter không có trên các trường thông tin ảnh (số lượng các trường thông tin fitler sẽ được phát triển phù hợp đáp ứng của hệ thống theo từng thời kỳ, (hiện tại lọc theo các trường thông tin có giá trị cố định: Thông tin STH xác thực bởi BCA, User giám sát STH)\r\n\r\n- Nút ghim trong Filter chỉ xuất hiện ở 3 trường thông tin đầu tiên có tác dụng giữ các trường thông tin trên màn hình khi người dùng kéo màn hình sang ngang.\r\n\r\n2. Có nút chức năng Check all các bản ghi chưa được giám sát trên màn hình.\r\n\r\n3. Trường hợp các bản ghi tích chọn all hoặc bản ghi thứ 2 được tích chọn không cùng mã giám sát, hệ thống hiển thị thông báo lỗi “Yêu cầu lựa chọn các bản ghi có cùng chức năng giám sát”. Có một button “Đồng ý”, người dùng kích vào để quay lại màn hình lựa chọn trước.\r\n\r\n4. Hiển thị Số lượng bản ghi đã tích chọn trên màn hình.\r\n\r\n5. Hiển thị số lượng bản ghi đã tìm kiếm và lọc trên màn hình.\r\n\r\nQuy ước chung dấu chấm để phân cách hàng đơn vị.\r\n\r\n6. Có chức năng tìm kiếm theo số trang, phân trang, số lượng bản ghi hiển thị trên màn hình do người dùng tùy chọn (10,20,30, tùy theo hiệu năng hệ thống).\r\n\r\n7. Khi nhảy trang, bỏ check trang trước.\r\n\r\n8. Có thanh cuộn sang ngang để đọc các thông tin được kéo dài. ( )\r\n\r\n9. Có thanh cuộn xuống và ghim các thông tin tiêu đề.\r\n\r\nNút chức năng: \"Thực hiện xử lý bản ghi\":\r\n\r\nRule chung:\r\n\r\nNút chức năng\r\n(Thông tin chức\r\nnăng xử lý & xuất\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\nexel được mô tả ở\r\nbảng thông tin chi\r\ntiết)\r\n\r\n- Cho phép xử lý theo lô các bản ghi tích chọn có cùng mã giám sát hoặc từng bản ghi đã được tích chọn. (Disable các trạng thái xử lý mà bản ghi/tất cả bản ghi tích chọn không được phép thực hiện).\r\n\r\nvà “Xuất Exel”\r\n\r\n- Trường hợp hệ thống chỉ đáp ứng fitler theo trang thì xuất các bản ghi theo giá trị tìm kiếm và lọc filer.\r\n\r\n- Trường hợp hệ thống đáp ứng fitler theo tất cả các trang thì xuất các bản ghi theo giá trị tìm kiếm và lọc filer.\r\n\r\nLưu ý:\r\n\r\nKênh thu thập STH là Online KH hiện hữu thì hệ thống cho phép xử lý chuyển trạng thái\r\n\r\nKênh thu thập STH là Online KH mở mới hoặc Quầy thì sẽ không hiển thị các chức năng chuyển trạng thái.\r\n\r\nQuy định khác\r\n(chung cho cả màn\r\nhình chi tiết)\r\n\r\nMột số quy định chung (cho cả màn hình chi tiết)\r\n\r\n- **Profile:** Hiển thị tên user đăng nhập, tên bộ phận giám sát, ấn vào hiển thị nút chức năng đăng xuất (như hệ thống hiện tại).\r\n\r\n- **: Home (quay về màn hình hiển thị tìm kiếm mặc định) -**\r\n  Quản lý giám sát (Màn hình các bộ phận đã tìm kiếm bản ghi) - Thông tin (Màn hình giám sát chi tiết của KH)\r\n\r\n- **Fomat:** Các ô nhập liệu và hiển thị là ở giữa và căn trái.\r\n\r\n- **Load dữ liệu:** Thông tin trên màn hình được ưu tiên load các trường thông tin text, các thông tin ảnh được load sau (có thể hiện trạng thái đang load/lỗ, đối với các ảnh load lỗ có nút refesh để load lại)\r\n\r\n- Xem ảnh nhanh: người dùng có thể dùng chuyển hoặc dùng bán phím (mũi tên) để chuyển đến các ảnh liền kề trên bản ghi.\r\n\r\n- Mô tả màn hình: 20240801 Mokup\r\nGSS Thông tin STH (A\r\n\r\n- Mô tả chi tiết các trường thông tin\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><thead><tr><th>Trường thông tin</th><th>Định dạng</th><th>Mô tả chi tiết</th></tr></thead><tbody><tr><td colspan=\"3\">Đầu vào: Phần người dùng nhập thông tin tìm kiếm</td></tr><tr><td colspan=\"3\">Lưu ý:</td></tr><tr><td colspan=\"3\">- Trường hợp hệ thống đáp ứng: Các trường nhập thông tin là không bắt buộc, do người dùng chọn.</td></tr><tr><td colspan=\"3\">- Trường hợp hệ thống chưa đáp ứng việc xuất dữ liệu trong thời gian dài thì khi tìm kiếm bắt buộc người dùng phải nhập các trường sau</td></tr><tr><td colspan=\"3\">- Loại ngày</td></tr><tr><td colspan=\"3\">- Từ ngày:</td></tr><tr><td colspan=\"3\">- Đến ngày:</td></tr><tr><td colspan=\"3\">- Khoảng cách thời gian tối đa “Từ ngày” đến ngày người dùng được nhập là 31 ngày.</td></tr><tr><td>Loại ngày</td><td>Droplist</td><td>User lựa chọn ngày để thực hiện tìm kiếm:<br/>- Ngày KH thực hiện thu thập thông tin sinh trắc học. (Mặc định chọn ngày này)<br/>- Ngày thực hiện của bộ phận giám sát (Được hiểu là ngày bộ phận giám sát nhận hoặc chuyển trạng thái bản ghi STH)</td></tr><tr><td>Từ ngày</td><td>dd/mm/yyyy</td><td>Mặc định là ngày 01 trong tháng hiện tại. Trường thông tin này người dùng có thể xóa để nhập hoặc chọn theo lịch. (Không bắt buộc nhập nếu người dùng muốn tìm kiếm chính xác bản ghi qua Số GTTT, Số TKTT, Mã KH). Thời gian được chọn tối đa từ ngày 01/07/2024 (Ngày hệ thống bắt đầu Golive).</td></tr><tr><td>Đến ngày</td><td>dd/mm/yyyy</td><td>Mặc định là ngày T. Trường thông tin này người dùng có thể xóa để nhập hoặc chọn theo lịch. (Không bắt buộc nhập nếu người dùng muốn tìm kiếm chính xác bản ghi qua Số GTTT, Số TKTT, Mã KH).</td></tr></tbody></table>\r\n\r\nTài liệu Public\r\n\r\nDVST:Phòng PTNV\r\n\r\nIP Phone: 8136\r\n\r\nEmail:Phuong.ht3@seabank.com.vn\r\n\r\n---\r\n\r\n<table><tr><td></td><td></td><td>Phải lớn hơn hoặc bằng thời gian “Từ ngày”.<br/>(Nếu không báo lỗi hoặc không cho chọn).</td></tr><tr><td>Mã KH</td><td>Number</td><td>Mã KH theo định dạng của SeABank</td></tr><tr><td>Trạng thái hậu<br/>kiểm STH</td><td>Droplist</td><td>Là các trạng thái giám sát hiện tại của bản ghi<br/>Droplist hiển thị các trạng thái giám sát được mô<br/>tả tại bảng 1.2 – Trang thái Chưa giám sát/Đồng<br/>ý/Từ chối và (Các trạng thái nếu hệ thống phát<br/>triển sau này).</td></tr><tr><td>Số GTTT</td><td>Number,<br/>Text</td><td>Định dạng 6 – 12 chữ và số (theo quy định SB<br/>từng thời kỳ).</td></tr><tr><td>Mã CN</td><td>Droplist (có<br/>tìm kiếm<br/>trong<br/>Droplist)</td><td>Định dạng chữ và số.<br/>Hệ thống sẽ hiển thị ra danh sách mã – tên<br/>ĐVKD khi người dùng để con trỏ vào ô nhập Mã<br/>CN.<br/>Hệ thống sẽ tìm kiếm giá trị gần đúng/chính xác<br/>theo thông tin người dùng nhập. (Người dùng có<br/>thể đánh text hoặc number để tìm)<br/>Sau khi xác nhận thông tin hệ thống sẽ hiển thị<br/>Mã CN được người dùng lựa chọn trên ô nhập<br/>dữ liệu Mã CN.</td></tr><tr><td>Kênh thu thập STH</td><td>Droplist (có<br/>tìm kiếm<br/>trong<br/>Droplist)</td><td>Quầy/Online KH mới/Online KH hiện hữu/Tất<br/>cả</td></tr><tr><td>Nút chức năng:<br/>TÌM KIẾM</td><td></td><td>Hệ thống lọc ra tập mẫu giám sát theo điều kiện<br/>tìm kiếm. (Bao gồm clear toàn bộ các trường<br/>filter ở lưới hiển thị).</td></tr><tr><td colspan=\"3\">Đầu ra: Các bản ghi giám sát được tìm kiếm theo nguồn thông tin đầu vào</td></tr><tr><td colspan=\"3\">Chi tiết các trường thông tin đầu ra: Các bản ghi giám sát được tìm kiếm theo<br/>nguồn thông tin đầu vào</td></tr></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><tr><td>Mã KH</td><td>Mã KH mở ekyc</td></tr><tr><td>Tên KH</td><td>Tên KH thu thập STH</td></tr><tr><td>Số GTTT</td><td>Số GTTT thu thập STH</td></tr><tr><td>Ảnh sefile STH</td><td>Ảnh chân dung KH khi thu thập STH.<br/>Người dùng có thể chạm (trong khoảng thời gian 0,3s)/click chuột để phóng to xem chi tiết ảnh trên màn hình.</td></tr><tr><td>Ảnh chân dung trong chip</td><td>Ảnh chân dung trong chip đối với KH sử dụng NFC đọc thông tin trong CCCD gắn chip.<br/>Người dùng có thể chạm (trong khoảng thời gian 0,3s)/click chuột để phóng to xem chi tiết ảnh trên màn hình.<br/>Ảnh ở trạng thái độ nét tiêu chuẩn.</td></tr><tr><td>Ảnh mặt trước GTTT</td><td>Ảnh mặt trước GTTT của KH bổ sung thông tin STH.<br/>Người dùng có thể chạm (trong khoảng thời gian 0,3s)/click chuột để phóng to xem chi tiết ảnh trên màn hình.</td></tr><tr><td>Ảnh mặt sau GTTT</td><td>Ảnh mặt sau GTTT của KH bổ sung thông tin STH.<br/>Người dùng có thể chạm (trong khoảng thời gian 0,3s)/click chuột để phóng to xem chi tiết ảnh trên màn hình.</td></tr><tr><td>Thông tin xác thực bởi bộ Công An</td><td>Trạng thái bản ghi được cập nhật gần nhất. Do BCA phát hành/Không phải do BCA phát hành/BCA chưa trả lời.</td></tr><tr><td>Số điện thoại</td><td>SĐT KH STH</td></tr><tr><td>Chi Nhánh</td><td>Mã CN quản lý KH hiện tại</td></tr><tr><td>Ngày KH thực hiện bổ sung STH</td><td>Dd/mm/yyyy</td><td>Ngày KH hoàn thành đăng ký/bổ sung thông tin STH tại app</td></tr></table>\r\n\r\n---\r\n\r\n<table><tr><td>Trạng thái giám sát ekyc hiện tại</td><td colspan=\"2\">Là các trạng thái giám sát bản ghi ekyc (nếu có) gần nhất. (Bao gồm tất cả các mã trạng thái, thông tin được lấy theo Custid). Trường hợp không có để Blank.</td></tr><tr><td>Trạng thái giám sát STH</td><td colspan=\"2\">Là trạng thái giám sát STH(Các trạng thái: Chờ Giám sát, Đồng ý, Từ chối do gian lận).</td></tr><tr><td>User giám sát STH</td><td colspan=\"2\">Tên User bộ phận GSS thực hiện giám sát</td></tr><tr><td>Ngày thực hiện giám sát STH</td><td colspan=\"2\">Ngày bộ phận giám sát thực hiện xử lý bản ghi.</td></tr><tr><td>Trạng thái chặn ghi nợ, ghi có tự động khi giám sát STH</td><td colspan=\"2\">Chặn thành công/Chặn không thành công. Trường hợp bản ghi không chuyển để chặn dịch vụ tự động thì để trống trường thông tin.</td></tr><tr><td>Kênh thu thập STH</td><td>Droplist (có tìm kiếm trong Droplist)</td><td>Quầy/Online KH mới/Online KH hiện hữu/Tất cả</td></tr><tr><td colspan=\"3\">Các Nút chức năng</td></tr><tr><td>Chức năng xuất Exel</td><td colspan=\"2\">- Xuất Exel theo dữ liệu tìm kiếm và lọc (theo mô tả tại phần tổng quát).<br/>- Bản exel có thêm các trường thông tin so với màn hình hiển thị: Phân loại mã lỗi, ghi chú.<br/>Template file dữ<br/>Mô tả: liệu_from_01-07-2024</td></tr><tr><td>Các nút chức năng chuyển trạng thái bản ghi</td><td colspan=\"2\">Trường hợp 1: Kênh thu thập STH là Online KH hiện hữu thì hệ thống cho phép xử lý như sau: Cho phép người dùng cập nhật trạng thái giám sát:<br/>Khi người dùng kích vào nút chức năng → sẽ hiển thị Popup yêu cầu người dùng lựa chọn trạng thái chuyển tiếp:</td></tr></table>\r\n\r\n---\r\n\r\n<table><tr><td></td><td><p>- Các trạng thái giám sát người dùng có thể lựa chọn:</p><ul><li>✓ 1.1 GSS – Đồng ý</li><li>✓ 1.2 GSS – Từ chối</li></ul><p>→ Khi bấm xác nhận chuyển luồng tại 1.3</p><p>- Người dùng có thể phân loại mã giám sát theo drop list (Bảng mã giám sát sẽ do bộ phận nghiệp vụ cung cấp).</p><p>- Người dùng có thể nhập thông tin vào text ghi chú (tối đa 300 ký tự).</p><p>- Người dùng chọn button “Đồng ý” để xác nhận chuyển trạng thái.</p><ul><li>✓ Màn hình sẽ hiển thị thông báo trạng thái chuyển tiếp thành công/thất劣.</li><li>✓ Thông báo sẽ tự động tắt sau 1,5 giây.</li><li>✓ Đối với những bản ghi được chuyển trạng thái thành công thì các thông tin bản ghi trên lưới hiển thị cũng cập nhật lại trạng thái và nút checkbox chuyển sang disable.</li></ul><p>- Hoặc chọn Button “Không” để quay về màn hình giám sát được tìm kiếm và xử lý trước đó. Trường hợp 2: Kênh thu thập STH là Online KH mở mới hoặc Quầy thì sẽ không hiển thị các chức năng chuyển trạng thái như mô tả ở trường hợp 1.</p></td></tr></table>\r\n\r\nb. Màn hình xem chi tiết bản ghi\r\n\r\n- Tổng quát:\r\n\r\n<table><tr><td>Nút chức năng</td><td>Các nút điều hướng được ghim cố định ở đầu màn hình</td></tr></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n**1. Có nút điều hướng:**\r\n\r\nNgười dùng có thể chuyển sang các bản ghi giám sát liền kề trong 01 trang của danh sách tìm kiếm.\r\n\r\n* ✓ Nếu đây là bản ghi đầu tiên được hiển thị trong trang mà người dùng đã tìm kiếm thì chỉ xuất hiện nút chuyển sang bản ghi tiếp theo.\r\n\r\n* ✓ Nếu đây là bản ghi cuối cùng được hiển thị trong trang mà người dùng đã tìm kiếm thì chỉ xuất hiện nút chuyển lại.\r\n\r\n* ✓ Hiển thị số ID, số điện thoại khách hàng ở giữa 2 nút điều hướng.\r\n\r\n**2. Có nút chức năng “thực hiện xử lý bản ghi”:**\r\n\r\n* ✓ GSS – Đồng ý\r\n\r\n* ✓ GSS – Từ chối\r\n\r\nLưu ý: Khi chọn các trạng thái chuyển tiếp sẽ có màn hình xác nhận lại trạng thái chuyển, nội dung người dùng muốn ghi chú, ô chọn phân loại mã lỗi, button đồng ý/Hủy bỏ.\r\n\r\nPhân loại mã\r\nlỗi.xlsx\r\n\r\n**Bảng phân loại mã lỗi:**\r\n\r\nKhi giám sát thành công xong, màn hình sẽ quay lại màn hình giám quản lý giám sát chi tiết, màn hình thể hiện bản ghi vừa được xử lý giám sát được đưa lên đầu tiên so với các bản ghi khác trên màn hình. Nút checkbox của bản ghi này được chuyển sang disable.\r\n\r\n**3. Nút chức năng Quay lại**\r\n\r\nNgười dùng ấn để quay lại màn hình giám sát. Màn hình hiển thị các bản ghi đã tìm kiếm ban đầu. Màn hình đánh dấu bản ghi gần nhất người dùng vừa xem (bằng cách hiển thị bản ghi này lên đầu).\r\n\r\n**Thông tin hiển thị**\r\n\r\n- **Thông tin hiển thị (chi tiết theo mô tả bên dưới):**\r\n\r\n---\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "scope",
+        "question": "Màn hình chức năng giám sát thông tin sinh trắc học (STH) bao gồm những chức năng chính nào?",
+        "answer": "Màn hình này bao gồm các chức năng sau:\n        1. Quản lý giám sát (hiển thị danh sách bản ghi STH đã/chưa giám sát từ ngày 01 tháng hiện tại đến ngày hiện tại).\n        2. Quản lý lịch sử eKYC.\n        3. Quản lý thông tin sinh trắc học.\n        4. Quản lý Blacklist eKYC (bao gồm quản lý loại Blacklist và quản lý dữ liệu Blacklist).\n        Người dùng có thể ẩn/hiện thanh menu tùy ý."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình tìm kiếm mặc định trên màn hình giám sát STH hoạt động như thế nào?",
+        "answer": "Khi chọn chức năng **Quản lý giám sát**, hệ thống tự động tìm kiếm và hiển thị danh sách các bản ghi STH đã thực hiện và chưa thực hiện giám sát từ ngày **01 tháng hiện tại** đến ngày hiện tại, với ngày mặc định là ngày khách hàng thực hiện bổ sung STH. Sau khi tìm kiếm, hệ thống tự thu gọn thanh menu chức năng."
+      },
+      {
+        "category": "rule",
+        "question": "Trong trường hợp người dùng nhập thông tin tìm kiếm theo Mã KH, Số GTTT hoặc Số TKTT, có cần nhập khoảng ngày không?",
+        "answer": "Không bắt buộc. Khi người dùng nhập tìm kiếm theo **Mã KH, Số GTTT hoặc Số TKTT**, hệ thống không yêu cầu nhập khoảng ngày."
+      },
+      {
+        "category": "data",
+        "question": "Các trường thông tin đầu vào để tìm kiếm bản ghi STH bao gồm những gì?",
+        "answer": "Các trường thông tin đầu vào bao gồm:\n        - **Loại ngày** (Droplist): Ngày KH thực hiện thu thập STH (mặc định) hoặc ngày bộ phận giám sát thực hiện.\n        - **Từ ngày** (dd/mm/yyyy): Mặc định là ngày 01 tháng hiện tại, người dùng có thể xóa để nhập hoặc chọn theo lịch.\n        - **Đến ngày** (dd/mm/yyyy): Mặc định là ngày hiện tại, người dùng có thể xóa để nhập hoặc chọn theo lịch.\n        - **Mã KH** (Number): Mã KH theo định dạng của SeABank.\n        - **Trạng thái hậu kiểm STH** (Droplist): Các trạng thái giám sát hiện tại (Chưa giám sát, Đồng ý, Từ chối).\n        - **Số GTTT** (Number/Text): Định dạng 6–12 ký tự và số.\n        - **Mã CN** (Droplist): Mã chi nhánh quản lý khách hàng.\n        - **Kênh thu thập STH** (Droplist): Quầy, Online KH mới, Online KH hiện hữu hoặc Tất cả."
+      },
+      {
+        "category": "constraint",
+        "question": "Khoảng thời gian tối đa giữa 'Từ ngày' và ngày hiện tại khi người dùng nhập tìm kiếm là bao lâu?",
+        "answer": "Khoảng thời gian tối đa giữa 'Từ ngày' và ngày hiện tại là **31 ngày**. Ngoài ra, ngày 'Từ ngày' không được nhỏ hơn ngày **01/07/2024** (ngày hệ thống bắt đầu GoLive)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xử lý nhanh các bản ghi STH chưa được giám sát diễn ra như thế nào?",
+        "answer": "Người dùng có thể xử lý nhanh **1 hoặc nhiều bản ghi** bằng cách:\n        1. Nhấp chuột phải vào bản ghi.\n        2. Chọn trạng thái giám sát chuyển tiếp (Đồng ý/Từ chối).\n        3. Hệ thống hiển thị màn hình xác nhận lại trạng thái chuyển, nội dung ghi chú và phân loại mã lỗi.\n        4. Người dùng chọn **Đồng ý** để xác nhận hoặc **Không** để quay lại.\n        Sau khi xử lý thành công, bản ghi chuyển sang trạng thái **disable** và không thể tích chọn lại."
+      },
+      {
+        "category": "exception",
+        "question": "Trong trường hợp người dùng tích chọn nhiều bản ghi nhưng không cùng mã giám sát, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Hệ thống sẽ hiển thị thông báo lỗi: **'Yêu cầu lựa chọn các bản ghi có cùng chức năng giám sát'**. Người dùng phải chọn **Đồng ý** để quay lại màn hình lựa chọn trước đó."
+      },
+      {
+        "category": "rule",
+        "question": "Các chức năng chuyển trạng thái bản ghi STH được áp dụng cho những kênh thu thập nào?",
+        "answer": "Chức năng chuyển trạng thái bản ghi STH **chỉ áp dụng cho kênh Online KH hiện hữu**. Đối với kênh **Online KH mở mới hoặc Quầy**, hệ thống **không hiển thị** các chức năng chuyển trạng thái."
+      },
+      {
+        "category": "data",
+        "question": "Các trường thông tin đầu ra hiển thị trên màn hình giám sát STH bao gồm những gì?",
+        "answer": "Các trường thông tin đầu ra bao gồm:\n        - **Mã KH, Tên KH, Số GTTT**.\n        - **Ảnh sefile STH, Ảnh chân dung trong chip, Ảnh mặt trước/mặt sau GTTT** (có chức năng phóng to khi click).\n        - **Thông tin xác thực bởi Bộ Công An** (Trạng thái: Do BCA phát hành/Không phải do BCA phát hành/BCA chưa trả lời).\n        - **Số điện thoại, Chi nhánh, Ngày KH thực hiện bổ sung STH**.\n        - **Trạng thái giám sát eKYC hiện tại, Trạng thái giám sát STH, User giám sát STH, Ngày thực hiện giám sát STH**.\n        - **Trạng thái chặn ghi nợ/ghi có tự động khi giám sát STH** (Chặn thành công/Chặn không thành công)."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xuất Excel trên màn hình giám sát STH hoạt động như thế nào?",
+        "answer": "Chức năng **Xuất Excel** hoạt động như sau:\n        - Xuất dữ liệu theo kết quả tìm kiếm và lọc hiện tại.\n        - Bản Excel có thêm các trường thông tin so với màn hình hiển thị: **Phân loại mã lỗi, ghi chú**.\n        - Template file dữ liệu có tên **dữ liệu_from_01-07-2024**.\n        - Nếu hệ thống chỉ đáp ứng filter theo trang, xuất các bản ghi theo giá trị tìm kiếm và lọc trên trang hiện tại. Nếu đáp ứng filter toàn bộ trang, xuất toàn bộ kết quả tìm kiếm."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xem chi tiết bản ghi STH diễn ra như thế nào?",
+        "answer": "Màn hình xem chi tiết bản ghi STH bao gồm:\n        1. **Nút điều hướng** để chuyển sang bản ghi liền kề trong trang (nút chuyển tiếp hoặc quay lại).\n        2. **Nút 'Thực hiện xử lý bản ghi'** với các trạng thái: **GSS – Đồng ý/GSS – Từ chối**.\n        3. **Nút 'Quay lại'** để trở về màn hình giám sát, với bản ghi vừa xem được hiển thị lên đầu.\n        Khi xử lý thành công, bản ghi được đưa lên đầu màn hình và nút checkbox chuyển sang trạng thái **disable**."
+      },
+      {
+        "category": "constraint",
+        "question": "Có thể xử lý theo lô các bản ghi STH chưa giám sát không?",
+        "answer": "Không. Hệ thống **không áp dụng** tiện ích xử lý nhanh để chuyển tiếp trạng thái theo lô. Người dùng chỉ có thể xử lý từng bản ghi riêng lẻ hoặc theo nhóm có cùng mã giám sát."
+      },
+      {
+        "category": "other",
+        "question": "Mô tả chi tiết về chức năng 'Xem ảnh nhanh' trong màn hình giám sát STH?",
+        "answer": "Người dùng có thể sử dụng **chuyển (mũi tên) hoặc bán phím** để chuyển đến các ảnh liền kề trên bản ghi STH. Các ảnh bao gồm:\n        - Ảnh chân dung KH khi thu thập STH.\n        - Ảnh chân dung trong chip (đối với KH sử dụng NFC đọc thông tin trong CCCD gắn chip).\n        - Ảnh mặt trước/mặt sau GTTT của KH."
+      },
+      {
+        "category": "version",
+        "question": "Mô tả màn hình giám sát STH được mô tả trong tài liệu theo phiên bản nào?",
+        "answer": "Mô tả màn hình giám sát STH được mô tả theo phiên bản **20240801 Mokup** (GSS Thông tin STH)."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Ai là người chịu trách nhiệm cung cấp thông tin về phân loại mã lỗi trong màn hình giám sát STH?",
+        "answer": "Bộ phận **nghiệp vụ** của SeABank chịu trách nhiệm cung cấp **Bảng phân loại mã lỗi** (tập tin **Phân loại mã lỗi.xlsx**)."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 301,
+      "title": "## 1. Hiển thị thông tin ảnh",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 1. Hiển thị thông tin ảnh",
+      "content": "## 1. Hiển thị thông tin ảnh\r\n\r\n### 1.1 Ảnh KH ekyc:\r\n\r\n- Các ảnh được phóng to khi người dùng click ảnh, đối với thông tin trên GTTT tối thiểu khi phóng to phải nhìn được thông tin ngày cấp và ngày hết hạn.\r\n\r\n- Các ảnh người dùng có thể xoay chiều được khi kích vào xem ảnh. (Nếu ảnh hiện tại đã đúng chiều thì không phát triển tính năng này).\r\n\r\n- Khi Click xem các ảnh GTTT, chân dung thì hiển thị thông tin user bộ phận giám sát dạng bóng mờ sau ảnh (Nếu việc thay đổi ảnh hưởng đến chất lượng giám sát thì không phát triển tính năng này).\r\n\r\n- Người dùng có thể chuyển đến các ảnh tiếp theo (cùng section) trong bản ghi bằng chuột hoặc bằng phím.\r\n\r\n- Hiển thị tên user thực hiện giám sát bản ghi.\r\n\r\n- Chỉ hiển thị tên loại ảnh đối với ảnh chân dung và ảnh chân dung trong chip.òn khi Over vẫn hiển thị tên ảnh. Để thoát chế độ Over thì người dùng ấn ra ngoài màn hình.\r\n\r\n### 1.2 Thông tin hình ảnh KH thu thập STH hợp lệ gần nhất (nếu có): Chức năng xem ảnh tương tự ảnh ekyc\r\n\r\n### 1.3 Thông tin hình ảnh KH thu thập STH đang giám sát hiện tại: Chức năng xem ảnh tương tự ảnh ekyc\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "process",
+        "question": "Quy trình hiển thị ảnh khách hàng trong quá trình giám sát sinh trắc học có những tính năng nào?",
+        "answer": "Quy trình hiển thị ảnh khách hàng (KH) trong phần mềm giám sát sinh trắc học bao gồm các tính năng sau:\n        - **Phóng to ảnh**: Khi người dùng click vào ảnh, hệ thống phóng to để hiển thị rõ thông tin trên Giấy Thẻ Tùy Thân (GTTT), bao gồm ngày cấp và ngày hết hạn.\n        - **Xoay ảnh**: Người dùng có thể xoay ảnh (nếu ảnh hiện tại chưa đúng chiều). Nếu ảnh đã đúng chiều, tính năng này không được phát triển.\n        - **Hiển thị thông tin giám sát**: Sau ảnh GTTT hoặc chân dung, hệ thống hiển thị thông tin người dùng bộ phận giám sát dưới dạng bóng mờ (nếu tính năng này không ảnh hưởng đến chất lượng giám sát).\n        - **Chuyển ảnh**: Người dùng có thể chuyển đến ảnh tiếp theo trong cùng một section bằng chuột hoặc phím.\n        - **Thông tin người giám sát**: Hệ thống hiển thị tên người dùng thực hiện giám sát bản ghi.\n        - **Hiển thị tên loại ảnh**: Chỉ hiển thị tên loại ảnh (ví dụ: chân dung) khi ở chế độ Over, và người dùng thoát chế độ này bằng cách ấn ra ngoài màn hình."
+      },
+      {
+        "category": "rule",
+        "question": "Các quy tắc về hiển thị thông tin trên ảnh GTTT khi phóng to là gì?",
+        "answer": "Khi phóng to ảnh GTTT, hệ thống phải đảm bảo hiển thị rõ ràng thông tin ngày cấp và ngày hết hạn trên giấy thẻ. Đây là yêu cầu tối thiểu để phục vụ cho quá trình giám sát và xác thực."
+      },
+      {
+        "category": "constraint",
+        "question": "Có những hạn chế nào trong việc phát triển tính năng xoay ảnh cho khách hàng?",
+        "answer": "Tính năng xoay ảnh chỉ được phát triển nếu ảnh hiện tại chưa đúng chiều. Nếu ảnh đã đúng chiều, tính năng này sẽ không được triển khai để tránh phức tạp không cần thiết."
+      },
+      {
+        "category": "exception",
+        "question": "Trong trường hợp nào tính năng hiển thị thông tin giám sát dưới dạng bóng mờ sẽ không được phát triển?",
+        "answer": "Tính năng hiển thị thông tin giám sát dưới dạng bóng mờ sẽ không được phát triển nếu việc triển khai ảnh hưởng đến chất lượng giám sát."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình chuyển đổi giữa các ảnh trong cùng một section được thực hiện như thế nào?",
+        "answer": "Người dùng có thể chuyển đổi giữa các ảnh trong cùng một section bằng cách sử dụng chuột hoặc phím, giúp tăng tính tiện lợi trong quá trình giám sát."
+      },
+      {
+        "category": "data",
+        "question": "Thông tin nào được hiển thị khi người dùng xem ảnh chân dung hoặc chân dung trong chip?",
+        "answer": "Khi người dùng xem ảnh chân dung hoặc chân dung trong chip, hệ thống chỉ hiển thị tên loại ảnh khi ở chế độ Over. Người dùng thoát chế độ này bằng cách ấn ra ngoài màn hình."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình hiển thị ảnh khách hàng thu thập sinh trắc học hợp lệ gần nhất và đang giám sát hiện tại có gì khác biệt so với ảnh eKYC?",
+        "answer": "Quy trình hiển thị ảnh khách hàng thu thập sinh trắc học hợp lệ gần nhất và đang giám sát hiện tại tương tự như quy trình hiển thị ảnh eKYC, bao gồm phóng to, xoay ảnh, hiển thị thông tin giám sát, chuyển đổi ảnh và hiển thị tên người giám sát."
+      },
+      {
+        "category": "definition",
+        "question": "Chế độ Over trong hiển thị ảnh có ý nghĩa gì và cách thoát chế độ này như thế nào?",
+        "answer": "Chế độ Over là chế độ hiển thị tên loại ảnh (ví dụ: chân dung) khi người dùng xem chi tiết ảnh. Để thoát chế độ này, người dùng chỉ cần ấn ra ngoài màn hình."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 315,
+      "title": "## 2. Hiển thị Thông tin KH gồm:",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 2. Hiển thị Thông tin KH gồm:",
+      "content": "## 2. Hiển thị Thông tin KH gồm:\r\n\r\n### 2.1. Thông tin KH đăng ký dịch vụ:\r\n\r\n- Thông tin KH tại hệ thống CoreBanking trước khi thu thập STH.\r\n\r\n- Thông tin đọc chip khi thu thập STH.\r\n\r\nLưu ý: Đối với các trường thông tin không được quy định trong Căn cước theo bảng mô tả tại các thông tin đọc và lưu trong chíp của quy trình 1.12 thì để là N/A.òn các trường thông tin không có thông tin thì để Blank.\r\n\r\n---\r\n\r\n- Thông tin KH tại hệ thống Corebanking (Sau khi cập nhật thông tin STH).\r\n\r\n- Thông tin hệ thống có cập nhật mới hay không?\r\n\r\n**2.2. Hiển thị thông tin giám sát bản ghi ekyc.**\r\n\r\n**3. Tiện ích:**\r\n\r\n- Xem thông tin theo tiêu mục chính\r\n\r\nNgười dùng có thể chuyển nhanh đến 1 trong các loại nội dung thông tin (ví dụ thông tin GTTT, thông tin giám sát, thông tin khác) để xem nhanh.\r\n\r\n- Nút chức năng ghim ảnh/video.\r\n\r\n- Chức năng ghim Section hiển thị ảnh, video (nếu có). Mặc định là ghim ảnh ekyc, người dùng cuộn xuống xem thông tin nhưng ảnh vẫn được giữ ở phía trên màn hình.\r\n\r\n- Người dùng có thể thu vào đẩy ra, người dùng chỉ được chọn 1 section con để hiển thị.\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "data",
+        "question": "Các thông tin khách hàng nào sẽ được hiển thị trước khi thu thập dữ liệu sinh trắc học (STH) trong hệ thống?",
+        "answer": "Thông tin khách hàng tại hệ thống CoreBanking trước khi thu thập STH bao gồm thông tin đã có sẵn trong hệ thống và thông tin đọc từ chip khi thu thập STH. Các trường thông tin không được quy định trong Căn cước công dân (theo mô tả tại quy trình 1.12) sẽ được để là **N/A**, còn trường thông tin không có dữ liệu sẽ để trống (Blank)."
+      },
+      {
+        "category": "data",
+        "question": "Sau khi cập nhật thông tin sinh trắc học, thông tin khách hàng tại hệ thống CoreBanking sẽ như thế nào?",
+        "answer": "Sau khi cập nhật thông tin STH, hệ thống CoreBanking sẽ hiển thị thông tin khách hàng đã được cập nhật mới. Ngoài ra, hệ thống cũng sẽ xác định xem thông tin đã được cập nhật mới hay chưa."
+      },
+      {
+        "category": "process",
+        "question": "Làm thế nào để người dùng có thể theo dõi thông tin giám sát bản ghi eKYC trong hệ thống?",
+        "answer": "Hệ thống cung cấp một chức năng hiển thị riêng biệt để người dùng có thể xem thông tin giám sát bản ghi eKYC, được tổ chức trong một phần riêng (Section 2.2)."
+      },
+      {
+        "category": "process",
+        "question": "Các tiện ích hỗ trợ hiển thị thông tin khách hàng trong ứng dụng SeAMobile bao gồm những gì?",
+        "answer": "Các tiện ích bao gồm:\n        1. **Chuyển nhanh đến tiêu mục chính**: Người dùng có thể chọn nhanh một loại nội dung cụ thể (ví dụ: thông tin giấy tờ tùy thân, thông tin giám sát, hoặc thông tin khác) để xem nhanh.\n        2. **Chức năng ghim ảnh/video**: Người dùng có thể ghim ảnh/video vào một vị trí cố định trên màn hình (mặc định là ảnh eKYC) để giữ ảnh khi cuộn xuống xem thông tin chi tiết.\n        3. **Thu đẩy section con**: Người dùng chỉ được chọn **một section con** để hiển thị cùng một lúc, giúp tối ưu hóa trải nghiệm hiển thị."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu thông tin khách hàng trong chip không khớp với thông tin quy định trong Căn cước công dân, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Các trường thông tin không được quy định trong Căn cước công dân (theo mô tả tại quy trình 1.12) sẽ được để là **N/A**, còn trường thông tin không có dữ liệu sẽ để trống (Blank). Hệ thống không tự động xử lý hoặc thay đổi dữ liệu mà chỉ hiển thị theo quy định."
+      },
+      {
+        "category": "rule",
+        "question": "Quy định nào về việc hiển thị thông tin khách hàng sau khi thu thập sinh trắc học?",
+        "answer": "Sau khi thu thập và cập nhật thông tin sinh trắc học, hệ thống CoreBanking sẽ hiển thị thông tin khách hàng đã được cập nhật mới. Ngoài ra, hệ thống sẽ xác định xem thông tin đã được cập nhật mới hay chưa, nhưng không có quy định cụ thể về cách hiển thị hoặc xử lý trường hợp thông tin không được cập nhật."
+      },
+      {
+        "category": "scope",
+        "question": "Phạm vi hiển thị thông tin khách hàng trong ứng dụng SeAMobile bao gồm những gì?",
+        "answer": "Phạm vi hiển thị bao gồm:\n        - Thông tin khách hàng tại hệ thống CoreBanking **trước và sau** khi cập nhật STH.\n        - Thông tin đọc từ chip khi thu thập STH (theo quy định trong Căn cước công dân).\n        - Thông tin giám sát bản ghi eKYC.\n        - Các tiện ích hỗ trợ như chuyển nhanh tiêu mục, ghim ảnh/video, và thu đẩy section con."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của chức năng 'ghim ảnh/video' trong ứng dụng SeAMobile là gì?",
+        "answer": "Chức năng này cho phép người dùng **ghim ảnh/video** (mặc định là ảnh eKYC) vào một vị trí cố định trên màn hình, giúp người dùng có thể cuộn xuống xem thông tin chi tiết mà không mất ảnh khỏi tầm nhìn, tăng tính tiện lợi và trải nghiệm người dùng."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 429,
+      "title": "## Mô tả màn hình:",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## Mô tả màn hình:",
+      "content": "## Mô tả màn hình:\r\n\r\n### Mô tả các trường thông tin chi tiết:\r\n\r\n<table><thead><tr><th>Trường thông tin</th><th>Định dạng</th><th>Mô tả chi tiết</th></tr></thead><tbody><tr><td>1. Ảnh</td><td></td><td></td></tr><tr><td>1.1 Ảnh eKyc</td><td></td><td></td></tr><tr><td>Ảnh chân dung</td><td></td><td>Ảnh KH chụp Sefile khi mở ekyc.</td></tr><tr><td>Ảnh chân dung trong chip</td><td></td><td>Ảnh KH được lấy trong chip khi thực hiện NFC thông tin.<br>(Chỉ có đối với Trường hợp NFC)</td></tr><tr><td>Ảnh mặt trước GTTT</td><td></td><td>Ảnh mặt trước GTTT.<br>Đối với GTTT là Hộ chiếu là trang có ảnh chân dung KH.</td></tr><tr><td>Ảnh mặt sau GTTT</td><td></td><td>Không có đối với GTTT là Hộ chiếu</td></tr><tr><td>1.2 Ảnh STH hợp lệ gần nhất</td><td></td><td></td></tr></tbody></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><tr><td>Ảnh chân dung</td><td>Ảnh KH chụp Sefile khi thu thập thông tin STH.</td></tr><tr><td>Ảnh chân dung trong chip</td><td>Ảnh KH được lấy trong chip khi thực hiện NFC thông tin.</td></tr><tr><td>Ảnh mặt trước GTTT</td><td>Ảnh mặt trước GTTT.</td></tr><tr><td>Ảnh mặt sau GTTT</td><td>Ảnh mặt sau</td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "definition",
+        "question": "Các trường ảnh trong quá trình thu thập dữ liệu sinh trắc học của khách hàng bao gồm những loại nào?",
+        "answer": "Các trường ảnh bao gồm:\n        - Ảnh chân dung (chụp bằng Sefile khi mở eKYC hoặc thu thập thông tin STH).\n        - Ảnh chân dung trong chip (lấy từ chip thông qua NFC, chỉ áp dụng khi thực hiện NFC).\n        - Ảnh mặt trước GTTT (giấy tờ tùy thân, ví dụ: hộ chiếu hoặc CMND, với hộ chiếu là trang có ảnh chân dung khách hàng).\n        - Ảnh mặt sau GTTT (không áp dụng cho hộ chiếu)."
+      },
+      {
+        "category": "rule",
+        "question": "Khi nào ảnh chân dung trong chip được yêu cầu trong quá trình thu thập dữ liệu sinh trắc học?",
+        "answer": "Ảnh chân dung trong chip chỉ được yêu cầu khi khách hàng thực hiện quá trình NFC (giao tiếp không dây với chip của giấy tờ tùy thân)."
+      },
+      {
+        "category": "constraint",
+        "question": "Ảnh mặt sau GTTT có được yêu cầu đối với hộ chiếu không?",
+        "answer": "Không, ảnh mặt sau GTTT không được yêu cầu đối với hộ chiếu, vì hộ chiếu chỉ có ảnh mặt trước (trang có ảnh chân dung khách hàng)."
+      },
+      {
+        "category": "process",
+        "question": "Nguồn gốc của ảnh chân dung trong quá trình thu thập dữ liệu sinh trắc học có thể đến từ đâu?",
+        "answer": "Ảnh chân dung có thể đến từ:\n        - Ảnh chụp bằng Sefile khi mở eKYC.\n        - Ảnh chụp bằng Sefile khi thu thập thông tin STH (sổ tay hợp lệ gần nhất).\n        - Ảnh lấy từ chip thông qua NFC (nếu áp dụng)."
+      },
+      {
+        "category": "data",
+        "question": "Mô tả chi tiết về ảnh mặt trước GTTT trong quá trình thu thập dữ liệu sinh trắc học?",
+        "answer": "Ảnh mặt trước GTTT là ảnh của mặt trước giấy tờ tùy thân (ví dụ: CMND, CCCD, hộ chiếu). Đối với hộ chiếu, trang này chứa ảnh chân dung của khách hàng."
+      },
+      {
+        "category": "exception",
+        "question": "Có trường hợp nào không yêu cầu ảnh mặt sau GTTT không?",
+        "answer": "Có, đối với hộ chiếu, không yêu cầu ảnh mặt sau GTTT vì hộ chiếu chỉ có một mặt chính (mặt trước) chứa ảnh chân dung khách hàng."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của việc phân loại các trường ảnh trong quá trình thu thập sinh trắc học là gì?",
+        "answer": "Phân loại các trường ảnh nhằm đảm bảo tính toàn vẹn và chính xác của dữ liệu sinh trắc học thu thập được, phục vụ cho việc xác thực khách hàng và tuân thủ quy định pháp lý của ngân hàng trong quá trình xác thực giao dịch tài chính online."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 136,
+      "title": "## 1.3 Ảnh giám sát bản ghi STH",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 1.3 Ảnh giám sát bản ghi STH",
+      "content": "## 1.3 Ảnh giám sát bản ghi STH\r\n\r\n<table><tr><td>Ảnh chân dung</td><td>Ảnh KH chụp Sefile khi thu thập thông tin STH.</td></tr><tr><td>Ảnh chân dung trong chip</td><td>Ảnh KH được lấy trong chip khi thực hiện NFC thông tin.</td></tr><tr><td>Ảnh mặt trước GTTT</td><td>Ảnh mặt trước GTTT.</td></tr><tr><td>Ảnh mặt sau GTTT</td><td>Ảnh mặt sau</td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "definition",
+        "question": "Các loại ảnh giám sát bản ghi sinh trắc học (STH) được định nghĩa như thế nào trong quy trình thu thập dữ liệu?",
+        "answer": "Quy trình thu thập dữ liệu sinh trắc học (STH) của SeABank định nghĩa bốn loại ảnh giám sát bản ghi bao gồm:\n        1. **Ảnh chân dung**: Ảnh khách hàng (KH) chụp khi thu thập thông tin STH qua ứng dụng Sefile.\n        2. **Ảnh chân dung trong chip**: Ảnh khách hàng được lấy từ chip khi thực hiện quá trình NFC (viễn thông không dây) để truyền thông tin.\n        3. **Ảnh mặt trước GTTT (Giấy Thẻ Tùy Thân)**: Ảnh mặt trước của giấy thẻ tùy thân của khách hàng.\n        4. **Ảnh mặt sau GTTT**: Ảnh mặt sau của giấy thẻ tùy thân của khách hàng."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình thu thập ảnh chân dung trong quá trình thu thập dữ liệu sinh trắc học được thực hiện như thế nào?",
+        "answer": "Ảnh chân dung của khách hàng được thu thập thông qua ứng dụng Sefile khi khách hàng thực hiện việc cung cấp thông tin sinh trắc học. Đây là ảnh chụp trực tiếp từ thiết bị di động của khách hàng trong quá trình thu thập dữ liệu."
+      },
+      {
+        "category": "process",
+        "question": "Ảnh chân dung trong chip được thu thập như thế nào trong quy trình sinh trắc học?",
+        "answer": "Ảnh chân dung trong chip được lấy từ thông tin được mã hóa trong chip của giấy thẻ tùy thân của khách hàng khi thực hiện quá trình NFC (viễn thông không dây). Đây là một hình thức xác thực thông qua công nghệ chip tích hợp trong giấy thẻ."
+      },
+      {
+        "category": "data",
+        "question": "Các loại ảnh mặt trước và mặt sau của giấy thẻ tùy thân (GTTT) đóng vai trò gì trong quá trình thu thập dữ liệu sinh trắc học?",
+        "answer": "Ảnh mặt trước và mặt sau của giấy thẻ tùy thân (GTTT) được thu thập để xác thực thông tin cá nhân của khách hàng. Ảnh mặt trước GTTT thường chứa thông tin như ảnh chân dung, họ tên, ngày sinh, và các thông tin khác trên mặt trước của giấy thẻ, trong khi ảnh mặt sau GTTT chứa thông tin như số CMND/CCCD, ngày cấp, và các thông tin khác trên mặt sau của giấy thẻ."
+      },
+      {
+        "category": "rule",
+        "question": "Có những quy định nào liên quan đến việc thu thập ảnh mặt sau GTTT trong quy trình sinh trắc học?",
+        "answer": "Dựa trên thông tin trong tài liệu, quy trình thu thập ảnh mặt sau GTTT được thực hiện để đảm bảo tính toàn vẹn và chính xác của thông tin trên giấy thẻ tùy thân của khách hàng. Tuy nhiên, tài liệu không nêu rõ chi tiết về các quy định cụ thể (như yêu cầu về chất lượng ảnh, định dạng, hoặc các thông tin bắt buộc phải có)."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu một trong các loại ảnh giám sát bản ghi STH không được thu thập đầy đủ hoặc không hợp lệ, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Tài liệu không cung cấp thông tin cụ thể về cách xử lý trường hợp thiếu hoặc không hợp lệ của các loại ảnh giám sát bản ghi STH. Tuy nhiên, có thể suy luận rằng hệ thống sẽ yêu cầu khách hàng cung cấp lại thông tin hoặc từ chối xử lý yêu cầu nếu thông tin không đầy đủ hoặc không hợp lệ, nhằm đảm bảo tính chính xác và an toàn của dữ liệu sinh trắc học."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 332,
+      "title": "## 2. Thông tin KH đăng ký dịch vụ",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 2. Thông tin KH đăng ký dịch vụ",
+      "content": "## 2. Thông tin KH đăng ký dịch vụ\r\n\r\n(như mô tả tại file mokup đính kèm tài liệu)\r\n\r\n### 2.1 Thông tin đăng ký\r\n\r\n<table><tr><td>Kênh mở CustID</td><td>Quầy/SeAMobile</td></tr><tr><td>Phương pháp ekyc</td><td>NFC/Không NFC. Chỉ có giá trị khi Kênh mở CustID là SeAMobile NFC là các trường hợp KH sử dụng CCCD chip để mở eKYC và thông tin trên màn hình đăng ký của KH được đọc từ chip. Các trường hợp còn lại là Không NFC</td></tr><tr><td>Loại GTTT đăng ký</td><td>CCCD thường/CCCD gắn chip/CMND/Hộ Chiếu.</td></tr><tr><td>Tỉ lệ matching chân dung đăng ký STH và ảnh trong chip</td><td>So sánh độ trùng khớp giữa ảnh chân dung thu thập lúc STH và ảnh chân dung trong CCCD gắn chip</td></tr><tr><td>Xác thực STH với BCA</td><td>Do BCA phát hành/Không phải do BCA phát hành/BCA chưa trả lời.</td></tr></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><tr><td>Thời gian nhận phản hồi của BCA</td><td>Dd/mm/yy<br>hh:mm</td><td>Là thời gian SeABank nhận phản hồi</td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "data",
+        "question": "Các kênh nào được sử dụng để mở CustID (Mã khách hàng) trong quy trình đăng ký dịch vụ thu thập dữ liệu sinh trắc học?",
+        "answer": "Quy trình đăng ký dịch vụ thu thập dữ liệu sinh trắc học hỗ trợ hai kênh mở CustID: Quầy (gồm các điểm giao dịch trực tiếp) và SeAMobile (ứng dụng di động của SeABank)."
+      },
+      {
+        "category": "rule",
+        "question": "Phương pháp eKYC (Xác thực danh tính điện tử) được áp dụng như thế nào trong quy trình đăng ký dịch vụ?",
+        "answer": "Phương pháp eKYC được phân loại thành hai trường hợp:\n        - **NFC**: Áp dụng khi kênh mở CustID là SeAMobile và khách hàng sử dụng CCCD gắn chip để mở eKYC. Thông tin trên màn hình đăng ký của khách hàng được đọc trực tiếp từ chip CCCD.\n        - **Không NFC**: Áp dụng cho tất cả các trường hợp khác (ví dụ: đăng ký tại quầy hoặc sử dụng CCCD thường, CMND, Hộ chiếu)."
+      },
+      {
+        "category": "data",
+        "question": "Quy trình đăng ký dịch vụ hỗ trợ những loại giấy tờ tùy thân (GTTT) nào?",
+        "answer": "Quy trình hỗ trợ bốn loại giấy tờ tùy thân để đăng ký dịch vụ:\n        - CCCD thường (Chứng minh nhân dân không gắn chip).\n        - CCCD gắn chip.\n        - CMND (Căn cước công dân).\n        - Hộ chiếu."
+      },
+      {
+        "category": "process",
+        "question": "Tỉ lệ matching (so sánh độ trùng khớp) giữa chân dung đăng ký và ảnh trong CCCD gắn chip được xác định như thế nào?",
+        "answer": "Tỉ lệ matching được xác định bằng cách so sánh độ trùng khớp giữa ảnh chân dung thu thập lúc khách hàng đăng ký dịch vụ (STH) và ảnh chân dung trong CCCD gắn chip. Kết quả này được sử dụng để xác thực tính chính xác của thông tin sinh trắc học."
+      },
+      {
+        "category": "rule",
+        "question": "Xác thực STH (Sinh trắc học) với BCA (Bộ Công an) được thực hiện theo những trạng thái nào?",
+        "answer": "Xác thực STH với BCA có ba trạng thái:\n        - **Do BCA phát hành**: Dữ liệu sinh trắc học được xác nhận chính xác bởi BCA.\n        - **Không phải do BCA phát hành**: Dữ liệu sinh trắc học không được BCA xác nhận hoặc không phù hợp với thông tin trong cơ sở dữ liệu của BCA.\n        - **BCA chưa trả lời**: Trạng thái tạm thời khi BCA chưa phản hồi về tính xác thực của dữ liệu sinh trắc học."
+      },
+      {
+        "category": "data",
+        "question": "Thời gian nhận phản hồi của BCA trong quy trình xác thực STH được định dạng như thế nào?",
+        "answer": "Thời gian nhận phản hồi của BCA được định dạng theo chuẩn **dd/mm/yy hh:mm**, trong đó:\n        - **dd/mm/yy**: Ngày/tháng/năm nhận phản hồi.\n        - **hh:mm**: Giờ và phút nhận phản hồi.\n        Đây là thời điểm SeABank chính thức nhận được phản hồi từ BCA về kết quả xác thực dữ liệu sinh trắc học."
+      },
+      {
+        "category": "process",
+        "question": "Mục đích của việc so sánh ảnh chân dung trong CCCD gắn chip với ảnh thu thập lúc đăng ký là gì?",
+        "answer": "Mục đích của việc so sánh này là để đảm bảo tính chính xác và hợp lệ của thông tin sinh trắc học của khách hàng. Nếu độ trùng khớp cao, hệ thống sẽ xác nhận khách hàng là người thực sự đăng ký dịch vụ, từ đó giảm thiểu rủi ro gian lận hoặc sử dụng thông tin giả mạo."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu BCA chưa trả lời về tính xác thực của dữ liệu sinh trắc học, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Tài liệu không mô tả cụ thể cách xử lý trong trường hợp này, nhưng trạng thái 'BCA chưa trả lời' cho thấy hệ thống sẽ giữ dữ liệu trong tình trạng chờ xác nhận và không tiến hành các bước tiếp theo (như kích hoạt dịch vụ) cho đến khi nhận được phản hồi từ BCA."
+      },
+      {
+        "category": "version",
+        "question": "Tài liệu công khai (Public) về thời gian phản hồi của BCA có ý nghĩa gì trong quy trình này?",
+        "answer": "Thông tin về thời gian phản hồi của BCA được định dạng và lưu trữ để phục vụ mục đích giám sát, theo dõi hiệu suất và tuân thủ quy trình. Nó cũng giúp SeABank đánh giá thời gian xử lý của BCA và có thể sử dụng để thông báo cho khách hàng về tiến độ xác thực."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 202,
+      "title": "## 2.1 Thông tin GTTT KH",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 2.1 Thông tin GTTT KH",
+      "content": "## 2.1 Thông tin GTTT KH\r\n\r\n1. Loại GTTT\r\n\r\n2. Số GTTT\r\n\r\n3. Số CMND/GCMND\r\n(Theo chip/hộ chiếu)\r\n\r\n4. Họ tên\r\n\r\n5. Ngày sinh\r\n\r\n6. Giới tính\r\n\r\n7. Ngày hết hạn\r\n\r\n8. Quốc tịch\r\n\r\n9. Nơi ở thường trú\r\n\r\n10. Quê quán\r\n\r\n11. Đặc điểm nhận dạng\r\n\r\n12. Ngày cấp\r\n\r\n13. Nơi cấp\r\n\r\n14. MRZ\r\n\r\n15. Dân tộc\r\n\r\n16. Tôn giáo\r\n\r\nHệ thống hiển thị:\r\n\r\n* ✓ Thông tin KH tại hệ thống Corebanking (Trước khi thu thập STH)\r\n\r\n* ✓ Thông tin đọc chip khi \\thu thập STH\r\n\r\n* ✓ Thông tin KH tại hệ thống Corebanking (Sau khi cập nhật thông tin STH)\r\n\r\n* ✓ Có cập nhật hay không (Giá trị là Có/Không)\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "definition",
+        "question": "Các trường thông tin gì về Giấy Tờ Thư Túc (GTTT) của khách hàng được yêu cầu thu thập trong quy trình sinh trắc học?",
+        "answer": "Các trường thông tin GTTT bao gồm: Loại GTTT, Số GTTT, Số CMND/GCMND (theo chip/hộ chiếu), Họ tên, Ngày sinh, Giới tính, Ngày hết hạn, Quốc tịch, Nơi ở thường trú, Quê quán, Đặc điểm nhận dạng, Ngày cấp, Nơi cấp, MRZ (Machine Readable Zone), Dân tộc và Tôn giáo."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình thu thập thông tin GTTT của khách hàng được thể hiện như thế nào trong hệ thống?",
+        "answer": "Hệ thống hiển thị thông tin khách hàng theo 4 trạng thái:\n        1. Thông tin khách hàng tại hệ thống Corebanking trước khi thu thập sinh trắc học (STH).\n        2. Thông tin đọc từ chip khi thực hiện thu thập STH.\n        3. Thông tin khách hàng tại hệ thống Corebanking sau khi cập nhật thông tin STH.\n        4. Trạng thái có cập nhật thông tin hay không (giá trị Có/Không)."
+      },
+      {
+        "category": "data",
+        "question": "Các trường thông tin GTTT nào có thể được đọc từ chip của CMND/GCMND hoặc hộ chiếu?",
+        "answer": "Các trường thông tin có thể đọc từ chip của CMND/GCMND hoặc hộ chiếu bao gồm: Số GTTT, Họ tên, Ngày sinh, Giới tính, Ngày hết hạn, Quốc tịch, Nơi ở thường trú, Quê quán, Ngày cấp, Nơi cấp, MRZ (Machine Readable Zone)."
+      },
+      {
+        "category": "constraint",
+        "question": "Có những trường thông tin nào trong GTTT không thể được đọc từ chip nhưng vẫn phải được thu thập?",
+        "answer": "Các trường thông tin không thể đọc từ chip nhưng vẫn phải thu thập bao gồm: Loại GTTT, Đặc điểm nhận dạng, Dân tộc và Tôn giáo."
+      },
+      {
+        "category": "process",
+        "question": "Sau khi thu thập thông tin sinh trắc học, hệ thống sẽ thực hiện cập nhật thông tin khách hàng như thế nào?",
+        "answer": "Sau khi thu thập thông tin sinh trắc học, hệ thống sẽ so sánh và cập nhật thông tin khách hàng tại hệ thống Corebanking. Kết quả cập nhật này được thể hiện qua trường 'Có cập nhật hay không' với giá trị Có hoặc Không."
+      },
+      {
+        "category": "data",
+        "question": "Trường 'MRZ' trong thông tin GTTT có ý nghĩa gì?",
+        "answer": "MRZ (Machine Readable Zone) là vùng dữ liệu có thể đọc được bằng máy trên CMND/GCMND hoặc hộ chiếu, bao gồm thông tin như họ tên, ngày sinh, ngày hết hạn, quốc tịch, số GTTT, và các thông tin khác được mã hóa để máy đọc có thể trích xuất tự động."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu thông tin đọc từ chip không khớp với thông tin tại hệ thống Corebanking, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Tài liệu không đề cập cụ thể đến quy trình xử lý khi thông tin đọc từ chip không khớp với thông tin tại hệ thống Corebanking. Tuy nhiên, hệ thống sẽ hiển thị thông tin trước và sau khi cập nhật, đồng thời ghi lại trạng thái 'Có cập nhật hay không' để theo dõi sự khác biệt."
+      },
+      {
+        "category": "scope",
+        "question": "Các thông tin thu thập từ GTTT của khách hàng có được sử dụng để làm gì trong quy trình sinh trắc học?",
+        "answer": "Các thông tin thu thập từ GTTT của khách hàng được sử dụng để:\n        1. Xác thực thông tin khách hàng trước khi thu thập sinh trắc học.\n        2. So sánh và cập nhật thông tin tại hệ thống Corebanking sau khi thu thập sinh trắc học.\n        3. Đảm bảo tính chính xác và hợp lệ của dữ liệu trước khi gửi đến Bộ Công An để kiểm tra xác thực."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 743,
+      "title": "## 3. Thông tin giám sát STH",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 3. Thông tin giám sát STH",
+      "content": "## 3. Thông tin giám sát STH\r\n\r\n<table><tr><td>Kênh thu thập STH</td><td>Tại Quầy/SeAmobile</td></tr><tr><td>Ngày KH thực hiện thu thập thông tin STH</td><td>Ngày KH hoàn thành đăng ký/bổ sung thông tin STH, hiển thị định dạng: yy/mm/yyyy</td></tr><tr><td>Trang thái hậu kiểm STH</td><td>Đồng ý/Từ chối/Chờ Giám sát</td></tr><tr><td>Phân loại mã giám sát STH</td><td>Hiển thị theo thông tin của các bộ phận giám sát nhập.</td></tr><tr><td>Ghi chú</td><td>Hiển thị theo thông tin của các bộ phận giám sát nhập.</td></tr></table>\r\n\r\n---\r\n\r\n### 1.4.2 Màn hình giám sát của ĐVKD\r\n\r\na. Màn hình giám sát: Tương tự màn hình của bộ phận hậu kiểm và các nội dung sau:\r\n\r\n1. Không có trường thông tin SĐT khách hàng\r\n\r\n2. File Exel không có số điện thoại khách hàng\r\n\r\n3. Nút chức năng xử lý bản ghi:\r\n\r\n* ĐVKD chỉ được thực hiện chuyển trạng thái “Mở chặn ghi nợ, có yêu cầu thu thập lại trên SM”\r\n\r\nb. Màn hình chi tiết: Tương tự màn hình của bộ phận hậu kiểm chỉ khác nút chức năng giám sát thực hiện bản ghi như mô tả ở màn hình giám sát của ĐVKD\r\n\r\n### 1.4.3 Màn hình giám sát của VHDVĐK\r\n\r\nMàn hình giám sát và màn hình chi tiết tương tự như của bộ phận giám sát sau. Các bản ghi chỉ được phân quyền xem không được xử lý.\r\n\r\n#### 1.5. Đổi tên chức năng & bổ sung Chức năng tìm kiếm\r\n\r\n1.5.1 Yêu cầu: Đổi tên tính năng “Cài đặt Sinh Trắc Học” trên ứng dụng SeAMobile hiện tại thành tính năng “Cài đặt Đăng nhập nhanh”, Tiều đề tính năng sửa thành” Cài đặt Đăng nhập nhanh”.\r\n\r\n1.5.2 Sắp xếp lại icon tính năng:\r\n\r\n<table><tr><td>Loại màn hình</td><td>Cũ</td><td>Mới</td></tr></table>\r\n\r\n---\r\n\r\nMàn hình\r\nhome\r\n\r\n- Đưa thêm icon STH lên trên để là tính năng (New)\r\n\r\n- Chuyển tính năng gọi hỗ trợ 247 thay vị trí của giải trí\r\n\r\n- Đưa tính năng giải trí vào mục cài đặt\r\n\r\n---\r\n\r\nMàn hình\r\ntrong mục cài\r\nđặt\r\n\r\nGiải trí được đưa vào trước đăng xuất\r\n\r\n### 1.5.2 Bổ sung Chức năng tìm kiếm:\r\n\r\nCập nhật keyword tìm kiếm tính năng “Đăng nhập nhanh” & “Bổ sung sinh trắc học” theo\r\nliệt kê trong tài liệu tại link (STT 10, STT 127): \\\\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi\r\nCNTT\\ITDocuments\\Projects\\12. Chuyen doi so\\6. Document\\2. URD & SRS\\145. Tìm\r\nkiếm tính năng SM\\ List tính năng ebank update 15.08\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "process",
+        "question": "Quy trình giám sát dữ liệu sinh trắc học (STH) bao gồm những thông tin nào?",
+        "answer": "Quy trình giám sát STH bao gồm các thông tin sau: kênh thu thập (Tại Quầy/SeAmobile), ngày khách hàng thực hiện thu thập (định dạng yy/mm/yyyy), trạng thái hậu kiểm (Đồng ý/Từ chối/Chờ Giám sát), phân loại mã giám sát và ghi chú (do bộ phận giám sát nhập)."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Những bộ phận nào tham gia vào quá trình giám sát dữ liệu sinh trắc học?",
+        "answer": "Các bộ phận tham gia giám sát bao gồm Đơn vị Kiểm Định (ĐVKD) và Văn Hóa Đơn Vị Đăng Ký (VHDVĐK). Mỗi bộ phận có quyền và chức năng giám sát khác nhau."
+      },
+      {
+        "category": "process",
+        "question": "Đơn vị Kiểm Định (ĐVKD) có thể thực hiện những chức năng nào trong quá trình giám sát?",
+        "answer": "ĐVKD chỉ được thực hiện chuyển trạng thái bản ghi thành ‘Mở chặn ghi nợ, có yêu cầu thu thập lại trên SeAMobile’. Họ không có quyền xem thông tin số điện thoại khách hàng trong file Excel."
+      },
+      {
+        "category": "constraint",
+        "question": "Văn Hóa Đơn Vị Đăng Ký (VHDVĐK) có quyền xử lý bản ghi giám sát không?",
+        "answer": "Không, VHDVĐK chỉ được phân quyền xem bản ghi giám sát và không được thực hiện bất kỳ xử lý nào."
+      },
+      {
+        "category": "change_History",
+        "question": "Tính năng ‘Cài đặt Sinh Trắc Học’ trên SeAMobile sẽ được đổi tên thành gì?",
+        "answer": "Tính năng ‘Cài đặt Sinh Trắc Học’ sẽ được đổi tên thành ‘Cài đặt Đăng nhập nhanh’, và tiêu đề tính năng cũng được sửa thành ‘Cài đặt Đăng nhập nhanh’."
+      },
+      {
+        "category": "process",
+        "question": "Các thay đổi về bố cục icon trên màn hình home và mục cài đặt của SeAMobile là gì?",
+        "answer": "Thay đổi bao gồm: thêm icon ‘Sinh Trắc Học’ lên trên màn hình home, chuyển tính năng ‘Gọi hỗ trợ 24/7’ thay vị trí ‘Giải trí’, và đưa tính năng ‘Giải trí’ vào mục cài đặt, sắp xếp trước ‘Đăng xuất’."
+      },
+      {
+        "category": "data",
+        "question": "Tính năng tìm kiếm trên SeAMobile sẽ được cập nhật như thế nào?",
+        "answer": "Tính năng tìm kiếm sẽ được cập nhật để hỗ trợ tìm kiếm theo keyword cho tính năng ‘Đăng nhập nhanh’ và ‘Bổ sung sinh trắc học’, dựa trên danh sách keyword được liệt kê trong tài liệu tại đường dẫn: \\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi CNTT\\ITDocuments\\Projects\\12. Chuyển đổi số\\6. Document\\2. URD & SRS\\145. Tìm kiếm tính năng SM\\ List tính năng ebank update 15.08."
+      },
+      {
+        "category": "exception",
+        "question": "Trong quá trình giám sát, trường hợp nào không hiển thị thông tin số điện thoại khách hàng?",
+        "answer": "Trong màn hình giám sát của Đơn vị Kiểm Định (ĐVKD), không có trường thông tin số điện thoại khách hàng và file Excel cũng không chứa thông tin này."
+      },
+      {
+        "category": "version",
+        "question": "Thay đổi về tên chức năng và bố cục icon có liên quan đến phiên bản nào của SeAMobile?",
+        "answer": "Thông tin này không được đề cập rõ trong chunk, nhưng thay đổi này liên quan đến việc cập nhật tính năng và giao diện của ứng dụng SeAMobile trong quá trình chuyển đổi số."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của việc thay đổi tên chức năng và bố cục icon là gì?",
+        "answer": "Mục đích cụ thể không được nêu rõ trong chunk, nhưng có thể liên quan đến việc cải thiện trải nghiệm người dùng, tăng tính tiện lợi và phù hợp với chiến lược chuyển đổi số của SeABank."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 330,
+      "title": "## 1.6. Chức năng liên kết Deeplink",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 1.6. Chức năng liên kết Deeplink",
+      "content": "## 1.6. Chức năng liên kết Deeplink\r\n\r\nCập nhật liên kết tính năng “Bổ sung sinh trắc học” theo tài liệu URD:\r\n\\\\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi CNTT\\ITDocuments\\Projects\\12. Chuyen doi so\\6. Document\\2. URD & SRS\\146.Deeplink\r\n\r\n---\r\n\r\nVà danh sách tính năng liên kết: \\\\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi CNTT\\ITDocuments\\Projects\\12. Chuyen doi so\\6. Document\\2. URD & SRS\\146.Deeplink\\ Danh sách deeplink tính năng eBank_v2.1.3\r\n\r\n<table><thead><tr><td>STT</td><td>Nhóm tính năng</td><td>Tính năng</td><td>Tab trong tính năng</td><td>Mã GD</td><td>Đuôi Deeplink</td><td>Đường dẫn</td></tr></thead><tbody><tr><td>156</td><td>Cài đặt/Tiện ích</td><td>Bổ sung thông tin Sinh trắc học</td><td></td><td>TTSTH</td><td>.../TTSTH</td><td>Đăng nhập/Cài đặt/Bổ sung thông tin Sinh trắc học</td></tr></tbody></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "process",
+        "question": "Quy trình liên kết Deeplink cho tính năng 'Bổ sung sinh trắc học' được cập nhật như thế nào?",
+        "answer": "Quy trình liên kết Deeplink cho tính năng 'Bổ sung sinh trắc học' được cập nhật theo tài liệu URD (User Requirement Document) tại đường dẫn:\n        `\\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi CNTT\\ITDocuments\\Projects\\12. Chuyen doi so\\6. Document\\2. URD & SRS\\146.Deeplink`.\n        Danh sách chi tiết về các tính năng Deeplink được tham khảo từ file:\n        `\\dc2nasfile01\\SBDATA\\Private\\HO\\Khoi CNTT\\ITDocuments\\Projects\\12. Chuyen doi so\\6. Document\\2. URD & SRS\\146.Deeplink\\Danh sách deeplink tính năng eBank_v2.1.3`."
+      },
+      {
+        "category": "data",
+        "question": "Tính năng 'Bổ sung thông tin Sinh trắc học' được liên kết với Deeplink nào trong ứng dụng SeAMobile?",
+        "answer": "Tính năng 'Bổ sung thông tin Sinh trắc học' thuộc nhóm 'Cài đặt/Tiện ích' được liên kết với mã GD **TTSTH** và có đường dẫn Deeplink cụ thể là:\n        **.../TTSTH**.\n        Đường dẫn đầy đủ để truy cập tính năng này là:\n        **Đăng nhập/Cài đặt/Bổ sung thông tin Sinh trắc học**."
+      },
+      {
+        "category": "rule",
+        "question": "Có quy định nào về cách tổ chức đường dẫn Deeplink cho tính năng sinh trắc học trong SeAMobile?",
+        "answer": "Dựa trên bảng dữ liệu, đường dẫn Deeplink cho tính năng 'Bổ sung thông tin Sinh trắc học' được tổ chức theo cấu trúc:\n        **Đăng nhập** → **Cài đặt** → **Bổ sung thông tin Sinh trắc học**.\n        Mã GD tương ứng là **TTSTH**, và đuôi Deeplink được định dạng là **.../TTSTH**.\n        Tuy nhiên, tài liệu không nêu rõ quy tắc cụ thể về cách xây dựng đường dẫn Deeplink, chỉ cung cấp thông tin về cấu trúc và vị trí của tính năng này trong ứng dụng."
+      },
+      {
+        "category": "version",
+        "question": "Danh sách Deeplink cho tính năng sinh trắc học được tham khảo từ phiên bản nào của tài liệu?",
+        "answer": "Danh sách Deeplink cho tính năng sinh trắc học được tham khảo từ phiên bản **eBank_v2.1.3** của tài liệu URD & SRS."
+      },
+      {
+        "category": "scope",
+        "question": "Tính năng 'Bổ sung thông tin Sinh trắc học' thuộc nhóm nào trong ứng dụng SeAMobile?",
+        "answer": "Tính năng 'Bổ sung thông tin Sinh trắc học' thuộc nhóm **Cài đặt/Tiện ích** trong ứng dụng SeAMobile."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của việc cập nhật Deeplink cho tính năng 'Bổ sung sinh trắc học' là gì?",
+        "answer": "Mục đích của việc cập nhật Deeplink là để đảm bảo tính năng 'Bổ sung sinh trắc học' được tích hợp và truy cập một cách chính xác trong ứng dụng SeAMobile, hỗ trợ quy trình thu thập và quản lý dữ liệu sinh trắc học của khách hàng theo yêu cầu của dự án Chuyển đổi số. Tuy nhiên, tài liệu không cung cấp chi tiết cụ thể về mục đích chiến lược hoặc lợi ích cụ thể của việc cập nhật này."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 40,
+      "title": "## 2 Các giả thiết và ràng buộc (*)",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## 2 Các giả thiết và ràng buộc (*)",
+      "content": "## 2 Các giả thiết và ràng buộc (*)\r\n\r\n*<Mô tả các giả thiết và ràng buộc khi thực hiện yêu cầu>\r\n\r\n*(*) Nếu không có thì để [N/A]\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "scope",
+        "question": "Các giả thiết và ràng buộc nào được xác định trong quá trình thực hiện yêu cầu thu thập dữ liệu sinh trắc học cho SeABank?",
+        "answer": "Tài liệu hiện chưa cung cấp cụ thể các giả thiết và ràng buộc liên quan đến việc thực hiện yêu cầu thu thập dữ liệu sinh trắc học. Theo định dạng, nếu không có thông tin, phần này được đánh dấu là [N/A]."
+      },
+      {
+        "category": "constraint",
+        "question": "Liệu có bất kỳ ràng buộc nào về quy trình thu thập dữ liệu sinh trắc học được đề cập trong tài liệu này không?",
+        "answer": "Không có thông tin cụ thể về các ràng buộc (constraint) trong phần này. Người đọc cần tham khảo các phần khác của tài liệu để tìm hiểu về các quy định, quy trình hoặc hạn chế liên quan đến việc thu thập và xử lý dữ liệu sinh trắc học."
+      },
+      {
+        "category": "rule",
+        "question": "Có những quy định nào liên quan đến việc thu thập dữ liệu sinh trắc học được đề cập trong phần giả thiết và ràng buộc này không?",
+        "answer": "Phần này không đề cập đến bất kỳ quy định cụ thể nào về thu thập dữ liệu sinh trắc học. Nếu có thông tin về quy định, chúng sẽ được trình bày trong các phần khác của tài liệu, chẳng hạn như phần mô tả quy trình hoặc yêu cầu pháp lý."
+      },
+      {
+        "category": "exception",
+        "question": "Liệu có trường hợp ngoại lệ nào được xác định trong quá trình thu thập dữ liệu sinh trắc học trong tài liệu này không?",
+        "answer": "Không có thông tin về trường hợp ngoại lệ (exception) nào được đề cập trong phần này. Người đọc có thể tham khảo các phần khác của tài liệu, ví dụ như phần mô tả quy trình hoặc xử lý lỗi, để tìm hiểu về các tình huống đặc biệt."
+      },
+      {
+        "category": "process",
+        "question": "Phần giả thiết và ràng buộc này có đề cập đến bất kỳ hạn chế nào về quy trình thu thập dữ liệu sinh trắc học không?",
+        "answer": "Không có thông tin cụ thể về hạn chế (constraint) trong quy trình thu thập dữ liệu sinh trắc học được đề cập trong phần này. Người đọc cần xem xét các phần khác của tài liệu để hiểu rõ hơn về quy trình và các yếu tố có thể ảnh hưởng đến quá trình này."
+      },
+      {
+        "category": "version",
+        "question": "Phần này có đề cập đến phiên bản hoặc trạng thái hiện tại của các giả thiết và ràng buộc không?",
+        "answer": "Phần này không đề cập đến phiên bản (version) hoặc trạng thái cụ thể của các giả thiết và ràng buộc. Nếu có thông tin về phiên bản, nó sẽ được trình bày trong các phần khác của tài liệu, ví dụ như phần lịch sử thay đổi hoặc quản lý phiên bản."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của phần 'Các giả thiết và ràng buộc' trong tài liệu này là gì?",
+        "answer": "Phần này được thiết kế để mô tả các giả thiết và ràng buộc liên quan đến việc thực hiện yêu cầu thu thập dữ liệu sinh trắc học. Theo định dạng của tài liệu, nếu không có thông tin cụ thể, phần này sẽ được đánh dấu là [N/A]. Người đọc có thể tham khảo các phần khác của tài liệu để tìm hiểu về các giả thiết và ràng buộc thực tế."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Các bên liên quan (stakeholder) có liên quan đến các giả thiết và ràng buộc trong quá trình thu thập dữ liệu sinh trắc học được đề cập ở đâu trong tài liệu?",
+        "answer": "Phần này không đề cập đến các bên liên quan cụ thể. Thông tin về stakeholder có thể được trình bày trong các phần khác của tài liệu, chẳng hạn như phần mô tả vai trò và trách nhiệm của các bên liên quan trong quy trình thu thập và xử lý dữ liệu sinh trắc học."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 34,
+      "title": "## IV. Yêu cầu báo cáo",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## IV. Yêu cầu báo cáo",
+      "content": "## IV. Yêu cầu báo cáo\r\n\r\n1. Báo cáo 01: <N/A>\r\n\r\n2. Báo cáo 02: <N/A>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "scope",
+        "question": "Tài liệu yêu cầu báo cáo nào liên quan đến quy trình thu thập và xử lý dữ liệu sinh trắc học?",
+        "answer": "Hiện tại, tài liệu chỉ đề cập đến việc định nghĩa yêu cầu về báo cáo (Báo cáo 01 và Báo cáo 02), nhưng chưa cung cấp chi tiết cụ thể về nội dung hoặc mục đích của các báo cáo này. Thông tin này có thể được bổ sung trong các phần sau của tài liệu hoặc trong các tài liệu kèm theo."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình báo cáo trong phần này có mục đích gì?",
+        "answer": "Phần này định nghĩa khung cho các báo cáo liên quan đến quy trình thu thập và xử lý dữ liệu sinh trắc học, nhưng chưa mô tả cụ thể về mục đích, nội dung hoặc tần suất của các báo cáo. Có thể hiểu đây là một phần chuẩn bị để sau này sẽ mô tả chi tiết về các báo cáo cần được tạo ra trong quá trình thực hiện quy trình."
+      },
+      {
+        "category": "data",
+        "question": "Có thông tin cụ thể nào về nội dung của Báo cáo 01 và Báo cáo 02 trong tài liệu này không?",
+        "answer": "Không, tài liệu hiện tại chỉ đề cập đến việc định danh hai báo cáo (Báo cáo 01 và Báo cáo 02) nhưng chưa cung cấp thông tin cụ thể về nội dung, cấu trúc, hoặc mục đích của chúng. Thông tin này có thể được bổ sung trong các phần tiếp theo hoặc trong các tài liệu chi tiết khác."
+      },
+      {
+        "category": "version",
+        "question": "Phần này có thể liên quan đến phiên bản nào của quy trình báo cáo?",
+        "answer": "Tài liệu hiện tại không cung cấp thông tin về phiên bản hoặc lịch sử thay đổi của các báo cáo. Phần này có thể là một phần của bản thảo hoặc phiên bản đầu tiên, chưa được hoàn thiện về chi tiết cụ thể."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của việc định nghĩa Báo cáo 01 và Báo cáo 02 trong tài liệu này là gì?",
+        "answer": "Mục đích của việc định nghĩa các báo cáo này là để chuẩn bị khung cho việc theo dõi, giám sát và đánh giá quá trình thu thập, xác thực và xử lý dữ liệu sinh trắc học. Tuy nhiên, nội dung cụ thể của các báo cáo này chưa được mô tả trong tài liệu hiện tại."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 214,
+      "title": "## V. Yêu cầu khác đối với phần mềm (*)",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## V. Yêu cầu khác đối với phần mềm (*)",
+      "content": "## V. Yêu cầu khác đối với phần mềm (*)\r\n\r\n*(*) Mục nào không có thông tin thì để N/A\r\n\r\n1. Đơn vị quản trị nghiệp vụ trên hệ thống (các cấu hình liên quan đến nghiệp vụ): bộ phận nào, thuộc Khối nào thực hiện?\r\n\r\n<table><thead><tr><td>Cấu hình nghiệp vụ</td><td>Bộ phận/Khối thực hiện</td></tr></thead><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table>\r\n\r\n2. Đơn vị quản trị user nghiệp vụ trên hệ thống (cấp user nghiệp vụ mới, thay đổi phân quyền user, chấm dứt sử dụng user): bộ phận nào, thuộc Khối nào?\r\n\r\n3. Số người dùng dự kiến sau 1 năm?\r\n\r\n4. Dữ liệu có chứa thông tin nhạy cảm nào không? Cần mask thông tin nào không?\r\n\r\n5. Khác:...\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "stakeholder",
+        "question": "Các bộ phận và khối nào trong SeABank sẽ chịu trách nhiệm quản trị nghiệp vụ liên quan đến hệ thống thu thập dữ liệu sinh trắc học?",
+        "answer": "Tài liệu hiện chưa cung cấp thông tin cụ thể về bộ phận hoặc khối nào sẽ quản trị các cấu hình nghiệp vụ trên hệ thống thu thập dữ liệu sinh trắc học. Bảng trong mục này hiện trống (N/A)."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Bộ phận hoặc khối nào trong SeABank sẽ chịu trách nhiệm quản trị tài khoản người dùng nghiệp vụ (cấp mới, thay đổi phân quyền, chấm dứt sử dụng) trên hệ thống?",
+        "answer": "Tài liệu không nêu rõ bộ phận hoặc khối cụ thể chịu trách nhiệm quản trị tài khoản người dùng nghiệp vụ trên hệ thống thu thập dữ liệu sinh trắc học."
+      },
+      {
+        "category": "data",
+        "question": "Sau 1 năm triển khai, dự kiến hệ thống thu thập dữ liệu sinh trắc học sẽ phục vụ bao nhiêu người dùng?",
+        "answer": "Tài liệu không cung cấp thông tin cụ thể về số lượng người dùng dự kiến sau 1 năm triển khai hệ thống."
+      },
+      {
+        "category": "constraint",
+        "question": "Dữ liệu thu thập từ sinh trắc học có chứa thông tin nhạy cảm nào cần được bảo vệ hoặc mask (ẩn) không?",
+        "answer": "Tài liệu không đề cập đến thông tin nhạy cảm cụ thể trong dữ liệu sinh trắc học cần được mask. Mục này hiện chưa được điền (N/A)."
+      },
+      {
+        "category": "other",
+        "question": "Mục 'Yêu cầu khác' trong tài liệu có mục đích gì và bao gồm những nội dung nào?",
+        "answer": "Mục này được sử dụng để ghi lại các yêu cầu bổ sung không thuộc các mục chính khác trong tài liệu. Theo định dạng, mục này bao gồm:\n        - **Cấu hình nghiệp vụ**: Bộ phận/Khối quản trị (hiện trống).\n        - **Quản trị tài khoản người dùng nghiệp vụ**: Bộ phận/Khối chịu trách nhiệm cấp, thay đổi phân quyền và chấm dứt tài khoản (hiện chưa rõ).\n        - **Dự kiến số người dùng sau 1 năm**: Thông tin về quy mô người dùng (hiện chưa có).\n        - **Thông tin nhạy cảm và yêu cầu mask**: Xác định liệu dữ liệu sinh trắc học có chứa thông tin nhạy cảm cần bảo vệ (hiện chưa có).\n        - **Khác**: Để ghi các yêu cầu bổ sung khác (hiện trống)."
+      },
+      {
+        "category": "process",
+        "question": "Liệu các thông tin trong mục 'Yêu cầu khác' có ảnh hưởng đến quy trình thu thập và xử lý dữ liệu sinh trắc học không?",
+        "answer": "Tài liệu hiện chưa cung cấp thông tin cụ thể về ảnh hưởng của các mục trong phần này đến quy trình nghiệp vụ. Tuy nhiên, các thông tin này (như quản trị nghiệp vụ, quản trị tài khoản, bảo vệ thông tin nhạy cảm) sẽ có tác động đến:\n        - **Quyền hạn và an ninh**: Xác định ai có quyền quản trị hệ thống và dữ liệu.\n        - **Bảo mật**: Nếu có thông tin nhạy cảm, sẽ yêu cầu các biện pháp mask hoặc mã hóa dữ liệu.\n        - **Triển khai và duy trì**: Số lượng người dùng dự kiến ảnh hưởng đến quy mô hệ thống và tài nguyên cần thiết."
+      }
+    ]
+  },
+  {
+    "chunk_infor": {
+      "type": "allContent",
+      "tokens_count": 2273,
+      "title": "## VIII. Tổng hợp và mức độ ưu tiên của các yêu cầu",
+      "tittle_hirarchy": "# TÀI LIỆU ĐẮC TẢ YÊU CẦU NGHIỆP VỤ --> ## VIII. Tổng hợp và mức độ ưu tiên của các yêu cầu",
+      "content": "## VIII. Tổng hợp và mức độ ưu tiên của các yêu cầu\r\n\r\n<table><thead><tr><td>STT</td><td>Yêu cầu</td><td>Độ ưu tiên</td><td>Mô tả</td></tr></thead><tbody></tbody></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\nSeABank\r\n\r\nTài liệu đặc tả yêu cầu nghiệp vụ (BRD)\r\n\r\nCÔNG CỘNG\r\n\r\nMã hiệu: 55_01_05_3264\r\n\r\nNgày hiệu lực: 19/03/2024\r\n\r\nLần ban hành/sửa đổi: 1/0\r\n\r\n<table><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></table>\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\nMã hiệu: 55_01_05_3264\r\n\r\nNgày hiệu lực: 19/03/2024\r\n\r\nLần ban hành/sửa đổi: 1/0\r\n\r\nPHỤ LỤC 01 – LIVENESS CARD\r\nThông báo lỗi trong quá trình eKyc\r\n\r\nCopy of Mã lỗi EKYC trên Core Ai Ver 1.8.xl\r\n\r\nBảng mã lỗi hiện tại:\r\n(Lưu ý bảng mã lỗi được cập nhật theo từng thời kỳ)\r\n\r\nMô tả phân loại lỗi:\r\n\r\nTài liệu Public\r\n\r\n---\r\n\r\n<table><thead><tr><th>STT</th><th>Teiêu chí</th><th>Mô tả lỗi</th><th>Mã lỗi</th><th>Thông báo lỗi Tiêng Việt</th><th>Thông báo lỗi Tiêng Anh</th></tr></thead><tbody><tr><td>I</td><td>Khách hàng thực hiện Quay/chụp GTTT & Chân dung sai thao tác</td><td></td><td></td><td></td><td></td></tr><tr><td>1</td><td>Chụp GTTT</td><td>Hình ảnh giấy tờ, ảnh chụp chân dung không rõ nét, không bị mờ nhòe, không phải là ảnh màu.</td><td></td><td>Hình ảnh chụp không hợp lệ do thiếu ánh sáng. Quý khách vui lòng thực hiện lại.</td><td>Photo taken is invalid due to lack of light. Please do it again.</td></tr><tr><td>2</td><td>Chụp GTTT</td><td>Có nhiều GTTT hoặc giấy tờ khác trong khuôn hình</td><td></td><td>Giấy tờ tùy thân không hợp lệ do có nhiều hơn 1 khuôn mặt trên giấy tờ tùy thân. Quý khách vui lòng cung cấp giấy tờ tùy thân bản gốc, không chỉnh sửa, không cắt góc</td><td>The ID is invalid because there is more than 1 face on the ID. Please provide the original identification, no editing, no corners cut</td></tr><tr><td>3</td><td>Chụp GTTT</td><td>Giấy tờ tùy thân bị cắt góc, che khuất hoặc không có thông tin.</td><td></td><td>Giấy tờ tùy thân không hợp lệ do không có hình ảnh giấy tờ tùy thân. Quý khách vui lòng thực hiện lại</td><td>The ID is invalid because there is no photo of the ID document. Please try again</td></tr><tr><td>4</td><td>Chụp GTTT</td><td>GTTT mặt trước và mặt sau không cùng loại GTTT hoặc không cùng một khách hàng. GTTT không phải là CCCD gắn chip.</td><td></td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quay giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr><tr><td>5</td><td>Chụp GTTT</td><td>Chụp ảnh qua thiết bị khác</td><td></td><td>Giấy tờ tùy thân không hợp lệ do ảnh chụp qua thiết bị khác</td><td>The document option is not valid for photos taken via other devices</td></tr></tbody></table>\r\n\r\n---\r\n\r\nPHỤ LỤC 02 – LIVENESS FACE\r\nThông báo lỗi trong quá trình eKyc\r\n\r\nCopy of Mã lỗi EKYC\r\ntrên Core Ai Ver 1.8.xl\r\n\r\nBảng mã lỗi hiện tại:\r\n(Lưu ý bảng mã lỗi được cập nhật theo từng thời kỳ)\r\nMô tả phân loại lỗi:\r\n\r\n<table><thead><tr><td>STT</td><td>TSUPER</td><td>MÔ TẢ LỐI</td><td>MÃ LỐI</td><td>THÔNG BÁO LỐI TIÊNG VIỆT</td><td>THÔNG BÁO LỐI TIÊNG ANH</td></tr></thead><tbody><tr><td>I</td><td colspan=\"5\">Khách hàng thực hiện Quay/chụp GTTT & Chân dung sai thao tác</td></tr><tr><td>1</td><td>Quay/Chụp chân dung</td><td>Ánh sáng không đều khi quay chụp trên toàn bộ khuôn mặt, mắt của khách hàng bị đỏ hoặc bị lóa, video/hình ảnh không phải là ảnh màu</td><td></td><td>Giấy tờ tùy thân không hợp lệ do bị lóa, mất thông tin. Quý khách vui lòng thực hiện lại</td><td>Invalid identification documents due to glare, loss of information. Please try again</td></tr><tr><td>2</td><td>Quay/Chụp chân dung</td><td>Khách hàng độizin, đeo khẩu trang, kính râm, gọng kính trắng, khăn, tai nghe, tay hoặc các vật dụng khác che khuất tóc hoặc một phần của khuôn mặt.</td><td></td><td>Hình ảnh khuôn mặt không hợp lệ do có kính hoặc vật cản trên mắt. Quý khách vui lòng thực hiện lại</td><td>Face image is not valid due to glasses or obstruction on eyes. Please try again</td></tr><tr><td>3</td><td>Quay/Chụp chân dung</td><td>Khuôn mặt khách hàng thể hiện biểu cảm quá mức: Cười to, mở miệng, chau mày, nhăn mặt, nhắm mắt</td><td></td><td>Hình ảnh khuôn mặt không hợp lệ do Quý khách nhắm mặt hoặc biểu cảm khuôn mặt quá mức. Quý khách vui lòng thực hiện lại.</td><td>Face image is not valid due to your face closed or excessive facial expression. Please do it again.</td></tr><tr><td>4</td><td>Quay/Chụp chân dung</td><td>Khuôn mặt khách hàng không ở chính diện, bị nghiêng, không đầy đủ khuôn mặt trong khung hình.</td><td></td><td>Hình ảnh khuôn mặt không hợp lệ do không đầy đủ toàn bộ khuôn mặt Quý khách vui lòng thực hiện lại.</td><td>Face image is not valid due to incomplete face. Please try again.</td></tr></tbody></table>\r\n\r\n---\r\n\r\n<table><tr><td>5</td><td>Quay/Chụp chân dung</td><td>Có nhiều khuôn mặt hoặc thay đổi khuôn mặt trong quá trình eKyc</td><td>Hình ảnh khuôn mặt không hợp lệ do có nhiều hơn 1 khuôn mặt trong khuôn hình. Quý khách vui lòng thực hiện lại</td><td>Face image is invalid because there is more than 1 face in the frame. Please try again</td></tr><tr><td>II</td><td colspan=\"2\">Khách hàng có dấu hiệu gian lận khi Quay/chụp Chân dung</td><td></td><td></td></tr><tr><td>1</td><td>Dấu hiện gian lận</td><td>Khách hàng dùng mặt nasi 2D, 3D để Quay/chụp ảnh chân dung.</td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quày giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr><tr><td>2</td><td>Dấu hiện gian lận</td><td>Quay/Chụp ảnh chân dung, GTTT thông qua thiết bị khác (hình ảnh hoặc video lưu trên thiết bị khác) mà không quay/chụp ảnh trực tiếp qua thiết bị của khách hàng.</td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quày giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr><tr><td>3</td><td>Dấu hiện gian lận</td><td>Sử dụng phần mềm deepfake</td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quày giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr><tr><td>4</td><td>Dấu hiện gian lận</td><td>Ảnh chụp khuôn mặt và ảnh trên mặt trước GTTT, ảnh trong chip GTTT không trùng khớp</td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quày giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr><tr><td>5</td><td>Dấu hiện gian lận</td><td>Ảnh chụp khuôn mặt thuộc danh sách Blacklist</td><td>Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quày giao dịch gần nhất của SeABank để được hỗ trợ</td><td>Your information is invalid, please go to the nearest SeABank transaction counter for assistance</td></tr></table>\r\n\r\n"
+    },
+    "qas": [
+      {
+        "category": "exception",
+        "question": "Trong quá trình thu thập dữ liệu sinh trắc học, khách hàng thực hiện quay/chụp giấy tờ tùy thân (GTTT) sai thao tác như thế nào?",
+        "answer": "Khách hàng có thể gặp lỗi khi chụp GTTT do các nguyên nhân sau:\n        - Hình ảnh giấy tờ không rõ nét, mờ nhòe hoặc không phải là ảnh màu.\n        - Có nhiều GTTT hoặc giấy tờ khác trong khuôn hình.\n        - Giấy tờ bị cắt góc, che khuất hoặc không có thông tin.\n        - GTTT mặt trước và mặt sau không cùng loại hoặc không cùng một khách hàng, hoặc không phải là CCCD gắn chip.\n        - Chụp ảnh qua thiết bị khác (không phải thiết bị của SeABank)."
+      },
+      {
+        "category": "exception",
+        "question": "Lỗi nào xảy ra khi khách hàng chụp ảnh giấy tờ tùy thân không rõ nét hoặc không phải là ảnh màu?",
+        "answer": "Hệ thống sẽ thông báo lỗi: *'Hình ảnh chụp không hợp lệ do thiếu ánh sáng. Quý khách vui lòng thực hiện lại.'* (Mã lỗi chưa được quy định cụ thể trong tài liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu khách hàng cung cấp giấy tờ tùy thân bị cắt góc hoặc che khuất thông tin, hệ thống sẽ phản hồi như thế nào?",
+        "answer": "Hệ thống sẽ thông báo: *'Giấy tờ tùy thân không hợp lệ do không có hình ảnh giấy tờ tùy thân. Quý khách vui lòng thực hiện lại.'* (Mã lỗi chưa được quy định cụ thể trong tài liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Khách hàng chụp ảnh GTTT mặt trước và mặt sau không cùng loại hoặc không phải CCCD gắn chip, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Hệ thống sẽ thông báo: *'Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quầy giao dịch gần nhất của SeABank để được hỗ trợ.'* Khách hàng cần đến ngân hàng để giải quyết trực tiếp."
+      },
+      {
+        "category": "exception",
+        "question": "Trong quá trình thu thập dữ liệu sinh trắc học, khách hàng thực hiện quay/chụp chân dung sai thao tác như thế nào?",
+        "answer": "Khách hàng có thể gặp lỗi khi quay/chụp chân dung do các nguyên nhân sau:\n        - Ánh sáng không đều, mắt bị đỏ hoặc bị lóa, video/hình ảnh không phải là ảnh màu.\n        - Khách hàng đội mũ, đeo khẩu trang, kính râm, gọng kính trắng, khăn, tai nghe hoặc vật dụng khác che khuất khuôn mặt.\n        - Biểu cảm quá mức (cười to, nhắm mắt, nhăn mặt).\n        - Khuôn mặt không ở chính diện, bị nghiêng hoặc không đầy đủ trong khung hình.\n        - Có nhiều khuôn mặt hoặc thay đổi khuôn mặt trong quá trình eKYC."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu khách hàng quay/chụp chân dung với ánh sáng không đều hoặc mắt bị đỏ, hệ thống sẽ phản hồi gì?",
+        "answer": "Hệ thống sẽ thông báo: *'Giấy tờ tùy thân không hợp lệ do bị lóa, mất thông tin. Quý khách vui lòng thực hiện lại.'* (Mã lỗi chưa được quy định cụ thể trong tài liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Khách hàng đeo kính râm hoặc khẩu trang khi quay chân dung, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Hệ thống sẽ thông báo: *'Hình ảnh khuôn mặt không hợp lệ do có kính hoặc vật cản trên mắt. Quý khách vui lòng thực hiện lại.'* (Mã lỗi chưa được quy định cụ thể trong tài liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu khách hàng quay chân dung với biểu cảm quá mức (nhắm mắt, nhăn mặt), hệ thống sẽ phản hồi gì?",
+        "answer": "Hệ thống sẽ thông báo: *'Hình ảnh khuôn mặt không hợp lệ do Quý khách nhắm mặt hoặc biểu cảm khuôn mặt quá mức. Quý khách vui lòng thực hiện lại.'* (Mã lỗi chưa được quy định cụ thể trong tài liệu)."
+      },
+      {
+        "category": "exception",
+        "question": "Khách hàng có dấu hiệu gian lận trong quá trình eKYC như thế nào?",
+        "answer": "Dấu hiệu gian lận bao gồm:\n        - Sử dụng mặt nạ 2D/3D để quay/chụp ảnh chân dung.\n        - Quay/chụp ảnh qua thiết bị khác (không phải thiết bị của SeABank).\n        - Sử dụng phần mềm deepfake.\n        - Ảnh chụp khuôn mặt và ảnh trên mặt trước GTTT, ảnh trong chip GTTT không trùng khớp.\n        - Ảnh chụp khuôn mặt thuộc danh sách Blacklist."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu khách hàng sử dụng mặt nạ 2D/3D hoặc deepfake trong quá trình eKYC, hệ thống sẽ xử lý như thế nào?",
+        "answer": "Hệ thống sẽ thông báo: *'Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quầy giao dịch gần nhất của SeABank để được hỗ trợ.'* Khách hàng cần đến ngân hàng để giải quyết trực tiếp."
+      },
+      {
+        "category": "exception",
+        "question": "Nếu ảnh chụp khuôn mặt của khách hàng thuộc danh sách Blacklist, hệ thống sẽ phản hồi gì?",
+        "answer": "Hệ thống sẽ thông báo: *'Thông tin Quý khách không hợp lệ, Quý khách vui lòng đến quầy giao dịch gần nhất của SeABank để được hỗ trợ.'* Khách hàng cần đến ngân hàng để giải quyết trực tiếp."
+      },
+      {
+        "category": "data",
+        "question": "Bảng mã lỗi trong quá trình eKYC được cập nhật như thế nào?",
+        "answer": "Bảng mã lỗi được cập nhật theo từng thời kỳ và không có mã lỗi cụ thể được quy định trong tài liệu này. Thông tin chi tiết về mã lỗi sẽ được quản lý và điều chỉnh bởi hệ thống Core AI Ver 1.8.x."
+      },
+      {
+        "category": "version",
+        "question": "Phiên bản hiện tại của hệ thống Core AI được sử dụng trong quá trình eKYC là gì?",
+        "answer": "Hệ thống sử dụng phiên bản Core AI Ver 1.8.x trong quá trình eKYC và thông báo lỗi được sao chép từ phiên bản này."
+      },
+      {
+        "category": "process",
+        "question": "Quy trình xử lý khi khách hàng gặp lỗi trong quá trình eKYC là gì?",
+        "answer": "Nếu lỗi có thể khắc phục trực tiếp (ví dụ: hình ảnh không rõ nét, biểu cảm quá mức), hệ thống sẽ yêu cầu khách hàng thực hiện lại. Nếu lỗi nghi ngờ gian lận hoặc yêu cầu xác thực cao (ví dụ: mặt nạ, deepfake, ảnh không trùng khớp), hệ thống sẽ hướng dẫn khách hàng đến quầy giao dịch gần nhất của SeABank để hỗ trợ trực tiếp."
+      },
+      {
+        "category": "stakeholder",
+        "question": "Ai sẽ hỗ trợ khách hàng khi gặp lỗi nghi ngờ gian lận trong quá trình eKYC?",
+        "answer": "Nhân viên tại quầy giao dịch gần nhất của SeABank sẽ hỗ trợ khách hàng trong trường hợp lỗi nghi ngờ gian lận hoặc yêu cầu xác thực cao."
+      },
+      {
+        "category": "other",
+        "question": "Mục đích của Phụ lục 01 và Phụ lục 02 trong tài liệu này là gì?",
+        "answer": "Phụ lục 01 mô tả các lỗi xảy ra khi khách hàng thực hiện quay/chụp giấy tờ tùy thân (GTTT) sai thao tác, trong khi Phụ lục 02 mô tả các lỗi xảy ra khi khách hàng thực hiện quay/chụp chân dung sai thao tác hoặc có dấu hiệu gian lận. Cả hai phụ lục đều cung cấp thông báo lỗi tương ứng bằng tiếng Việt và tiếng Anh."
+      },
+      {
+        "category": "other",
+        "question": "Tại sao thông báo lỗi trong quá trình eKYC được cung cấp bằng cả tiếng Việt và tiếng Anh?",
+        "answer": "Thông báo lỗi được cung cấp bằng cả tiếng Việt và tiếng Anh để phục vụ khách hàng quốc tế hoặc khách hàng sử dụng ứng dụng SeAMobile trong các khu vực đa ngôn ngữ, đảm bảo tính tiện ích và minh bạch trong quá trình tương tác."
+      }
+    ]
+  }
+]

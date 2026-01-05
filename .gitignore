@@ -1,0 +1,7 @@
+obj
+Logs/
+bin/
+Migrations
+
+.env
+credentials

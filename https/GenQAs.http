@@ -1,0 +1,6 @@
+@MarkdownGenQAs_HostAddress = https://localhost:7128
+@fileMetadataId = 85f60eaa-d3cf-402e-8fdd-2242ef85c094
+
+### Trigger background QA generation
+POST {{MarkdownGenQAs_HostAddress}}/api/GenQAs/process/{{fileMetadataId}}
+Accept: application/json

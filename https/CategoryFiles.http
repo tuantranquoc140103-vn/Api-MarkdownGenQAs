@@ -1,0 +1,32 @@
+@MarkdownGenQAs_HostAddress = https://localhost:7128
+@id = d48d8b16-f4ee-4f63-bf47-7d628306d02c
+
+### Get all category files
+GET {{MarkdownGenQAs_HostAddress}}/api/CategoryFiles
+Accept: application/json
+
+### Get category file by ID
+GET {{MarkdownGenQAs_HostAddress}}/api/CategoryFiles/{{id}}
+Accept: application/json
+
+### Create a new category file
+POST {{MarkdownGenQAs_HostAddress}}/api/CategoryFiles
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "New Category Name"
+}
+
+### Update an existing category file
+PUT {{MarkdownGenQAs_HostAddress}}/api/CategoryFiles/{{id}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Updated Category Name"
+}
+
+### Delete a category file
+DELETE {{MarkdownGenQAs_HostAddress}}/api/CategoryFiles/{{id}}
+Accept: application/json

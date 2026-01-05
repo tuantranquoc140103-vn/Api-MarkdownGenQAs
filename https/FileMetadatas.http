@@ -1,0 +1,50 @@
+@MarkdownGenQAs_HostAddress = https://localhost:7128
+@id = 85f60eaa-d3cf-402e-8fdd-2242ef85c094
+@categoryId = d48d8b16-f4ee-4f63-bf47-7d628306d02c
+
+### Upload file to S3 and create metadata
+# Note: In VS Code REST Client, you specify file path relative to the .http file or absolute
+POST {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas/upload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="File"; filename="example2.md"
+Content-Type: text/markdown
+
+< ../data/example2.md
+--boundary
+Content-Disposition: form-data; name="CategoryId"
+
+{{categoryId}}
+--boundary
+Content-Disposition: form-data; name="Author"
+
+Antigravity
+--boundary--
+
+### Get all file metadata
+GET {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas
+Accept: application/json
+
+### Get file metadata by ID
+GET {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas/{{id}}
+Accept: application/json
+
+### Download file from S3
+GET {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas/{{id}}/download
+Accept: application/json
+
+### Update file metadata
+PUT {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas/{{id}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "author": "Updated Author",
+  "categoryId": "{{categoryId}}",
+  "status": "Processed"
+}
+
+### Delete file metadata and S3 objects
+DELETE {{MarkdownGenQAs_HostAddress}}/api/FileMetadatas/{{id}}
+Accept: application/json
