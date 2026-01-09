@@ -4,3 +4,12 @@
 ### Trigger background QA generation
 POST {{MarkdownGenQAs_HostAddress}}/api/GenQAs/process/{{fileMetadataId}}
 Accept: application/json
+
+### Get real-time notifications via SSE
+GET {{MarkdownGenQAs_HostAddress}}/api/GenQAs/notifications/{{fileMetadataId}}
+Accept: text/event-stream
+
+### Cancel a running background job
+POST {{MarkdownGenQAs_HostAddress}}/api/GenQAs/cancel/{{fileMetadataId}}
+Accept: application/json
+

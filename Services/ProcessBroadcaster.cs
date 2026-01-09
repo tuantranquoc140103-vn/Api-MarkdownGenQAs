@@ -1,17 +1,56 @@
-using System.Threading.Channels;
+using System.Runtime.CompilerServices;
+using MarkdownGenQAs.Interfaces;
+using MarkdownGenQAs.Models;
+using StackExchange.Redis;
+
+namespace MarkdownGenQAs.Services;
 
 public class ProcessBroadcaster : IProcessBroadcaster
 {
-    // Tạo một kênh truyền dữ liệu (Unbounded = không giới hạn số lượng tin nhắn)
-    private readonly Channel<string> _channel = Channel.CreateUnbounded<string>();
+    private readonly IConnectionMultiplexer _redis;
+    private readonly IJsonService _jsonService;
 
-    public async ValueTask PublishAsync(string message)
+    public ProcessBroadcaster(IConnectionMultiplexer redis, IJsonService jsonService)
     {
-        await _channel.Writer.WriteAsync(message);
+        _redis = redis;
+        _jsonService = jsonService;
     }
 
-    public IAsyncEnumerable<string> SubscribeAsync(CancellationToken ct)
+    private RedisChannel GetChannel(Guid fileMetadataId) => RedisChannel.Literal($"process_notifications:{fileMetadataId}");
+
+    public async ValueTask PublishAsync(NotificationMessage message)
     {
-        return _channel.Reader.ReadAllAsync(ct);
+        var subscriber = _redis.GetSubscriber();
+        var payload = _jsonService.Serialize(message);
+        var channel = GetChannel(message.FileMetadataId);
+        await subscriber.PublishAsync(channel, payload);
+    }
+
+    public async IAsyncEnumerable<NotificationMessage> SubscribeAsync(Guid fileMetadataId, [EnumeratorCancellation] CancellationToken ct)
+    {
+        var subscriber = _redis.GetSubscriber();
+        var channelName = GetChannel(fileMetadataId);
+        var channel = await subscriber.SubscribeAsync(channelName);
+
+        try
+        {
+            while (!ct.IsCancellationRequested)
+            {
+                // Wait for a message with a timeout to allow checking CancellationToken
+                var msg = await channel.ReadAsync(ct);
+                if (msg.Message.HasValue)
+                {
+                    var notification = _jsonService.Deserialize<NotificationMessage>(msg.Message!);
+                    if (notification != null)
+                    {
+                        yield return notification;
+                    }
+                }
+            }
+        }
+        finally
+        {
+            await channel.UnsubscribeAsync();
+        }
     }
 }

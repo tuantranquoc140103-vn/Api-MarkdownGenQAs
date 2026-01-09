@@ -1,23 +1,30 @@
-
 using Microsoft.Extensions.Options;
+
 
 public class GenQAsService : IGenQAsService
 {
-    private readonly SystemPrompts _systemPrompts;
+    private readonly IOptions<SystemPrompts> _systemPrompts;
     private readonly LlmChatCompletionBase _llmChatGenQAs;
     private readonly IJsonService _jsonService;
+    private readonly ILogger<GenQAsService> _logger;
     private readonly string BASE_DIR = AppContext.BaseDirectory;
     private const int MAX_RETRY = 3;
-    public GenQAsService(IOptions<SystemPrompts> systemPrompts, ILlmServiceFactory llmServiceFactory, IJsonService jsonService)
+
+    public GenQAsService(
+        IOptions<SystemPrompts> systemPrompts,
+        ILlmServiceFactory llmServiceFactory,
+        IJsonService jsonService,
+        ILogger<GenQAsService> logger)
     {
-        _systemPrompts = systemPrompts.Value;
+        _systemPrompts = systemPrompts;
         _llmChatGenQAs = llmServiceFactory.GetLlmServiceGenQAs();
         _jsonService = jsonService;
+        _logger = logger;
     }
 
-    public async Task<List<TextQA>> GenQAsTextAsync(ChunkInfo chunkInfo, string summaryDocument, string nameFile)
+    public async Task<List<ChunkQA>> GenQAsTextAsync(ChunkInfo chunkInfo, string summaryDocument, string nameFile)
     {
-        string path = Path.Combine(BASE_DIR, _systemPrompts.GenQAsText.PathTemplatePrompt);
+        string path = Path.Combine(BASE_DIR, _systemPrompts.Value.GenQAsText.PathTemplatePrompt);
         string templatePrompt = File.ReadAllText(path);
         string jsonSchema = _jsonService.Serialize(_jsonService.CreatejsonChema<List<TextQA>>());
         string prompt = string.Format(templatePrompt, jsonSchema, nameFile, summaryDocument, chunkInfo.Content);
@@ -30,29 +37,27 @@ public class GenQAsService : IGenQAsService
             {
                 messagesRequest = new List<ChatMessageRequest>()
                 {
-                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.GenQAsText.SystemPrompt},
+                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.Value.GenQAsText.SystemPrompt},
                     new ChatMessageRequest{Role = ChatRole.User, Content = prompt}
                 };
 
                 // var documentSummaryPackage = await _llmChatGenQAs.ChatGenQAsAsync<List<SummaryQA>>(messagesRequest);
-                var documentSummaryPackage = await _llmChatGenQAs.ChatGenQAsAsync<List<TextQA>>(messagesRequest);
-                // Console.WriteLine(documentSummaryPackage);
+                var documentSummaryPackage = await _llmChatGenQAs.ChatGenQAsAsync<List<ChunkQA>>(messagesRequest);
                 return documentSummaryPackage;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"GenQAsSummaryAsync error. Try {i + 1}/{MAX_RETRY}");
-                Console.WriteLine($"Log error: {e.Message}");
+                _logger.LogError(e, "GenQAsTextAsync error for file {FileName}. Try {RetryCount}/{MaxRetry}", nameFile, i + 1, MAX_RETRY);
             }
         }
 
-        return new List<TextQA>();
+        return new List<ChunkQA>();
     }
 
-    public async Task<List<SummaryQA>> GenQAsSumaryAsync(string dataSource, string nameFile)
+    public async Task<List<ChunkQA>> GenQAsSumaryAsync(string dataSource, string nameFile)
     {
         List<ChatMessageRequest> messagesRequest;
-        string path = Path.Combine(BASE_DIR, _systemPrompts.GenQAsSummary.PathTemplatePrompt);
+        string path = Path.Combine(BASE_DIR, _systemPrompts.Value.GenQAsSummary.PathTemplatePrompt);
         string templatePromptGenQAsSummary = File.ReadAllText(path);
         string jsonSchema = _jsonService.Serialize(_jsonService.CreatejsonChema<List<SummaryQA>>());
         string promptGenQAsSummary = string.Format(templatePromptGenQAsSummary, jsonSchema, nameFile, dataSource);
@@ -60,33 +65,31 @@ public class GenQAsService : IGenQAsService
         {
             try
             {
-                
+
 
                 messagesRequest = new List<ChatMessageRequest>()
                 {
-                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.GenQAsSummary.SystemPrompt},
+                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.Value.GenQAsSummary.SystemPrompt},
                     new ChatMessageRequest{Role = ChatRole.User, Content = promptGenQAsSummary}
                 };
 
                 // var documentSummaryPackage = await _llmChatGenQAs.ChatGenQAsAsync<List<SummaryQA>>(messagesRequest);
-                var documentSummaryPackage = await _llmChatGenQAs.ChatCompletionAsync(messagesRequest);
-                Console.WriteLine(documentSummaryPackage);
-                // return documentSummaryPackage;
-                return new List<SummaryQA>();
+                var documentSummaryPackage = await _llmChatGenQAs.ChatGenQAsAsync<List<ChunkQA>>(messagesRequest);
+                _logger.LogInformation("GenQAsSumaryAsync success for file {FileName}", nameFile);
+                return documentSummaryPackage;
             }
             catch (Exception e)
             {
-                Console.WriteLine($"GenQAsSummaryAsync error. Try {i + 1}/{MAX_RETRY}");
-                Console.WriteLine($"Log error: {e.Message}");
+                _logger.LogError(e, "GenQAsSumaryAsync error for file {FileName}. Try {RetryCount}/{MaxRetry}", nameFile, i + 1, MAX_RETRY);
             }
         }
 
-        return new List<SummaryQA>();
+        return new List<ChunkQA>();
     }
 
     public async Task<string> GenSummaryDocumentAsync(string dataSource, string nameFile)
     {
-        string path = Path.Combine(BASE_DIR, _systemPrompts.GenSummaryDocument.PathTemplatePrompt);
+        string path = Path.Combine(BASE_DIR, _systemPrompts.Value.GenSummaryDocument.PathTemplatePrompt);
         string templatePromptGenSummary = await File.ReadAllTextAsync(path);
         string prompt = string.Format(templatePromptGenSummary, nameFile, dataSource);
         List<ChatMessageRequest> messagesRequest;
@@ -97,7 +100,7 @@ public class GenQAsService : IGenQAsService
             {
                 messagesRequest = new List<ChatMessageRequest>()
                 {
-                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.GenSummaryDocument.SystemPrompt},
+                    new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.Value.GenSummaryDocument.SystemPrompt},
                     new ChatMessageRequest{Role = ChatRole.User, Content = prompt}
                 };
 
@@ -106,8 +109,7 @@ public class GenQAsService : IGenQAsService
             }
             catch (Exception e)
             {
-                Console.WriteLine($"GenQAsSummaryAsync error. Try {i + 1}/{MAX_RETRY}");
-                Console.WriteLine($"Log error: {e.Message}");
+                _logger.LogError(e, "GenSummaryDocumentAsync error for file {FileName}. Try {RetryCount}/{MaxRetry}", nameFile, i + 1, MAX_RETRY);
                 // await Task.Delay(1000 * (i + 1));
             }
         }
@@ -115,12 +117,12 @@ public class GenQAsService : IGenQAsService
         return string.Empty;
     }
 
-    public async Task<List<TableQA>> GenQAsTableAsync(ChunkInfo chunkInfo, string summaryDocument, string nameFile)
+    public async Task<List<ChunkQA>> GenQAsTableAsync(ChunkInfo chunkInfo, string summaryDocument, string nameFile)
     {
         List<ChatMessageRequest> messagesRequest;
         try
         {
-            string path = Path.Combine(BASE_DIR, _systemPrompts.GenQAsTable.PathTemplatePrompt);
+            string path = Path.Combine(BASE_DIR, _systemPrompts.Value.GenQAsTable.PathTemplatePrompt);
             string templatePrompt = await File.ReadAllTextAsync(path);
             string jsonSchema = _jsonService.Serialize(_jsonService.CreatejsonChema<List<TableQA>>());
 
@@ -128,7 +130,7 @@ public class GenQAsService : IGenQAsService
 
             messagesRequest = new List<ChatMessageRequest>()
             {
-                new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.GenQAsTable.SystemPrompt},
+                new ChatMessageRequest{Role = ChatRole.System, Content = _systemPrompts.Value.GenQAsTable.SystemPrompt},
                 new ChatMessageRequest{Role = ChatRole.User, Content = prompt}
             };
         }
@@ -141,16 +143,17 @@ public class GenQAsService : IGenQAsService
             try
             {
 
-                return await _llmChatGenQAs.ChatGenQAsAsync<List<TableQA>>(messagesRequest);
+                return await _llmChatGenQAs.ChatGenQAsAsync<List<ChunkQA>>(messagesRequest);
             }
             catch (Exception e)
             {
-                Console.WriteLine($"GenQAsChunkTableAsync error. Try {i + 1}/{MAX_RETRY}");
-                Console.WriteLine($"Log error: {e.Message}");
+                _logger.LogError(e, "GenQAsTableAsync error for file {FileName}. Try {RetryCount}/{MaxRetry}", nameFile, i + 1, MAX_RETRY);
             }
         }
 
-        throw new Exception($"GenQAsChunkTableAsync error. Try {MAX_RETRY}/{MAX_RETRY}");
+        // throw new Exception($"GenQAsChunkTableAsync error. Try {MAX_RETRY}/{MAX_RETRY}");
+        _logger.LogError("GenQAsTableAsync error for file {FileName}. Try {RetryCount}/{MaxRetry}", nameFile, MAX_RETRY, MAX_RETRY);
+        return new List<ChunkQA>();
     }
 }
 

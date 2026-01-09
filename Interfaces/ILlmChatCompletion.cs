@@ -59,7 +59,6 @@ public abstract class LlmChatCompletionBase : ILlmChatCompletion
 
     public async Task<string> ChatChoiceAsync(List<ChatMessageRequest> request, List<string> choices)
     {
-        _logger.LogInformation("Starting ChatChoiceAsync with {ChoiceCount} choices", choices.Count);
         try
         {
             (var _client, ChatProviderModel providerModelConfig) = _llmClientFactory.GetChatLlmProviderModelChoice();
@@ -70,7 +69,7 @@ public abstract class LlmChatCompletionBase : ILlmChatCompletion
 
             var res = await _client.CompleteChatAsync(content);
             PipelineResponse response = res.GetRawResponse();
-            _logger.LogDebug("ChatChoiceAsync response status: {StatusCode}", response.Status);
+            // _logger.LogDebug("ChatChoiceAsync response status: {StatusCode}", response.Status);
 
             string stringChoice = ProcessResponse(response, providerModelConfig.modelConfig.HaveThinking);
             stringChoice = LlmChatHelper.ParseChoice(stringChoice, choices);
@@ -136,7 +135,7 @@ public abstract class LlmChatCompletionBase : ILlmChatCompletion
         }
         catch (JsonException ex)
         {
-            _logger.LogWarning(ex, "ChatGenQAsAsync - Model returned invalid JSON, attempting to parse with markdig");
+            _logger.LogInformation("ChatGenQAsAsync - Model returned invalid JSON, attempting to parse with markdig");
             // Console.WriteLine($"Response: {cleanText}");
             _logger.LogDebug("Trying to process response by markdig...");
 

@@ -4,6 +4,8 @@ using MarkdownGenQAs.Models.Dto;
 using MarkdownGenQAs.Interfaces.Repository;
 using MarkdownGenQAs.Options;
 using MarkdownGenQAs.Models.Enum;
+using System.Text;
+// using MarkdownGenQAs.Models.QA;
 
 namespace MarkdownGenQAs.Controllers;
 
@@ -14,6 +16,7 @@ public class FileMetadataController : ControllerBase
     private readonly IFileMetadataRepository _repository;
     private readonly ICategoryFileRepository _categoryRepository;
     private readonly IS3Service _s3Service;
+    private readonly IJsonService _jsonService;
     private readonly ILogger<FileMetadataController> _logger;
     private const long MaxFileSize = 104857600; // 100MB
 
@@ -21,11 +24,13 @@ public class FileMetadataController : ControllerBase
         IFileMetadataRepository repository,
         ICategoryFileRepository categoryRepository,
         IS3Service s3Service,
+        IJsonService jsonService,
         ILogger<FileMetadataController> logger)
     {
         _repository = repository;
         _categoryRepository = categoryRepository;
         _s3Service = s3Service;
+        _jsonService = jsonService;
         _logger = logger;
     }
 
@@ -43,13 +48,13 @@ public class FileMetadataController : ControllerBase
             // Validate file extension and content type
             var allowedContentTypes = new[] { "text/markdown", "text/plain", "application/octet-stream" };
             var extension = Path.GetExtension(dto.File.FileName).ToLowerInvariant();
-            
+
             if (extension != ".md")
             {
                 _logger.LogWarning("Invalid file extension: {Extension}", extension);
                 return BadRequest("Chỉ chấp nhận file có định dạng .md");
             }
-            
+
             if (!allowedContentTypes.Contains(dto.File.ContentType?.ToLower()))
             {
                 _logger.LogWarning("Invalid content type: {ContentType}", dto.File.ContentType);
@@ -242,10 +247,104 @@ public class FileMetadataController : ControllerBase
         }
     }
 
+
+
+    /// <summary>
+    /// Download QAs as a Markdown file
+    /// </summary>
+    [HttpGet("{id:guid}/download-qas-markdown")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DownloadQAsMarkdown(Guid id)
+    {
+        try
+        {
+            var fileMetadata = await _repository.GetByIdAsync(id);
+
+            if (fileMetadata == null)
+            {
+                _logger.LogWarning("File metadata with ID {Id} not found", id);
+                return NotFound($"File metadata with ID {id} not found");
+            }
+
+            if (string.IsNullOrEmpty(fileMetadata.ObjectKeyChunkQa))
+            {
+                _logger.LogWarning("No QAs generated for file metadata ID: {Id}", id);
+                return NotFound("No QAs have been generated for this file yet.");
+            }
+            if (string.IsNullOrEmpty(fileMetadata.ObjectKeyDocumentSummary))
+            {
+                _logger.LogWarning("No QAs generated for file metadata ID: {Id}", id);
+                return NotFound("No QAs have been generated for this file yet.");
+            }
+
+            _logger.LogInformation($"download with object key: {fileMetadata.ObjectKeyChunkQa}");
+
+            // 1. Download JSON from S3
+            var jsonContent = await _s3Service.GetFileContentAsync(fileMetadata.ObjectKeyChunkQa, S3Buckets.ChunkQa);
+            if (string.IsNullOrEmpty(jsonContent))
+            {
+                _logger.LogError("QA JSON content is empty for object key: {ObjectKey}", fileMetadata.ObjectKeyChunkQa);
+                return NotFound("QA file content is empty.");
+            }
+            var summaryContent = await _s3Service.GetFileContentAsync(
+                fileMetadata.ObjectKeyDocumentSummary,
+                S3Buckets.DocumentSummary
+            );
+
+            if (string.IsNullOrEmpty(summaryContent))
+            {
+                _logger.LogError("File not found in S3 for object key: {ObjectKey}", fileMetadata.ObjectKeyDocumentSummary);
+                return NotFound("File Summary not found in storage");
+            }
+
+            // 2. Deserialize JSON
+            var chunkQAInfors = _jsonService.Deserialize<List<ChunkQAInfor>>(jsonContent);
+            if (chunkQAInfors == null || !chunkQAInfors.Any())
+            {
+                _logger.LogWarning("No QA data found in JSON for metadata ID: {Id}", id);
+                return NotFound("No QA data found for this file.");
+            }
+
+            // 3. Convert to Markdown
+            var sb = new StringBuilder();
+            
+            sb.AppendLine($"# Document Summary: {summaryContent}");
+            sb.AppendLine();
+            int questionCounter = 1;
+
+            foreach (var chunk in chunkQAInfors)
+            {
+                foreach (var qa in chunk.QAs)
+                {
+                    sb.AppendLine($"# Question [number {questionCounter}]: {qa.Question}");
+                    sb.AppendLine($"## Answer: {qa.Answer}");
+                    sb.AppendLine();
+                    questionCounter++;
+                }
+            }
+
+            // 4. Return as file
+            var markdownContent = sb.ToString();
+            var byteArray = Encoding.UTF8.GetBytes(markdownContent);
+            var stream = new MemoryStream(byteArray);
+
+            var downloadFileName = $"{Path.GetFileNameWithoutExtension(fileMetadata.FileName)}-QAs.md";
+            _logger.LogInformation("Successfully generated QA Markdown for metadata ID: {Id}. Exporting as {FileName}", id, downloadFileName);
+
+            return File(stream, "text/markdown", downloadFileName);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while exporting QA Markdown for metadata ID: {Id}", id);
+            return StatusCode(500, "An error occurred while exporting QA Markdown");
+        }
+    }
+
     /// <summary>
     /// Download file from S3
     /// </summary>
-    [HttpGet("{id}/download")]
+    [HttpGet("{id:guid}/download")]
     [ProducesResponseType(typeof(FileStreamResult), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> Download(Guid id)
@@ -279,6 +378,53 @@ public class FileMetadataController : ControllerBase
         {
             _logger.LogError(ex, "Error occurred while downloading file for metadata ID: {Id}", id);
             return StatusCode(500, "An error occurred while downloading the file");
+        }
+    }
+
+    /// <summary>
+    /// Download raw QA JSON from S3
+    /// </summary>
+    [HttpGet("{id:guid}/download-qas-json")]
+    [ProducesResponseType(typeof(FileStreamResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DownloadQAsJson(Guid id)
+    {
+        try
+        {
+            _logger.LogInformation("Downloading QA JSON for metadata ID: {Id}", id);
+            var fileMetadata = await _repository.GetByIdAsync(id);
+
+            if (fileMetadata == null)
+            {
+                _logger.LogWarning("File metadata with ID {Id} not found", id);
+                return NotFound($"File metadata with ID {id} not found");
+            }
+
+            if (string.IsNullOrEmpty(fileMetadata.ObjectKeyChunkQa))
+            {
+                _logger.LogWarning("No QAs generated for file metadata ID: {Id}", id);
+                return NotFound("No QAs have been generated for this file yet.");
+            }
+
+            var stream = await _s3Service.DownloadFileAsync(
+                fileMetadata.ObjectKeyChunkQa,
+                S3Buckets.ChunkQa
+            );
+
+            if (stream == null)
+            {
+                _logger.LogError("File not found in S3 for object key: {ObjectKey}", fileMetadata.ObjectKeyChunkQa);
+                return NotFound("File chunkQA not found in storage");
+            }
+
+            var downloadFileName = $"{Path.GetFileNameWithoutExtension(fileMetadata.FileName)}-QAs.json";
+            _logger.LogInformation("Successfully retrieved QA JSON from S3 for metadata ID: {Id}", id);
+            return File(stream, "application/json", downloadFileName);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while downloading QA JSON for metadata ID: {Id}", id);
+            return StatusCode(500, "An error occurred while downloading the QA JSON");
         }
     }
 
@@ -322,10 +468,10 @@ public class FileMetadataController : ControllerBase
             // Update fields
             if (dto.Author != null)
                 fileMetadata.Author = dto.Author;
-            
+
             if (dto.CategoryId.HasValue)
                 fileMetadata.CategoryId = dto.CategoryId;
-            
+
             if (dto.Status.HasValue)
                 fileMetadata.Status = dto.Status.Value;
 
@@ -383,14 +529,14 @@ public class FileMetadataController : ControllerBase
             // Delete from markdown-ocr bucket (required field)
             if (!string.IsNullOrEmpty(fileMetadata.ObjectKeyMarkdownOcr))
             {
-                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}", 
+                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}",
                     fileMetadata.ObjectKeyMarkdownOcr, S3Buckets.MarkdownOcr);
-                
+
                 var deleted = await _s3Service.DeleteFileAsync(
-                    fileMetadata.ObjectKeyMarkdownOcr, 
+                    fileMetadata.ObjectKeyMarkdownOcr,
                     S3Buckets.MarkdownOcr
                 );
-                
+
                 if (!deleted)
                 {
                     deleteErrors.Add($"Failed to delete {fileMetadata.ObjectKeyMarkdownOcr} from {S3Buckets.MarkdownOcr}");
@@ -400,14 +546,14 @@ public class FileMetadataController : ControllerBase
             // Delete from document-summary bucket (optional)
             if (!string.IsNullOrEmpty(fileMetadata.ObjectKeyDocumentSummary))
             {
-                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}", 
+                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}",
                     fileMetadata.ObjectKeyDocumentSummary, S3Buckets.DocumentSummary);
-                
+
                 var deleted = await _s3Service.DeleteFileAsync(
-                    fileMetadata.ObjectKeyDocumentSummary, 
+                    fileMetadata.ObjectKeyDocumentSummary,
                     S3Buckets.DocumentSummary
                 );
-                
+
                 if (!deleted)
                 {
                     deleteErrors.Add($"Failed to delete {fileMetadata.ObjectKeyDocumentSummary} from {S3Buckets.DocumentSummary}");
@@ -417,14 +563,14 @@ public class FileMetadataController : ControllerBase
             // Delete from chunk-qa bucket (optional)
             if (!string.IsNullOrEmpty(fileMetadata.ObjectKeyChunkQa))
             {
-                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}", 
+                _logger.LogInformation("Deleting {ObjectKey} from {Bucket}",
                     fileMetadata.ObjectKeyChunkQa, S3Buckets.ChunkQa);
-                
+
                 var deleted = await _s3Service.DeleteFileAsync(
-                    fileMetadata.ObjectKeyChunkQa, 
+                    fileMetadata.ObjectKeyChunkQa,
                     S3Buckets.ChunkQa
                 );
-                
+
                 if (!deleted)
                 {
                     deleteErrors.Add($"Failed to delete {fileMetadata.ObjectKeyChunkQa} from {S3Buckets.ChunkQa}");

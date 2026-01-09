@@ -36,6 +36,8 @@ public class ApplicationContext : DbContext
                   .WithOne(l => l.FileMetadata)
                   .HasForeignKey<LogMessage>(l => l.FileMetadataId)
                   .OnDelete(DeleteBehavior.Cascade);
+            
+            entity.Property(e => e.Status).HasConversion<string>().IsRequired();
         });
 
         // Configure CategoryFile entity

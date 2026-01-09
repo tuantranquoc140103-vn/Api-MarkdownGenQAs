@@ -1,5 +1,7 @@
+using MarkdownGenQAs.Models;
+
 public interface IProcessBroadcaster
 {
-    ValueTask PublishAsync(string message);
-    IAsyncEnumerable<string> SubscribeAsync(CancellationToken ct);
+    ValueTask PublishAsync(NotificationMessage message);
+    IAsyncEnumerable<NotificationMessage> SubscribeAsync(Guid fileMetadataId, CancellationToken ct);
 }

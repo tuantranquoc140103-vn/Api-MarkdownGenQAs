@@ -1,7 +1,10 @@
 using System.Diagnostics;
 using System.Text;
 using Hangfire;
+using Hangfire.Server;
+using MarkdownGenQAs.Interfaces;
 using MarkdownGenQAs.Interfaces.Repository;
+using MarkdownGenQAs.Models;
 using MarkdownGenQAs.Models.DB;
 using MarkdownGenQAs.Models.Enum;
 using MarkdownGenQAs.Options;
@@ -15,6 +18,8 @@ public class BackgroundJobService : IBackgroundJobService
     private readonly IGenQAsService _genQAsService;
     private readonly IS3Service _s3Service;
     private readonly IJsonService _jsonService;
+    private readonly IProcessBroadcaster _broadcaster;
+    private readonly ICacheService _cacheService;
 
     public BackgroundJobService(
         ILogger<BackgroundJobService> logger,
@@ -23,7 +28,9 @@ public class BackgroundJobService : IBackgroundJobService
         IGenQAsService genQAsService,
         IMarkdownService markdownService,
         IS3Service s3Service,
-        IJsonService jsonService)
+        IJsonService jsonService,
+        IProcessBroadcaster broadcaster,
+        ICacheService cacheService)
     {
         _logger = logger;
         _fileMetadataRepository = fileMetadataRepository;
@@ -32,150 +39,234 @@ public class BackgroundJobService : IBackgroundJobService
         _markdownService = markdownService;
         _s3Service = s3Service;
         _jsonService = jsonService;
+        _broadcaster = broadcaster;
+        _cacheService = cacheService;
     }
 
-    [AutomaticRetry(Attempts = 3, OnAttemptsExceeded = AttemptsExceededAction.Fail)]
-    public async Task ProcessFileMetadataAsync(Guid fileMetadataId, CancellationToken cancellationToken)
+    [AutomaticRetry(Attempts = 0)]
+    public async Task ProcessFileMetadataAsync(Guid fileMetadataId, CancellationToken cancellationToken, PerformContext? context = null)
     {
+
+        // Prevent stale jobs from re-processing after server restart
+        if (context != null)
+        {
+            string cacheKey = $"job:{fileMetadataId}";
+            var activeJobId = await _cacheService.GetAsync<string>(cacheKey);
+
+            if (activeJobId != null && activeJobId != context.BackgroundJob.Id)
+            {
+                _logger.LogWarning("Job {CurrentJobId} is stale. Active Job ID for file {FileId} is {ActiveJobId}. Exiting.",
+                    context.BackgroundJob.Id, fileMetadataId, activeJobId);
+                return;
+            }
+
+            // If activeJobId is null, it means the job was either cleaned up in finally block or 
+            // the server restarted before this check. In case of server restart, the finally block
+            // of the previous run would have cleared it. 
+            // If we want to be strict: if it's null, we also stop.
+            if (activeJobId == null)
+            {
+                _logger.LogWarning("No active job record found for file {FileId} (possibly cleared on shutdown). Job {JobId} exiting.",
+                    fileMetadataId, context.BackgroundJob.Id);
+                return;
+            }
+        }
+
         _logger.LogInformation("Starting background processing for file metadata: {Id}", fileMetadataId);
-        StringBuilder logMessage = new StringBuilder();
+        List<NotificationMessage> logMessages = new List<NotificationMessage>();
+
+        async Task AddLogAndBroadcastAsync(string message, string? status = null)
+        {
+            var notification = new NotificationMessage
+            {
+                FileMetadataId = fileMetadataId,
+                Message = message,
+                Status = status ?? StatusFile.Processing.ToString()
+            };
+            logMessages.Add(notification);
+            await _broadcaster.PublishAsync(notification);
+        }
+
         try
         {
+            await AddLogAndBroadcastAsync($"Starting background processing for file {fileMetadataId}");
             Stopwatch stopwatch = Stopwatch.StartNew();
             var fileMetadata = await _fileMetadataRepository.GetByIdAsync(fileMetadataId);
             cancellationToken.ThrowIfCancellationRequested();
+
             if (fileMetadata == null)
             {
                 _logger.LogWarning("File metadata not found: {Id}", fileMetadataId);
                 return;
             }
 
+            fileMetadata.Status = StatusFile.Processing;
+            _fileMetadataRepository.Update(fileMetadata);
+            await _fileMetadataRepository.SaveChangesAsync();
+            cancellationToken.ThrowIfCancellationRequested();
+
             string? markdownContent = await _s3Service.GetFileContentAsync(fileMetadata.ObjectKeyMarkdownOcr, S3Buckets.MarkdownOcr);
             if (string.IsNullOrEmpty(markdownContent)) return;
+            cancellationToken.ThrowIfCancellationRequested();
 
             string objectKeyMarkdown = fileMetadata.ObjectKeyMarkdownOcr;
 
             // 1. Gen Summary document
-            fileMetadata.Status = StatusFile.SummaryGenerating;
-            _fileMetadataRepository.Update(fileMetadata);
-            await _fileMetadataRepository.SaveChangesAsync();
             cancellationToken.ThrowIfCancellationRequested();
 
             _logger.LogInformation("Summary generating file: {FileName}", fileMetadata.FileName);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Summary generating file: {fileMetadata.FileName}");
+            await AddLogAndBroadcastAsync($"Summary generating file: {fileMetadata.FileName}");
 
             var summaryDocument = await _genQAsService.GenSummaryDocumentAsync(markdownContent, fileMetadata.FileName);
-            string objectKeySummary = $"{objectKeyMarkdown}-summary.txt";
-            byte[] summaryBytes = Encoding.UTF8.GetBytes(summaryDocument);
-            using (MemoryStream ms = new MemoryStream(summaryBytes))
-            {
-                await _s3Service.UploadFileAsync(ms, objectKeySummary, S3Buckets.DocumentSummary);
-            }
-
+            await AddLogAndBroadcastAsync($"Summary generated Success for file: {fileMetadata.FileName}");
             // 2. Gen chunks
-            fileMetadata.Status = StatusFile.Chunking;
-            _fileMetadataRepository.Update(fileMetadata);
-            await _fileMetadataRepository.SaveChangesAsync();
             cancellationToken.ThrowIfCancellationRequested();
 
             _logger.LogInformation("Chunking file: {FileName}", fileMetadata.FileName);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Chunking file: {fileMetadata.FileName}");
+            await AddLogAndBroadcastAsync($"Chunking file: {fileMetadata.FileName}");
 
             var chunks = await _markdownService.CreateChunkDocument(markdownContent);
+            await AddLogAndBroadcastAsync($"Chunking completed with {chunks.Count} chunks");
 
             // 3. Gen QAs summary
-            fileMetadata.Status = StatusFile.QASummaryGenerating;
-            _fileMetadataRepository.Update(fileMetadata);
-            await _fileMetadataRepository.SaveChangesAsync();
             cancellationToken.ThrowIfCancellationRequested();
 
             _logger.LogInformation("QAs summary generating file: {FileName}", fileMetadata.FileName);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - QAs summary generating file: {fileMetadata.FileName}");
+            await AddLogAndBroadcastAsync($"QAs summary generating file: {fileMetadata.FileName}");
 
             var qaSummary = await _genQAsService.GenQAsSumaryAsync(markdownContent, fileMetadata.FileName);
 
             //4 .Gen QAs Text
-            fileMetadata.Status = StatusFile.QAGenerating;
-            _fileMetadataRepository.Update(fileMetadata);
-            await _fileMetadataRepository.SaveChangesAsync();
             cancellationToken.ThrowIfCancellationRequested();
 
-            _logger.LogInformation("QAs generating file: {FileName}", fileMetadata.FileName);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - QAs generating file: {fileMetadata.FileName}");
+            _logger.LogInformation("QAs for chunks generating file: {FileName}", fileMetadata.FileName);
+            await AddLogAndBroadcastAsync($"QAs for chunks generating file: {fileMetadata.FileName}");
 
-            List<TextQAInfor> textQAInfors = new List<TextQAInfor>();
-            List<TableQAInfor> tableQAInfors = new List<TableQAInfor>();
+            List<ChunkQAInfor> chunkQAInfors = new List<ChunkQAInfor>();
+            // add QA type summary
+            var chunkInfoSummary = new ChunkInfo { Type = TypeChunk.Summary, TokensCount = -1, Content = $"objectKey: {fileMetadata.ObjectKeyMarkdownOcr}" };
+            chunkQAInfors.Add(new ChunkQAInfor { chunkInfo = chunkInfoSummary, QAs = qaSummary });
+            int i = 1;
             foreach (var chunk in chunks)
             {
+                _logger.LogInformation("QAs for file {fileName}, {index}/{TotalCount}", fileMetadata.FileName, i++, chunks.Count);
+
                 if (chunk.Type == TypeChunk.Text)
                 {
                     var textQAs = await _genQAsService.GenQAsTextAsync(chunk, summaryDocument, fileMetadata.FileName);
-                    textQAInfors.Add(new TextQAInfor { chunkInfo = chunk, QAs = textQAs });
+                    chunkQAInfors.Add(new ChunkQAInfor { chunkInfo = chunk, QAs = textQAs });
                 }
                 else if (chunk.Type == TypeChunk.Table)
                 {
                     var tableQAs = await _genQAsService.GenQAsTableAsync(chunk, summaryDocument, fileMetadata.FileName);
-                    tableQAInfors.Add(new TableQAInfor { chunkInfo = chunk, QAs = tableQAs });
+                    chunkQAInfors.Add(new ChunkQAInfor { chunkInfo = chunk, QAs = tableQAs });
                 }
                 cancellationToken.ThrowIfCancellationRequested();
             }
 
-            var chunkQAText = textQAInfors.Select(t =>
-            {
-                var qas = t.QAs.Select(q => new ChunkQA { Question = q.Question, Answer = q.Answer, Category = q.Category.ToString() }).ToList();
-                return new ChunkQAInfor
-                {
-                    chunkInfo = t.chunkInfo,
-                    QAs = qas
-                };
-            }).ToList();
 
-            var chunkQATable = tableQAInfors.Select(t =>
-            {
-                var qas = t.QAs.Select(q => new ChunkQA { Question = q.Question, Answer = q.Answer, Category = q.category.ToString() }).ToList();
-                return new ChunkQAInfor
-                {
-                    chunkInfo = t.chunkInfo,
-                    QAs = qas
-                };
-            }).ToList();
+            string jsonStringChunkQAs = _jsonService.Serialize(chunkQAInfors);
 
-            var chunkQAs = chunkQAText.Concat(chunkQATable);
-
-            string jsonStringChunkQAs = _jsonService.Serialize(chunkQAs);
-
-            // 5. Save file chunkQA to S3
+            // 5. Save file chunkQA, summary, chunkQAsSummary to S3
             _logger.LogInformation("Saving QAs Chunk: {FileName}", fileMetadata.FileName);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Saving QAs Chunk: {fileMetadata.FileName}");
+            await AddLogAndBroadcastAsync($"Saving QAs Chunk: {fileMetadata.FileName}");
 
+            // save chunkQA
             string objectJsonChunkQAs = $"{objectKeyMarkdown}-chunkQA.json";
 
             byte[] byteArray = Encoding.UTF8.GetBytes(jsonStringChunkQAs);
             using (MemoryStream stream = new MemoryStream(byteArray))
             {
-                await _s3Service.UploadFileAsync(stream, objectJsonChunkQAs, S3Buckets.ChunkQa, "application/json");
+                objectJsonChunkQAs = await _s3Service.UploadFileAsync(stream, objectJsonChunkQAs, S3Buckets.ChunkQa, "application/json");
             }
+            await AddLogAndBroadcastAsync($"Saved QAs Chunk: {fileMetadata.FileName}");
 
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Completed processing file: {fileMetadata.FileName}");
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Total Chunks: {chunks.Count()}");
-            int totalQAs = chunkQAs.SelectMany(c => c.QAs).Count();
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Total QAs: {totalQAs}");
+            // save summary
+            await AddLogAndBroadcastAsync($"Saving summary for: {fileMetadata.FileName}");
+            string objectKeySummary = $"{objectKeyMarkdown}-summary.txt";
+            byte[] summaryBytes = Encoding.UTF8.GetBytes(summaryDocument);
+            using (MemoryStream ms = new MemoryStream(summaryBytes))
+            {
+                objectKeySummary = await _s3Service.UploadFileAsync(ms, objectKeySummary, S3Buckets.DocumentSummary, "text/plain");
+            }
+            await AddLogAndBroadcastAsync($"Saved summary for: {fileMetadata.FileName}");
 
-            string logMessageStr = logMessage.ToString();
+            await AddLogAndBroadcastAsync($"Total Chunks: {chunks.Count()}");
+            await AddLogAndBroadcastAsync($"Completed processing file metadata: {fileMetadataId}", StatusFile.Successed.ToString());
 
-            await _logMessageRepository.AddAsync(new LogMessage { Message = logMessageStr, FileMetadataId = fileMetadataId });
+            _logger.LogInformation("Completed processing file metadata: {Id}", fileMetadataId);
+            _logger.LogInformation("Saving log messages for file metadata: {Id}", fileMetadataId);
 
-            // 6. Update status Success
+            string logMessageStr = _jsonService.Serialize(logMessages);
+
+            var existingLog = await _logMessageRepository.FirstOrDefaultAsync(l => l.FileMetadataId == fileMetadataId);
+            if (existingLog != null)
+            {
+                existingLog.Message = logMessageStr;
+                _logMessageRepository.Update(existingLog);
+            }
+            else
+            {
+                await _logMessageRepository.AddAsync(new LogMessage { Message = logMessageStr, FileMetadataId = fileMetadataId });
+            }
+            await _logMessageRepository.SaveChangesAsync();
+
+            // 6. Update status Success and objectKey
             fileMetadata.Status = StatusFile.Successed;
+            fileMetadata.ObjectKeyDocumentSummary = objectKeySummary;
+            fileMetadata.ObjectKeyChunkQa = objectJsonChunkQAs;
+
             _fileMetadataRepository.Update(fileMetadata);
             await _fileMetadataRepository.SaveChangesAsync();
 
 
+
+        }
+        catch (OperationCanceledException)
+        {
+            _logger.LogWarning("Processing was cancelled for file {Id}.", fileMetadataId);
+
+            try
+            {
+                await AddLogAndBroadcastAsync($"Job was cancelled", StatusFile.Canceled.ToString());
+            }
+            catch { /* Ignore if services already disposed */ }
+
+            try
+            {
+                var fileMetadata = await _fileMetadataRepository.GetByIdAsync(fileMetadataId);
+                if (fileMetadata != null)
+                {
+                    fileMetadata.Status = StatusFile.Failed;
+                    _fileMetadataRepository.Update(fileMetadata);
+                    await _fileMetadataRepository.SaveChangesAsync();
+
+                    string cancelLog = _jsonService.Serialize(logMessages);
+                    var existingLog = await _logMessageRepository.FirstOrDefaultAsync(l => l.FileMetadataId == fileMetadataId);
+                    if (existingLog != null)
+                    {
+                        existingLog.Message = cancelLog;
+                        _logMessageRepository.Update(existingLog);
+                    }
+                    else
+                    {
+                        await _logMessageRepository.AddAsync(new LogMessage
+                        {
+                            Message = cancelLog,
+                            FileMetadataId = fileMetadataId
+                        });
+                    }
+                    await _logMessageRepository.SaveChangesAsync();
+                }
+            }
+            catch { /* Ignore if DB connection already closed */ }
+
+            // Do NOT re-throw to prevent Hangfire from automatically retrying the job
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error processing file metadata: {Id}", fileMetadataId);
-            logMessage.Append($"[{DateTime.UtcNow.ToString("HH:mm:ss")}] - Error processing file: {ex.Message}");
+            await AddLogAndBroadcastAsync($"Error processing file: {ex.Message}", StatusFile.Failed.ToString());
 
             // Update status to failed
             try
@@ -186,6 +277,24 @@ public class BackgroundJobService : IBackgroundJobService
                     fileMetadata.Status = StatusFile.Failed;
                     _fileMetadataRepository.Update(fileMetadata);
                     await _fileMetadataRepository.SaveChangesAsync();
+
+                    // Upsert log message for failure
+                    string errorLog = _jsonService.Serialize(logMessages);
+                    var existingLog = await _logMessageRepository.FirstOrDefaultAsync(l => l.FileMetadataId == fileMetadataId);
+                    if (existingLog != null)
+                    {
+                        existingLog.Message = errorLog;
+                        _logMessageRepository.Update(existingLog);
+                    }
+                    else
+                    {
+                        await _logMessageRepository.AddAsync(new LogMessage
+                        {
+                            Message = errorLog,
+                            FileMetadataId = fileMetadataId
+                        });
+                    }
+                    await _logMessageRepository.SaveChangesAsync();
                 }
             }
             catch (Exception updateEx)
@@ -194,6 +303,20 @@ public class BackgroundJobService : IBackgroundJobService
             }
 
             throw;
+        }
+        finally
+        {
+            // Remove jobId from cache ONLY if it matches the current job ID
+            // This prevents a cancelled job's cleanup from wiping out a NEW job's cache entry
+            if (context != null)
+            {
+                string cacheKey = $"job:{fileMetadataId}";
+                var cachedJobId = await _cacheService.GetAsync<string>(cacheKey);
+                if (cachedJobId == context.BackgroundJob.Id)
+                {
+                    await _cacheService.RemoveAsync(cacheKey);
+                }
+            }
         }
     }
 
@@ -245,9 +368,6 @@ public class BackgroundJobService : IBackgroundJobService
             }
 
             // Update status
-            fileMetadata.Status = StatusFile.SummaryGenerating;
-            _fileMetadataRepository.Update(fileMetadata);
-            await _fileMetadataRepository.SaveChangesAsync();
             cancellationToken.ThrowIfCancellationRequested();
 
             // Simulate summary generation

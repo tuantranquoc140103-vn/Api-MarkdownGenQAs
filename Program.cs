@@ -1,14 +1,14 @@
 using System.ClientModel;
-using Amazon.Extensions.NETCore.Setup;
 using Amazon.S3;
 using DotNetEnv;
+using StackExchange.Redis;
 using Hangfire;
 using Hangfire.Redis.StackExchange;
 using Markdig;
-// using MarkdownGenQAs.Application;
 using MarkdownGenQAs.Interfaces.Repository;
-using MarkdownGenQAs.Options;
 using MarkdownGenQAs.Repositories;
+using MarkdownGenQAs.Interfaces;
+using MarkdownGenQAs.Services;
 using Microsoft.EntityFrameworkCore;
 using OpenAI;
 using OpenAI.Chat;
@@ -16,6 +16,8 @@ using Polly;
 using Polly.Extensions.Http;
 using Scalar.AspNetCore;
 using Serilog;
+using MarkdownGenQAs.Options;
+using MarkdownGenQAs.Models;
 
 Env.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +33,7 @@ Log.Information("Application starting up...");
 var retryPolicy = HttpPolicyExtensions
     .HandleTransientHttpError() // Tự động bắt lỗi 5xx hoặc 408 (Timeout)
     .OrResult(msg => msg.StatusCode != System.Net.HttpStatusCode.OK) // Hoặc bất kỳ lỗi nào khác 200
-    .WaitAndRetryAsync(3, retryAttempt => 
+    .WaitAndRetryAsync(3, retryAttempt =>
         TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))); // Exponential backoff (2s, 4s, 8s)
 
 builder.Configuration
@@ -51,7 +53,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 // Hangfire Configuration
 var hangfireOptions = builder.Configuration
     .GetRequiredSection(HangfireOptions.SectionName)
-    .Get<HangfireOptions>() 
+    .Get<HangfireOptions>()
     ?? throw new ArgumentNullException("Hangfire configuration is missing");
 
 
@@ -66,13 +68,13 @@ builder.Services.AddKeyedSingleton<ChatClient>(LlmProvider.Vllm, (sp, key) =>
         var options = new OpenAIClientOptions { Endpoint = new Uri(llmProviderOptions.Vllm.BaseUrl) };
         var client = new OpenAIClient(new ApiKeyCredential(llmProviderOptions.Vllm.ApiKey ?? "no-api-key"), options);
         var models = llmProviderOptions.Vllm.Models;
-        if(models.Count == 0)
+        if (models.Count == 0)
         {
             Log.Warning("Vllm Models list is empty, using default 'no-model'");
             // bắt buộc phải set vì chat client khong cho phép null cho thuộc tính model name
-            return client.GetChatClient("no-model");   
+            return client.GetChatClient("no-model");
         }
-        
+
         Log.Information("Vllm ChatClient initialized with model: {ModelName}", llmProviderOptions.Vllm.Models[0]?.ModelName);
         return client.GetChatClient(llmProviderOptions.Vllm.Models[0]?.ModelName);
     });
@@ -86,7 +88,7 @@ builder.Services.AddKeyedSingleton<ChatClient>(LlmProvider.Nvidia, (sp, key) =>
         throw new ArgumentNullException(apiKey, "LlmProvider:Nvidia ApiKey is missing in appsettings.json or .env file");
     }
     var models = llmProviderOptions.Nvidia.Models;
-    if(models.Count == 0)
+    if (models.Count == 0)
     {
         Log.Error("Nvidia Models list is empty in appsettings.json");
         throw new ArgumentException("LlmProvider:Nvidia Models list is empty in appsettings.json");
@@ -104,14 +106,15 @@ builder.Services.AddHttpClient<TokenCountService>(
     {
         string url = builder.Configuration.GetRequiredSection("TokenCountService:BaseUrl").Value ?? throw new ArgumentNullException("TokenCountService:BaseUrl Key is missing in env file or appsettings.json");
         client.BaseAddress = new Uri(url);
-        client.DefaultRequestHeaders.Add("Accept", "application/json");      
+        client.DefaultRequestHeaders.Add("Accept", "application/json");
     }
 ).AddPolicyHandler(retryPolicy);
 builder.Services.AddScoped<IGenQAsService, GenQAsService>();
 builder.Services.AddKeyedSingleton<LlmChatCompletionBase, NvidiaService>(LlmProvider.Nvidia);
 builder.Services.AddKeyedSingleton<LlmChatCompletionBase, VllmService>(LlmProvider.Vllm);
-builder.Services.AddScoped<IMarkdownService,MarkdownService>();
+builder.Services.AddScoped<IMarkdownService, MarkdownService>();
 builder.Services.AddSingleton<IJsonService, JsonService>();
+builder.Services.AddSingleton<IProcessBroadcaster, ProcessBroadcaster>();
 
 // Repositories
 // builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -122,9 +125,9 @@ builder.Services.AddScoped<ILogMessageRepository, LogMessageRepository>();
 // Option
 builder.Services.AddSingleton<MarkdownPipeline>(sp =>
 {
-   return new MarkdownPipelineBuilder()
-                                .UseAdvancedExtensions()
-                                .Build(); 
+    return new MarkdownPipelineBuilder()
+                                 .UseAdvancedExtensions()
+                                 .Build();
 });
 
 builder.Services.Configure<ChunkOption>(builder.Configuration.GetRequiredSection(ChunkOption.NameSection));
@@ -139,6 +142,19 @@ builder.Services.AddScoped<IS3Service, S3Service>();
 
 
 
+
+// Redis Connection for Pub/Sub and Cache
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(hangfireOptions.RedisConnection));
+
+// Redis Cache
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = hangfireOptions.RedisConnection;
+    options.InstanceName = "MarkdownGenQAs:";
+});
+
+builder.Services.AddSingleton<ICacheService, RedisCacheService>();
 
 Log.Information("Configuring Hangfire with Redis storage: {RedisConnection}", hangfireOptions.RedisConnection);
 
@@ -155,8 +171,8 @@ builder.Services.AddHangfire(config =>
         });
 });
 
-var workerCount = hangfireOptions.WorkerCount > 0 
-    ? hangfireOptions.WorkerCount 
+var workerCount = hangfireOptions.WorkerCount > 0
+    ? hangfireOptions.WorkerCount
     : Environment.ProcessorCount * 2;
 
 builder.Services.AddHangfireServer(options =>
@@ -180,9 +196,41 @@ builder.Services.AddDbContext<ApplicationContext>(option =>
 });
 
 // Add services to the container.
+builder.Services.AddCors(options =>
+{
+    // Thỏa mãn yêu cầu: Allow *
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+
+    /*
+    // Option: Cấu hình allow các domain cụ thể từ appsettings.json hoặc environment variables
+    var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>();
+    if (allowedOrigins != null && allowedOrigins.Length > 0)
+    {
+        options.AddPolicy("Restricted",
+            builder =>
+            {
+                builder.WithOrigins(allowedOrigins)
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            });
+    }
+    */
+});
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+// Cấu hình thời gian chờ shutdown ggraceful
+builder.Services.Configure<HostOptions>(options =>
+{
+    options.ShutdownTimeout = TimeSpan.FromSeconds(30);
+});
 
 Log.Information("All services registered successfully");
 
@@ -212,6 +260,8 @@ else
 }
 
 app.UseSerilogRequestLogging();
+app.UseCors("AllowAll"); // Sử dụng policy AllowAll
+// app.UseCors("Restricted"); // Hoặc switch sang policy Restricted nếu cần
 app.UseHttpsRedirection();
 
 app.MapControllers();

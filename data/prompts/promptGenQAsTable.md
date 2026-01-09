@@ -78,6 +78,7 @@ Each QA must include:
 - answer
 
 Avoid copying the table verbatim; synthesize meaning.
+Ensure all double quotes inside string values are escaped as \". Use only standard JSON-escaped characters. Do not include raw newlines within strings; use \n instead
 
 ================ INPUTS =================
 Document Name: {0}

@@ -6,7 +6,10 @@ public enum TypeChunk
     [Description("Table")]
     [JsonStringEnumMemberName("table")]
     Table,
-    [Description("All content")]
+    [Description("Text a chunk")]
     [JsonStringEnumMemberName("allContent")]
-    Text
+    Text,
+    [Description("Summary")]
+    [JsonStringEnumMemberName("summary")]
+    Summary
 }

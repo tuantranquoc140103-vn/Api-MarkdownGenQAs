@@ -126,6 +126,7 @@ public class S3Service : IS3Service
         {
             try
             {
+                objectKey = S3Helper.NormalizeObjectKey(objectKey);
                 var request = new GetObjectRequest
                 {
                     BucketName = bucketName,
@@ -147,6 +148,7 @@ public class S3Service : IS3Service
     {
         try
         {
+            objectKey = S3Helper.NormalizeObjectKey(objectKey);
             var request = new GetObjectMetadataRequest
             {
                 BucketName = bucketName,
@@ -173,6 +175,7 @@ public class S3Service : IS3Service
         {
             try
             {
+                objectKey = S3Helper.NormalizeObjectKey(objectKey);
                 var request = new DeleteObjectRequest
                 {
                     BucketName = bucketName,

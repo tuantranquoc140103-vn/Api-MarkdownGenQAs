@@ -26,6 +26,7 @@ The document name is: "{1}".
 - Language: You must always respond in Vietnamese.
 - Tone: Professional, concise, and informative.
 - Format: You must strictly adhere to the provided JSON Schema.
+- Ensure all double quotes inside string values are escaped as \". Use only standard JSON-escaped characters. Do not include raw newlines within strings; use \n instead
 
 # OUTPUT FORMAT RULES
 - All JSON strings must not contain raw newlines.

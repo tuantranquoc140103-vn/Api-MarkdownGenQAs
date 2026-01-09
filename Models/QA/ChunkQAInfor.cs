@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 public class TextQAInfor
@@ -18,6 +19,7 @@ public class TableQAInfor
 
 public class ChunkQA : QA
 {
+    [Description("Thể loại câu hỏi")]
     [JsonPropertyName("category")]
     public string? Category { get; set; }
 }
