@@ -1,15 +1,14 @@
-
-using MarkdownGenQAs.Models.DB;
 using MarkdownGenQAs.Models.Enum;
 
-public class FileMetadata : BaseEntity
+namespace MarkdownGenQAs.Models.DB;
+
+public class OCRFile : BaseEntity
 {
     public required string FileName { get; set; }
-    public required string FileType { get; set; }
     
     // Object Keys for S3 buckets
-    public required string ObjectKeyMarkdownOcr { get; set; }
-    public string? ObjectKeyDocumentSummary { get; set; }
+    public string? ObjectKeyMarkdownOcr { get; set; }
+    public required string ObjectKeyFilePdf { get; set; }
     public string? ObjectKeyChunkQa { get; set; }
     
     public StatusFile Status { get; set; } = StatusFile.Uploaded;
@@ -19,4 +18,5 @@ public class FileMetadata : BaseEntity
     public Guid? CategoryId { get; set; }
     public CategoryFile? CategoryFile { get; set; }
     public LogMessage? LogMessage { get; set; }
+    public OCRFileJob? OCRFileJob { get; set; }
 }

@@ -9,50 +9,67 @@ public class ApplicationContext : DbContext
     {
     }
 
-    public DbSet<FileMetadata> FileMetadatas { get; set; }
+    public DbSet<OCRFile> OCRFiles { get; set; }
     public DbSet<CategoryFile> CategoryFiles { get; set; }
     public DbSet<LogMessage> LogMessages { get; set; }
+    public DbSet<OCRFileJob> OCRFileJobs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        // Configure FileMetadata entity
-        modelBuilder.Entity<FileMetadata>(entity =>
-        {
-            entity.HasKey(e => e.Id);
-            entity.Property(e => e.FileName).IsRequired();
-            entity.Property(e => e.FileType).IsRequired();
-            entity.Property(e => e.ObjectKeyMarkdownOcr).IsRequired();
-            
-            // Configure relationship with CategoryFile
-            entity.HasOne(e => e.CategoryFile)
-                  .WithMany(c => c.FileMetadatas)
-                  .HasForeignKey(e => e.CategoryId)
-                  .OnDelete(DeleteBehavior.SetNull);
-            
-            // Configure relationship with LogMessage
-            entity.HasOne(e => e.LogMessage)
-                  .WithOne(l => l.FileMetadata)
-                  .HasForeignKey<LogMessage>(l => l.FileMetadataId)
-                  .OnDelete(DeleteBehavior.Cascade);
-            
-            entity.Property(e => e.Status).HasConversion<string>().IsRequired();
-        });
-
         // Configure CategoryFile entity
         modelBuilder.Entity<CategoryFile>(entity =>
         {
+            entity.ToTable("CategoryFiles");
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.Name).IsRequired();
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(255);
             entity.HasIndex(e => e.Name).IsUnique();
+
+            // CategoryFile -> OCRFiles (One-to-Many)
+            entity.HasMany(c => c.OCRFiles)
+                  .WithOne(o => o.CategoryFile)
+                  .HasForeignKey(o => o.CategoryId)
+                  .OnDelete(DeleteBehavior.SetNull);
+        });
+
+        // Configure OCRFile entity
+        modelBuilder.Entity<OCRFile>(entity =>
+        {
+            entity.ToTable("OCRFiles");
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.FileName).IsRequired().HasMaxLength(500);
+            entity.Property(e => e.ObjectKeyFilePdf).IsRequired();
+            entity.Property(e => e.Status).HasConversion<string>().IsRequired();
+
+            // Note: Inverse relationships are configured in dependent entities or above
         });
 
         // Configure LogMessage entity
         modelBuilder.Entity<LogMessage>(entity =>
         {
+            entity.ToTable("LogMessages");
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.Message).IsRequired();
+
+            // OCRFile -> LogMessage (One-to-One)
+            entity.HasOne(l => l.OCRFile)
+                  .WithOne(o => o.LogMessage)
+                  .HasForeignKey<LogMessage>(l => l.OCRFileId)
+                  .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Configure OCRFileJob entity (One-to-One with OCRFile)
+        modelBuilder.Entity<OCRFileJob>(entity =>
+        {
+            entity.ToTable("OCRFileJobs");
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.FileJobId).HasMaxLength(255);
+            entity.Property(e => e.WorkerJobId).HasMaxLength(255);
+
+            entity.HasOne(j => j.OCRFile)
+                  .WithOne(o => o.OCRFileJob)
+                  .HasForeignKey<OCRFileJob>(j => j.OCRFileId)
+                  .OnDelete(DeleteBehavior.Cascade);
         });
 
         // Configure BaseEntity properties for all entities
@@ -60,17 +77,16 @@ public class ApplicationContext : DbContext
         {
             if (typeof(BaseEntity).IsAssignableFrom(entityType.ClrType))
             {
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property<Guid>("Id")
+                var entity = modelBuilder.Entity(entityType.ClrType);
+
+                entity.Property<Guid>("Id")
                     .ValueGeneratedOnAdd();
-                
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property<DateTime>("CreatedAt")
-                    .HasDefaultValueSql("NOW()");
-                
-                modelBuilder.Entity(entityType.ClrType)
-                    .Property<DateTime>("UpdatedAt")
-                    .HasDefaultValueSql("NOW()");
+
+                entity.Property<DateTime>("CreatedAt")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP"); // Standard SQL for Npgsql
+
+                entity.Property<DateTime>("UpdatedAt")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
             }
         }
     }
@@ -90,7 +106,7 @@ public class ApplicationContext : DbContext
     private void UpdateTimestamps()
     {
         var entries = ChangeTracker.Entries()
-            .Where(e => e.Entity is BaseEntity && 
+            .Where(e => e.Entity is BaseEntity &&
                        (e.State == EntityState.Added || e.State == EntityState.Modified));
 
         foreach (var entityEntry in entries)
