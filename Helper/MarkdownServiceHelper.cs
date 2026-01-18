@@ -1,6 +1,9 @@
 using System.Text.RegularExpressions;
 using Markdig;
 using Markdig.Syntax;
+using MarkdownGenQAs.Models;
+
+namespace MarkdownGenQAs.Helper;
 
 public class MarkdownServiceHelper
 {

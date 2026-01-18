@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
+namespace MarkdownGenQAs.Models.QA;
+
 public class TextQAInfor
 {
     [JsonPropertyName("chunk_infor")]

@@ -1,6 +1,8 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
+namespace MarkdownGenQAs.Helper;
+
 public class S3Helper
 {
     public static string NormalizeObjectKey(string fileName)

@@ -2,6 +2,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
+namespace MarkdownGenQAs.Models.QA;
+
 public class QA
 {
     [Description("Câu hỏi cho tài liệu")]

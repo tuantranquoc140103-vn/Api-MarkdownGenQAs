@@ -1,3 +1,8 @@
+
+using GenQAServer.Options;
+
+namespace Utils;
+
 public static class LlmFactoryUtil
 {
     public static (string, string) ParseProviderModel(string providerModel)

@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
+namespace MarkdownGenQAs.Models.QA;
 public class SummaryQA : QA
 {
     [Description("Phân loại mục đích của câu hỏi: Objective, Audience, KeyTopics, Takeaways, hoặc Scope")]

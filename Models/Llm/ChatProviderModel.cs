@@ -1,3 +1,8 @@
+
+using GenQAServer.Options;
+
+namespace Models.Llm;
+
 public class ChatProviderModel
 {
     public required ProviderConfig provider { get; set; }
